@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">SortSavvy</string>
+    <string name="lewati">Lewati</string>
+    <string name="logo_sortsavvy">logo SortSavvy</string>
+    <string name="logo_title_sortsavvy">Logo Title SortSavvy</string>
+    <string name="lorem_ipsum">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et</string>
+    <string name="onboarding_welcome_description">Hai! Selamat datang di SortSavvy. Sebelum mulai, kamu perlu masuk menggunakan akunmu terlebih dahulu ataupun buat akun baru. Jika ingin melihat-lihat fitur saja, kamu bisa klik "Guest Mode" di bawah ya ^_^</string>
+    <string name="onboarding_1_title">Belajar dan Edukasi</string>
+    <string name="onboarding_3_title">Quiz</string>
+    <string name="onboarding_welcome_title" >Welcome</string>
+    <string name="onboarding_mulai_btn">Mulai</string>
+    <string name="onboarding_title">Onboarding Title</string>
+    <string name="onboarding_description">Onboarding Description</string>
+    <string name="background_indicator">background indicator</string>
+    <string name="next_btn">next button</string>
+    <string name="background_thumbnail_image">Background Thumbnail Image</string>
+    <string name="daftar">Daftar</string>
+    <string name="masuk">masuk</string>
+</resources>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="lavender_purple">#9678BF</color>
+    <color name="dark_green_black">#012626</color>
+    <color name="sherwood_green">#014034</color>
+    <color name="emerald_green">#24BF67</color>
+    <color name="ivory_white">#EBF2EB</color>
+    <color name="white_gray">#F2F3F7</color>
+    <color name="gray" >#E0E0E0</color>
+
+    // font
+    <color name="font_green">#13875B</color>
+    <color name="font_black">#3F444D</color>
+
+    // background
+    <color name="background_green">#13875B</color>
+
+</resources>
