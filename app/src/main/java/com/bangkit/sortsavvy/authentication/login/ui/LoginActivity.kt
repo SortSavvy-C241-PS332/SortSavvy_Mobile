@@ -1,15 +1,12 @@
-package com.bangkit.sortsavvy.authentication.ui
+package com.bangkit.sortsavvy.authentication.login.ui
 
 import android.content.Intent
 import android.os.Bundle
 import android.text.SpannableString
 import android.text.Spanned
 import android.text.style.UnderlineSpan
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
-import com.bangkit.sortsavvy.R
+import com.bangkit.sortsavvy.authentication.register.ui.RegisterActivity
 import com.bangkit.sortsavvy.databinding.ActivityLoginBinding
 
 class LoginActivity : AppCompatActivity() {

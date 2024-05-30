@@ -5,8 +5,8 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/background_green"
-    tools:context=".authentication.ui.LoginActivity">
+    android:background="@drawable/gradient_green"
+    tools:context=".authentication.login.ui.LoginActivity">
 
     <ImageView
         android:id="@+id/bottomBackgroundImageView"

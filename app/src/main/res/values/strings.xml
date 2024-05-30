@@ -30,4 +30,17 @@
     <string name="register">Daftar</string>
     <string name="sudah_punya_akun">Sudah punya akun?</string>
     <string name="login_now">Masuk Sekarang</string>
+
+    <string name="berburu">Berburu</string>
+    <string name="beranda">Beranda</string>
+    <string name="petualangan">Petualangan</string>
+    <string name="koleksi">Koleksi</string>
+    <string name="profil">Profil</string>
+    <string name="snap">snap</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_main_dicoding">MainActivityDicoding</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
 </resources>

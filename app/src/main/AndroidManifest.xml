@@ -6,17 +6,21 @@
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@mipmap/thumbnail_app"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@mipmap/thumbnail_app"
         android:supportsRtl="true"
         android:theme="@style/Theme.SortSavvy"
         tools:targetApi="31">
         <activity
-            android:name=".authentication.ui.RegisterActivity"
+            android:name=".MainActivityDicoding"
+            android:exported="false"
+            android:label="@string/title_activity_main_dicoding" />
+        <activity
+            android:name=".authentication.register.ui.RegisterActivity"
             android:exported="false" />
         <activity
-            android:name=".authentication.ui.LoginActivity"
+            android:name=".authentication.login.ui.LoginActivity"
             android:exported="false" />
         <activity
             android:name=".onboarding.ui.WelcomeActivity"

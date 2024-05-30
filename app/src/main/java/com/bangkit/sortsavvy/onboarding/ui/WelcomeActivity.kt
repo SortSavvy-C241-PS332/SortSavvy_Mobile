@@ -6,8 +6,9 @@ import android.text.SpannableString
 import android.text.Spanned
 import android.text.style.UnderlineSpan
 import androidx.appcompat.app.AppCompatActivity
-import com.bangkit.sortsavvy.authentication.ui.LoginActivity
-import com.bangkit.sortsavvy.authentication.ui.RegisterActivity
+import com.bangkit.sortsavvy.MainActivity
+import com.bangkit.sortsavvy.authentication.login.ui.LoginActivity
+import com.bangkit.sortsavvy.authentication.register.ui.RegisterActivity
 import com.bangkit.sortsavvy.databinding.ActivityWelcomeBinding
 
 class WelcomeActivity : AppCompatActivity() {
@@ -29,6 +30,12 @@ class WelcomeActivity : AppCompatActivity() {
         binding.registerButton.setOnClickListener {
             val intent = Intent(this, RegisterActivity::class.java)
             startActivity(intent)
+        }
+
+        binding.guestModeTextView.setOnClickListener {
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
+            finish()
         }
     }
 

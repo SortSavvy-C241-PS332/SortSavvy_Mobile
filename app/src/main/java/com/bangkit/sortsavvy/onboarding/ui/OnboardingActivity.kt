@@ -109,7 +109,7 @@ class OnboardingActivity : AppCompatActivity() {
     }
 
     private fun navigateToWelcomeActivity() {
-        sharedPreferences.edit().putBoolean("already_saw_onboarding", true).apply()
+        sharedPreferences.edit().putBoolean("is_first_time_launch", false).apply()
         val moveIntent = Intent(this@OnboardingActivity, WelcomeActivity::class.java)
         startActivity(moveIntent)
         finish()
