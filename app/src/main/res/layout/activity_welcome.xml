@@ -13,12 +13,13 @@
     <ImageView
         android:id="@+id/topBackgroundImageView"
         android:layout_width="match_parent"
-        android:layout_height="500dp"
+        android:layout_height="0dp"
         android:contentDescription="@string/background_thumbnail_image"
         android:src="@drawable/onboarding_rounded_background"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintHeight_percent="0.65" />
 
     <ImageView
         android:id="@+id/logoImageView"
@@ -34,8 +35,8 @@
     <TextView
         android:id="@+id/titleTextView"
         style="@style/TextContent.GreenEmerald.Title"
-        android:textAlignment="center"
         android:text="@string/onboarding_welcome_title"
+        android:textAlignment="center"
         app:layout_constraintEnd_toEndOf="@+id/logoImageView"
         app:layout_constraintStart_toStartOf="@+id/logoImageView"
         app:layout_constraintTop_toBottomOf="@+id/logoImageView" />
@@ -44,6 +45,7 @@
         android:id="@+id/textView"
         style="@style/TextContent.Description"
         android:layout_width="305dp"
+        android:layout_marginTop="2dp"
         android:text="@string/onboarding_welcome_description"
         android:textAlignment="center"
         app:layout_constraintEnd_toEndOf="@+id/titleTextView"
