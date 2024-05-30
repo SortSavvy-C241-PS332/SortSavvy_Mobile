@@ -11,10 +11,10 @@
     <ImageView
         android:id="@+id/bottomBackgroundImageView"
         android:layout_width="match_parent"
-        android:layout_height="500dp"
-        android:layout_alignParentBottom="true"
+        android:layout_height="0dp"
         android:src="@drawable/login_rounded_background"
-        app:layout_constraintBottom_toBottomOf="parent" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHeight_percent="0.75" />
 
     <ImageView
         android:id="@+id/logoImageView"
