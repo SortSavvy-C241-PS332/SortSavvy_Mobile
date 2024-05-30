@@ -59,8 +59,4 @@ dependencies {
 
 //    view pager -> for swipeable scren
     implementation("androidx.viewpager2:viewpager2:1.0.0")
-
-    val navVersion = "2.7.7"
-    implementation("androidx.navigation:navigation-fragment-ktx:$navVersion")
-    implementation("androidx.navigation:navigation-ui-ktx:$navVersion")
 }

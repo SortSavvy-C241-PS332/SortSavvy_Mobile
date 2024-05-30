@@ -23,6 +23,7 @@ class LoginActivity : AppCompatActivity() {
         binding.buatAkunTextView.setOnClickListener {
             val intent = Intent(this, RegisterActivity::class.java)
             startActivity(intent)
+            finish()
         }
     }
 

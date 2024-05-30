@@ -23,6 +23,7 @@ class RegisterActivity : AppCompatActivity() {
         binding.loginNowTextView.setOnClickListener {
             val intent = Intent(this, LoginActivity::class.java)
             startActivity(intent)
+            finish()
         }
     }
 
