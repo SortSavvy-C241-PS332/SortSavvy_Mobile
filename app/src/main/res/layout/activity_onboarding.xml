@@ -61,8 +61,8 @@
 
     <ImageButton
         android:id="@+id/nextBtnImageButton"
-        android:layout_width="45dp"
-        android:layout_height="45dp"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
         android:layout_marginEnd="25dp"
         android:layout_marginBottom="68dp"
         android:contentDescription="@string/next_btn"
