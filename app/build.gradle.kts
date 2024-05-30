@@ -6,11 +6,11 @@ plugins {
 }
 
 android {
-    namespace = "com.dicoding.sortsavvy"
+    namespace = "com.bangkit.sortsavvy"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.dicoding.sortsavvy"
+        applicationId = "com.bangkit.sortsavvy"
         minSdk = 26
         targetSdk = 34
         versionCode = 1
@@ -34,6 +34,10 @@ android {
     }
     kotlinOptions {
         jvmTarget = "17"
+    }
+
+    buildFeatures {
+        viewBinding = true
     }
 }
 

@@ -4,28 +4,26 @@ import android.os.Bundle
 import android.text.SpannableString
 import android.text.Spanned
 import android.text.style.UnderlineSpan
-import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
-import com.dicoding.sortsavvy.R
+import com.bangkit.sortsavvy.databinding.ActivityWelcomeBinding
 
 class WelcomeActivity : AppCompatActivity() {
 
-    private lateinit var guestModeTv: TextView
+    private lateinit var binding: ActivityWelcomeBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_welcome)
+        binding = ActivityWelcomeBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
-        underLineGuestModeTv()
+        setUnderLineGuestModeTextView()
     }
 
-    private fun underLineGuestModeTv() {
-        guestModeTv = findViewById(R.id.guestModeTv)
-        val spannableString = SpannableString(guestModeTv.text)
+    private fun setUnderLineGuestModeTextView() {
+        val spannableString = SpannableString(binding.guestModeTextView.text)
         val underlineSpan = UnderlineSpan()
 
-        spannableString.setSpan(underlineSpan, 0, guestModeTv.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
-        guestModeTv.text = spannableString
+        spannableString.setSpan(underlineSpan, 0, binding.guestModeTextView.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
+        binding.guestModeTextView.text = spannableString
     }
 }

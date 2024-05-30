@@ -2,19 +2,25 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="lavender_purple">#9678BF</color>
-    <color name="dark_green_black">#012626</color>
-    <color name="sherwood_green">#014034</color>
-    <color name="emerald_green">#24BF67</color>
-    <color name="ivory_white">#EBF2EB</color>
-    <color name="white_gray">#F2F3F7</color>
-    <color name="gray" >#E0E0E0</color>
+<!--    <color name="lavender_purple">#9678BF</color>-->
+<!--    <color name="dark_green_black">#012626</color>-->
+<!--    <color name="sherwood_green">#014034</color>-->
+<!--    <color name="emerald_green">#24BF67</color>-->
+<!--    <color name="ivory_white">#EBF2EB</color>-->
+
+    <color name="light_green">#F2F7F4</color>
+    <color name="light_gray" >#BFBFBF</color>
 
     // font
-    <color name="font_green">#13875B</color>
+    <color name="font_light_gray">#E0E0E0</color>
     <color name="font_black">#3F444D</color>
+    <color name="font_green">#13875B</color>
+    <color name="font_emerald_green">#24BF67</color>
 
     // background
     <color name="background_green">#13875B</color>
+    <color name="background_emerald_green">#24BF67</color>
+    <color name="background_white_gray">#F2F3F7</color>
+    <color name="background_ivory_white">#EBF2EB</color>
 
 </resources>

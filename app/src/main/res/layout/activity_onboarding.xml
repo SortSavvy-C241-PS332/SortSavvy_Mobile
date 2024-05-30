@@ -16,34 +16,30 @@
         android:contentDescription="@string/background_thumbnail_image"
         android:background="@drawable/onboarding_rounded_background"
         android:layout_marginBottom="100dp"
-        app:layout_constraintBottom_toTopOf="@+id/backgroundIndicatorImgv"
+        app:layout_constraintBottom_toTopOf="@+id/backgroundIndicatorImageView"
         app:layout_constraintTop_toTopOf="parent"/>
 
     <TextView
-        android:id="@+id/skipTv"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:id="@+id/skipTextView"
+        style="@style/TextContent.GreenEmerald"
         android:layout_marginTop="25dp"
         android:layout_marginEnd="25dp"
-        android:fontFamily="@font/baloo_bhai_2"
         android:text="@string/lewati"
-        android:textSize="19sp"
-        android:textColor="@color/font_green"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
-        android:id="@+id/logoTitleImgv"
+        android:id="@+id/logoTitleImageView"
         android:layout_width="114dp"
         android:layout_height="30dp"
         android:layout_marginStart="25dp"
         android:contentDescription="@string/logo_title_sortsavvy"
         android:src="@drawable/onboarding_logo_title_sortsavvy"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/skipTv" />
+        app:layout_constraintTop_toTopOf="@+id/skipTextView" />
 
     <ImageView
-        android:id="@+id/backgroundIndicatorImgv"
+        android:id="@+id/backgroundIndicatorImageView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="25dp"
@@ -54,7 +50,7 @@
         android:background="@drawable/onboarding_background_indicator" />
 
     <LinearLayout
-        android:id="@+id/dotIndicator"
+        android:id="@+id/dotIndicatorContainer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="42dp"
@@ -63,33 +59,30 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <ImageView
-        android:id="@+id/nextBtnImgv"
+    <ImageButton
+        android:id="@+id/nextBtnImageButton"
         android:layout_width="45dp"
         android:layout_height="45dp"
         android:layout_marginEnd="25dp"
         android:layout_marginBottom="68dp"
-        android:background="@drawable/icon_background_next_btn"
         android:contentDescription="@string/next_btn"
-        android:padding="10dp"
+        android:background="@drawable/icon_background_next_btn"
         android:src="@drawable/round_arrow_forward_24"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
     <Button
         android:visibility="gone"
-        android:id="@+id/getStartedBtn"
+        android:id="@+id/getStartedButton"
+        style="@style/ButtonGeneral.ActiveSecondaryWhite"
         android:layout_width="wrap_content"
         android:layout_height="51dp"
-        android:fontFamily="@font/baloo_bhai_2_bold"
         android:text="@string/onboarding_mulai_btn"
-        android:layout_gravity="right"
+        android:layout_gravity="end"
         android:layout_marginEnd="25dp"
         android:layout_marginBottom="63dp"
-        app:cornerRadius="60dp"
-        android:backgroundTint="@color/white_gray"
-        android:textColor="@color/emerald_green"
-        android:drawableRight="@drawable/round_arrow_forward_24"
+        android:textColor="@color/background_green"
+        android:drawableEnd="@drawable/round_arrow_forward_24"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 

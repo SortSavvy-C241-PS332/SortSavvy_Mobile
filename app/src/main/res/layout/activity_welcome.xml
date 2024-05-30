@@ -11,7 +11,7 @@
     tools:context="com.bangkit.sortsavvy.onboarding.ui.WelcomeActivity">
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/topBackgroundImageView"
         android:layout_width="match_parent"
         android:layout_height="500dp"
         android:contentDescription="@string/background_thumbnail_image"
@@ -21,83 +21,62 @@
         app:layout_constraintTop_toTopOf="parent"/>
 
     <ImageView
-        android:id="@+id/logoImgv"
+        android:id="@+id/logoImageView"
         android:layout_width="250dp"
         android:layout_height="250dp"
         android:contentDescription="@string/logo_sortsavvy"
         android:layout_marginTop="25dp"
         android:src="@drawable/splashscreen_logo_sortsavvy"
-        app:layout_constraintEnd_toEndOf="@+id/imageView"
-        app:layout_constraintStart_toStartOf="@+id/imageView"
+        app:layout_constraintEnd_toEndOf="@+id/topBackgroundImageView"
+        app:layout_constraintStart_toStartOf="@+id/topBackgroundImageView"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/titleTv"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:fontFamily="@font/baloo_bhai_2_bold"
+        android:id="@+id/titleTextView"
+        style="@style/TextContent.GreenEmerald.Title"
+        android:textAlignment="center"
         android:text="@string/onboarding_welcome_title"
-        android:layout_marginTop="13dp"
-        android:textColor="@color/emerald_green"
-        android:textSize="26sp"
-        app:layout_constraintEnd_toEndOf="@+id/logoImgv"
-        app:layout_constraintStart_toStartOf="@+id/logoImgv"
-        app:layout_constraintTop_toBottomOf="@+id/logoImgv" />
+        app:layout_constraintEnd_toEndOf="@+id/logoImageView"
+        app:layout_constraintStart_toStartOf="@+id/logoImageView"
+        app:layout_constraintTop_toBottomOf="@+id/logoImageView" />
 
     <TextView
         android:id="@+id/textView"
+        style="@style/TextContent.Description"
         android:layout_width="305dp"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:fontFamily="@font/baloo_bhai_2"
         android:text="@string/onboarding_welcome_description"
         android:textAlignment="center"
-        android:textColor="@color/font_black"
-        android:layout_marginTop="10dp"
-        android:textSize="16sp"
-        app:layout_constraintEnd_toEndOf="@+id/titleTv"
-        app:layout_constraintStart_toStartOf="@+id/titleTv"
-        app:layout_constraintTop_toBottomOf="@+id/titleTv" />
+        app:layout_constraintEnd_toEndOf="@+id/titleTextView"
+        app:layout_constraintStart_toStartOf="@+id/titleTextView"
+        app:layout_constraintTop_toBottomOf="@+id/titleTextView" />
 
     <Button
-        android:id="@+id/registerBtn"
+        android:id="@+id/registerButton"
         android:layout_width="150dp"
-        android:layout_height="64dp"
-        android:backgroundTint="@color/white_gray"
-        android:fontFamily="@font/baloo_bhai_2_bold"
+        style="@style/ButtonGeneral.ActiveSecondaryWhite"
         android:text="@string/daftar"
-        android:textColor="@color/font_black"
-        app:cornerRadius="48dp"
         android:layout_marginTop="25dp"
         android:layout_marginStart="25dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+        app:layout_constraintTop_toBottomOf="@+id/topBackgroundImageView" />
 
     <Button
-        android:id="@+id/loginBtn"
+        android:id="@+id/loginButton"
         android:layout_width="150dp"
-        android:layout_height="64dp"
+        style="@style/ButtonGeneral.ActiveSecondaryWhite"
         android:layout_marginEnd="25dp"
-        android:backgroundTint="@color/white_gray"
-        android:fontFamily="@font/baloo_bhai_2_bold"
         android:text="@string/masuk"
-        android:textColor="@color/font_black"
-        app:cornerRadius="48dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/registerBtn" />
+        app:layout_constraintTop_toTopOf="@+id/registerButton" />
 
     <TextView
-        android:id="@+id/guestModeTv"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:id="@+id/guestModeTextView"
+        style="@style/TextContent.LightGray"
         android:fontFamily="@font/baloo_bhai_2_bold"
-        android:text="Lanjutkan Guest Mode"
-        android:textColor="@color/white_gray"
-        android:textSize="16sp"
+        android:text="@string/lanjutkan_guest_mode"
         android:layout_marginTop="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/registerBtn" />
+        app:layout_constraintTop_toBottomOf="@+id/registerButton" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -3,13 +3,10 @@ package com.bangkit.sortsavvy
 import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
-import android.os.Handler
-import android.os.Looper
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import com.bangkit.sortsavvy.onboarding.ui.OnboardingActivity
 import com.bangkit.sortsavvy.onboarding.ui.WelcomeActivity
-import com.dicoding.sortsavvy.R
 
 class MainActivity : AppCompatActivity() {
     private lateinit var sharedPreferences: SharedPreferences

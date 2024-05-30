@@ -8,57 +8,46 @@ import android.text.Spanned
 import android.text.style.UnderlineSpan
 import android.view.View
 import android.view.ViewGroup.LayoutParams.WRAP_CONTENT
-import android.widget.Button
 import android.widget.ImageView
 import android.widget.LinearLayout
-import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.ViewPager2
 import com.bangkit.sortsavvy.onboarding.adapter.OnboardingItemAdapter
 import com.bangkit.sortsavvy.onboarding.data.OnboardingItem
-import com.dicoding.sortsavvy.R
+import com.bangkit.sortsavvy.R
+import com.bangkit.sortsavvy.databinding.ActivityOnboardingBinding
 
 class OnboardingActivity : AppCompatActivity() {
 
+    private lateinit var binding: ActivityOnboardingBinding
     private lateinit var onboardingItemAdapter: OnboardingItemAdapter
-    private lateinit var indicatorContainer: LinearLayout
-
     private lateinit var sharedPreferences: SharedPreferences
-
-    private lateinit var skipButtonTv: TextView
-    private lateinit var nextButtonImgv: ImageView
-    private lateinit var getStartedButton: Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_onboarding)
+        binding = ActivityOnboardingBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
-        skipButtonTv = findViewById(R.id.skipTv)
-        underLineSkipButtonTv()
-
-        firstTimeInstalledApp()
-
-        nextButtonImgv = findViewById(R.id.nextBtnImgv)
-        getStartedButton = findViewById(R.id.getStartedBtn)
+        setUnderLineSkipButtonTextView()
+        setSharedPreferences()
 
         setOnboardingItems()
         setupIndicators()
         setCurrentIndicator(0)
     }
 
-    private fun firstTimeInstalledApp() {
+    private fun setSharedPreferences() {
         sharedPreferences = getSharedPreferences("SortSavvy", MODE_PRIVATE)
     }
 
-    private fun underLineSkipButtonTv() {
-        skipButtonTv = findViewById(R.id.skipTv)
-        val spannableString = SpannableString(skipButtonTv.text)
+    private fun setUnderLineSkipButtonTextView() {
+        val spannableString = SpannableString(binding.skipTextView.text)
         val underlineSpan = UnderlineSpan()
 
-        spannableString.setSpan(underlineSpan, 0, skipButtonTv.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
-        skipButtonTv.text = spannableString
+        spannableString.setSpan(underlineSpan, 0, binding.skipTextView.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
+        binding.skipTextView.text = spannableString
     }
 
     private fun setOnboardingItems() {
@@ -82,9 +71,8 @@ class OnboardingActivity : AppCompatActivity() {
             )
         )
 
-        val onboardingViewPager = findViewById<ViewPager2>(R.id.onboardingViewPager)
-        onboardingViewPager.adapter = onboardingItemAdapter
-        onboardingViewPager.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
+        binding.onboardingViewPager.adapter = onboardingItemAdapter
+        binding.onboardingViewPager.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
             override fun onPageSelected(position: Int) {
                 super.onPageSelected(position)
                 setCurrentIndicator(position)
@@ -92,30 +80,30 @@ class OnboardingActivity : AppCompatActivity() {
                 // if current position is the last position
                 if (position == onboardingItemAdapter.itemCount - 1) {
                     // hide next button and show get started button
-                    nextButtonImgv.visibility = View.GONE
-                    getStartedButton.visibility = View.VISIBLE
+                    binding.nextBtnImageButton.visibility = View.GONE
+                    binding.getStartedButton.visibility = View.VISIBLE
                 } else {
                     // show next button and hide get started button
-                    nextButtonImgv.visibility = View.VISIBLE
-                    getStartedButton.visibility = View.GONE
+                    binding.nextBtnImageButton.visibility = View.VISIBLE
+                    binding.getStartedButton.visibility = View.GONE
                 }
             }
         })
-        (onboardingViewPager.getChildAt(0) as RecyclerView).overScrollMode = RecyclerView.OVER_SCROLL_NEVER
+        (binding.onboardingViewPager.getChildAt(0) as RecyclerView).overScrollMode = RecyclerView.OVER_SCROLL_NEVER
 
-        nextButtonImgv.setOnClickListener {
-            if (onboardingViewPager.currentItem + 1 < onboardingItemAdapter.itemCount) {
-                onboardingViewPager.currentItem += 1
+        binding.nextBtnImageButton.setOnClickListener {
+            if (binding.onboardingViewPager.currentItem + 1 < onboardingItemAdapter.itemCount) {
+                binding.onboardingViewPager.currentItem += 1
             } else {
                 navigateToWelcomeActivity()
             }
         }
 
-        skipButtonTv.setOnClickListener {
+        binding.skipTextView.setOnClickListener {
             navigateToWelcomeActivity()
         }
 
-        getStartedButton.setOnClickListener {
+        binding.getStartedButton.setOnClickListener {
             navigateToWelcomeActivity()
         }
     }
@@ -128,7 +116,6 @@ class OnboardingActivity : AppCompatActivity() {
     }
 
     private fun setupIndicators() {
-        indicatorContainer = findViewById(R.id.dotIndicator)
         val indicators = arrayOfNulls<ImageView>(onboardingItemAdapter.itemCount)
         val layoutParams: LinearLayout.LayoutParams = LinearLayout.LayoutParams(WRAP_CONTENT, WRAP_CONTENT)
 
@@ -140,15 +127,15 @@ class OnboardingActivity : AppCompatActivity() {
                     ContextCompat.getDrawable(applicationContext, R.drawable.onboarding_indicator_inactive_background)
                 )
                 it.layoutParams = layoutParams
-                indicatorContainer.addView(it)
+                binding.dotIndicatorContainer.addView(it)
             }
         }
     }
 
     private fun setCurrentIndicator(position: Int) {
-        val childCount = indicatorContainer.childCount
+        val childCount = binding.dotIndicatorContainer.childCount
         for (currentIndicator in 0 until childCount) {
-            val imageView = indicatorContainer.getChildAt(currentIndicator) as ImageView
+            val imageView = binding.dotIndicatorContainer.getChildAt(currentIndicator) as ImageView
             if (currentIndicator == position) {
                 imageView.setImageDrawable(
                     ContextCompat.getDrawable(applicationContext, R.drawable.onboarding_indicator_active_background)
