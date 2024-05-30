@@ -1,19 +1,145 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"-->
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/background_green"
     tools:context=".authentication.ui.RegisterActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello Register"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+<!--    <androidx.constraintlayout.widget.ConstraintLayout-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content">-->
+
+        <ImageView
+            android:id="@+id/bottomBackgroundImageView"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:src="@drawable/login_rounded_background"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHeight_percent="0.75" />
+
+        <ImageView
+            android:id="@+id/logoImageView"
+            android:layout_width="125dp"
+            android:layout_height="125dp"
+            android:src="@drawable/splashscreen_logo_sortsavvy"
+            app:layout_constraintBottom_toTopOf="@+id/bottomBackgroundImageView"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/titleTextView"
+            style="@style/TextContent.GreenEmerald.Title"
+            android:text="@string/title_login_register"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/bottomBackgroundImageView" />
+
+        <TextView
+            android:id="@+id/nameTitleTextView"
+            style="@style/TextContent.TitleEditText"
+            android:text="@string/name"
+            android:layout_marginStart="50dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/titleTextView" />
+
+        <EditText
+            android:id="@+id/nameEditText"
+            style="@style/EditTextGeneral"
+            android:autofillHints="name"
+            android:hint="@string/name"
+            android:inputType="text"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/nameTitleTextView" />
+
+        <TextView
+            android:id="@+id/emailTitleTextView"
+            style="@style/TextContent.TitleEditText"
+            android:text="@string/email"
+            android:layout_marginStart="50dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/nameEditText" />
+
+        <EditText
+            android:id="@+id/emailEditText"
+            style="@style/EditTextGeneral"
+            android:autofillHints="emailAddress"
+            android:hint="@string/email"
+            android:inputType="textEmailAddress"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/emailTitleTextView" />
+
+        <TextView
+            android:id="@+id/passwordTitleTextView"
+            style="@style/TextContent.TitleEditText"
+            android:layout_marginStart="50dp"
+            android:text="@string/password"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/emailEditText" />
+
+        <EditText
+            android:id="@+id/passwordEditText"
+            style="@style/EditTextGeneral"
+            android:autofillHints="password"
+            android:hint="@string/password"
+            android:inputType="textPassword"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/passwordTitleTextView" />
+
+        <TextView
+            android:id="@+id/confirmPasswordTitleTextView"
+            style="@style/TextContent.TitleEditText"
+            android:layout_marginStart="50dp"
+            android:text="@string/confirm_password"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/passwordEditText" />
+
+        <EditText
+            android:id="@+id/confirmPasswordEditText"
+            style="@style/EditTextGeneral"
+            android:autofillHints="password"
+            android:hint="@string/confirm_password"
+            android:inputType="textPassword"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/confirmPasswordTitleTextView" />
+
+        <Button
+            android:id="@+id/registerButton"
+            style="@style/ButtonGeneral.ActiveGreen"
+            android:layout_marginTop="24dp"
+            android:text="@string/register"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/confirmPasswordEditText" />
+
+        <TextView
+            android:id="@+id/labelPunyaAkunTextView"
+            style="@style/TextContent"
+            android:layout_marginTop="14dp"
+            android:layout_marginStart="25dp"
+            android:text="@string/sudah_punya_akun"
+            app:layout_constraintEnd_toStartOf="@+id/loginNowTextView"
+            app:layout_constraintStart_toStartOf="@+id/registerButton"
+            app:layout_constraintTop_toBottomOf="@+id/registerButton" />
+
+        <TextView
+            android:id="@+id/loginNowTextView"
+            style="@style/TextContent.GreenEmerald"
+            android:fontFamily="@font/baloo_bhai_2_bold"
+            android:text="@string/login_now"
+            android:layout_marginEnd="25dp"
+            app:layout_constraintEnd_toEndOf="@+id/registerButton"
+            app:layout_constraintStart_toEndOf="@+id/labelPunyaAkunTextView"
+            app:layout_constraintTop_toTopOf="@+id/labelPunyaAkunTextView" />
+<!--    </androidx.constraintlayout.widget.ConstraintLayout>-->
 
 </androidx.constraintlayout.widget.ConstraintLayout>
+<!--</ScrollView>-->

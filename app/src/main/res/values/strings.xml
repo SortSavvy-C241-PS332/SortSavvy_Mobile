@@ -25,4 +25,9 @@
     <string name="login">Masuk</string>
     <string name="belum_punya_akun">Belum punya akun?</string>
     <string name="buat_akun">Buat Akun</string>
+    <string name="name">Nama</string>
+    <string name="confirm_password">Ulangi Kata Sandi</string>
+    <string name="register">Daftar</string>
+    <string name="sudah_punya_akun">Sudah punya akun?</string>
+    <string name="login_now">Masuk Sekarang</string>
 </resources>
