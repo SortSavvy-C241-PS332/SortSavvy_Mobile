@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background_green"
+    tools:context=".authentication.ui.LoginActivity">
+
+    <ImageView
+        android:id="@+id/bottomBackgroundImageView"
+        android:layout_width="match_parent"
+        android:layout_height="500dp"
+        android:layout_alignParentBottom="true"
+        android:src="@drawable/login_rounded_background"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+    <ImageView
+        android:id="@+id/logoImageView"
+        android:layout_width="125dp"
+        android:layout_height="125dp"
+        android:src="@drawable/splashscreen_logo_sortsavvy"
+        app:layout_constraintBottom_toTopOf="@+id/bottomBackgroundImageView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/titleTextView"
+        style="@style/TextContent.GreenEmerald.Title"
+        android:text="@string/title_login_register"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/bottomBackgroundImageView" />
+
+    <TextView
+        android:id="@+id/emailTitleTextView"
+        style="@style/TextContent.TitleEditText"
+        android:text="@string/email"
+        android:layout_marginStart="50dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/titleTextView" />
+
+    <EditText
+        android:id="@+id/emailEditText"
+        style="@style/EditTextGeneral"
+        android:autofillHints="emailAddress"
+        android:hint="@string/email"
+        android:inputType="textEmailAddress"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/emailTitleTextView" />
+
+    <TextView
+        android:id="@+id/passwordTitleTextView"
+        style="@style/TextContent.TitleEditText"
+        android:layout_marginStart="50dp"
+        android:text="@string/password"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/emailEditText" />
+
+    <EditText
+        android:id="@+id/passwordEditText"
+        style="@style/EditTextGeneral"
+        android:autofillHints="password"
+        android:hint="@string/password"
+        android:inputType="textPassword"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/passwordTitleTextView" />
+
+    <Button
+        android:id="@+id/loginButton"
+        style="@style/ButtonGeneral.ActiveGreen"
+        android:layout_marginTop="24dp"
+        android:text="@string/login"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/passwordEditText" />
+
+    <TextView
+        android:id="@+id/labelBuatAkunTextView"
+        style="@style/TextContent"
+        android:layout_marginTop="14dp"
+        android:layout_marginStart="50dp"
+        android:text="@string/belum_punya_akun"
+        app:layout_constraintEnd_toStartOf="@+id/buatAkunTextView"
+        app:layout_constraintStart_toStartOf="@+id/loginButton"
+        app:layout_constraintTop_toBottomOf="@+id/loginButton" />
+
+    <TextView
+        android:id="@+id/buatAkunTextView"
+        style="@style/TextContent.GreenEmerald"
+        android:fontFamily="@font/baloo_bhai_2_bold"
+        android:text="@string/buat_akun"
+        android:layout_marginEnd="50dp"
+        app:layout_constraintEnd_toEndOf="@+id/loginButton"
+        app:layout_constraintStart_toEndOf="@+id/labelBuatAkunTextView"
+        app:layout_constraintTop_toTopOf="@+id/labelBuatAkunTextView" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
