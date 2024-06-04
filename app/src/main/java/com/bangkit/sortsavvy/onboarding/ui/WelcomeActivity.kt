@@ -33,8 +33,8 @@ class WelcomeActivity : AppCompatActivity() {
         }
 
         binding.guestModeTextView.setOnClickListener {
-//            val intent = Intent(this, MainActivity::class.java)
-//            startActivity(intent)
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
             finish()
         }
     }
