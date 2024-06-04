@@ -38,6 +38,8 @@ class WelcomeActivity : AppCompatActivity() {
             finish()
 
             // test
+
+            // test 2
         }
     }
 
