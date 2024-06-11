@@ -13,10 +13,6 @@
         android:theme="@style/Theme.SortSavvy"
         tools:targetApi="31">
         <activity
-            android:name=".MainActivityDicoding"
-            android:exported="false"
-            android:label="@string/title_activity_main_dicoding" />
-        <activity
             android:name=".authentication.register.ui.RegisterActivity"
             android:exported="false" />
         <activity
