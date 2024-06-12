@@ -7,10 +7,10 @@ import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import com.bangkit.sortsavvy.data.model.ResultState
-import com.bangkit.sortsavvy.views.authentication.login.LoginActivity
 import com.bangkit.sortsavvy.databinding.ActivityRegisterBinding
 import com.bangkit.sortsavvy.factory.ViewModelFactory
 import com.bangkit.sortsavvy.utils.ViewComponentUtil
+import com.bangkit.sortsavvy.views.authentication.login.LoginActivity
 
 class RegisterActivity : AppCompatActivity() {
 

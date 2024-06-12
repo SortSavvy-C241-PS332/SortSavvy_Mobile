@@ -7,7 +7,6 @@ import androidx.lifecycle.asLiveData
 import androidx.lifecycle.viewModelScope
 import com.bangkit.sortsavvy.R
 import com.bangkit.sortsavvy.data.model.OnboardingItem
-import com.bangkit.sortsavvy.data.pref.OnboardingPreferences
 import com.bangkit.sortsavvy.data.repository.OnboardingRepository
 import kotlinx.coroutines.launch
 

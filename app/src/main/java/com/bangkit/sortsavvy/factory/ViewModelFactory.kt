@@ -3,8 +3,6 @@ package com.bangkit.sortsavvy.factory
 import android.content.Context
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.bangkit.sortsavvy.data.pref.UserPreferences
-import com.bangkit.sortsavvy.data.pref.userDataStore
 import com.bangkit.sortsavvy.di.AuthenticationInjection
 import com.bangkit.sortsavvy.di.OnboardingInjection
 import com.bangkit.sortsavvy.views.authentication.login.LoginViewModel

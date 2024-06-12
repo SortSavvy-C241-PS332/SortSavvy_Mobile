@@ -3,7 +3,6 @@ package com.bangkit.sortsavvy.adapter
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.bangkit.sortsavvy.R
 import com.bangkit.sortsavvy.data.model.OnboardingItem
 import com.bangkit.sortsavvy.databinding.OnboardingItemContainerBinding
 

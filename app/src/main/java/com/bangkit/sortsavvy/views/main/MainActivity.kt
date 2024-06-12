@@ -1,9 +1,6 @@
 package com.bangkit.sortsavvy.views.main
 
 import android.os.Bundle
-import android.view.View
-import android.view.WindowManager
-import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
@@ -13,8 +10,8 @@ import com.bangkit.sortsavvy.R
 import com.bangkit.sortsavvy.data.pref.OnboardingPreferences
 import com.bangkit.sortsavvy.data.pref.onboardingDataStore
 import com.bangkit.sortsavvy.databinding.ActivityMainBinding
-import com.bangkit.sortsavvy.di.OnboardingInjection
 import com.bangkit.sortsavvy.utils.ViewComponentUtil
+import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class MainActivity : AppCompatActivity() {
 

@@ -12,12 +12,12 @@ import androidx.core.content.ContextCompat
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.ViewPager2
+import com.bangkit.sortsavvy.R
 import com.bangkit.sortsavvy.adapter.OnboardingItemAdapter
 import com.bangkit.sortsavvy.data.model.OnboardingItem
-import com.bangkit.sortsavvy.R
+import com.bangkit.sortsavvy.data.pref.OnboardingPreferences
 import com.bangkit.sortsavvy.databinding.ActivityOnboardingBinding
 import com.bangkit.sortsavvy.factory.ViewModelFactory
-import com.bangkit.sortsavvy.data.pref.OnboardingPreferences
 import com.bangkit.sortsavvy.utils.ViewComponentUtil
 import com.bangkit.sortsavvy.views.main.MainActivity
 import com.bangkit.sortsavvy.views.welcome.WelcomeActivity

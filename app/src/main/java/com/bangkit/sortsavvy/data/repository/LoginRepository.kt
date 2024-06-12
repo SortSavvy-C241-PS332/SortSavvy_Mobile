@@ -1,6 +1,5 @@
 package com.bangkit.sortsavvy.data.repository
 
-import androidx.lifecycle.LiveData
 import androidx.lifecycle.liveData
 import com.bangkit.sortsavvy.data.model.ResultState
 import com.bangkit.sortsavvy.data.model.UserModel
