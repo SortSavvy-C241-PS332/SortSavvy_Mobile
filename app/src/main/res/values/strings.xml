@@ -35,7 +35,9 @@
     <string name="beranda">Beranda</string>
     <string name="petualangan">Petualangan</string>
     <string name="koleksi">Koleksi</string>
-    <string name="profil">Profil</string>
+
+    <string name="status_message">Status Message</string>
+
     <string name="snap">snap</string>
 
     <!-- TODO: Remove or change this placeholder text -->
@@ -43,4 +45,8 @@
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
+    <string name="title_profile">Profil</string>
+
+    <string name="title_activity_bottom_navigation">BottomNavigationActivity</string>
+    <string name="title_activity_main">MainActivity</string>
 </resources>

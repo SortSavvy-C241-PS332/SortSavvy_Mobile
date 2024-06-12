@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:background="@drawable/gradient_green"
     android:fitsSystemWindows="true"
-    tools:context="com.bangkit.sortsavvy.onboarding.ui.OnboardingActivity">
+    tools:context="com.bangkit.sortsavvy.views.onboarding.OnboardingActivity">
 
     <androidx.viewpager2.widget.ViewPager2
         android:id="@+id/onboardingViewPager"

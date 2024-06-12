@@ -16,10 +16,16 @@ android {
         versionCode = 1
         versionName = "1.0"
 
+        buildConfigField ("String", "BASE_URL", "\"https://story-api.dicoding.dev/v1/\"")
+
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
     buildTypes {
+        debug {
+            // Aktifkan logging untuk memudahkan debugging
+            buildConfigField("boolean", "LOG_ENABLED", "true")
+        }
         release {
             isMinifyEnabled = false
             proguardFiles(
@@ -38,6 +44,7 @@ android {
 
     buildFeatures {
         viewBinding = true
+        buildConfig = true
     }
 }
 
@@ -48,15 +55,19 @@ dependencies {
     implementation(libs.material)
     implementation(libs.androidx.activity)
     implementation(libs.androidx.constraintlayout)
-    implementation(libs.androidx.lifecycle.livedata.ktx)
-    implementation(libs.androidx.lifecycle.viewmodel.ktx)
+    implementation(libs.androidx.navigation.fragment.ktx)
+    implementation(libs.androidx.navigation.ui.ktx)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
 
-//    splash screen
-    implementation("androidx.core:core-splashscreen:1.0.0")
+    implementation(libs.androidx.lifecycle.livedata.ktx)
+    implementation(libs.androidx.lifecycle.viewmodel.ktx)
+    implementation(libs.androidx.core.splashscreen) //    splash screen
+    implementation(libs.androidx.viewpager2) //    view pager -> swipeable screen
+    implementation(libs.androidx.datastore.preferences) //    datastore -> save preferences data user
 
-//    view pager -> for swipeable scren
-    implementation("androidx.viewpager2:viewpager2:1.0.0")
+    implementation(libs.retrofit) //   retrofit -> networking
+    implementation(libs.retrofit2.converter.gson) //   gson -> converter for retrofit
+    implementation(libs.logging.interceptor) //  logging interceptor -> logging for retrofit
 }

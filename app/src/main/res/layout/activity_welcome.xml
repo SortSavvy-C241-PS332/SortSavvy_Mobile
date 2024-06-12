@@ -8,7 +8,7 @@
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
     android:background="@drawable/gradient_green"
-    tools:context="com.bangkit.sortsavvy.onboarding.ui.WelcomeActivity">
+    tools:context="com.bangkit.sortsavvy.views.welcome.WelcomeActivity">
 
     <ImageView
         android:id="@+id/topBackgroundImageView"
@@ -42,7 +42,7 @@
         app:layout_constraintTop_toBottomOf="@+id/logoImageView" />
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/descriptionTextView"
         style="@style/TextContent.Description"
         android:layout_width="305dp"
         android:layout_marginTop="2dp"
