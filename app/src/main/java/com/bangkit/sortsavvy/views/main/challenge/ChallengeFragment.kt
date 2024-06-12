@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AppCompatActivity
 import com.bangkit.sortsavvy.R
 
 class ChallengeFragment : Fragment() {
@@ -18,6 +19,7 @@ class ChallengeFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        (activity as AppCompatActivity).supportActionBar?.hide()
 
         // TODO: Use the ViewModel
     }

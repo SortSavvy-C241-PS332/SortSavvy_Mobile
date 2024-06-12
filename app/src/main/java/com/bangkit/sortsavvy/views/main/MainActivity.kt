@@ -1,6 +1,8 @@
 package com.bangkit.sortsavvy.views.main
 
 import android.os.Bundle
+import android.view.View
+import android.view.WindowManager
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
@@ -20,9 +22,10 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        supportActionBar?.hide()
 
         val getOnboardingPreferences = OnboardingPreferences
             .getInstance(this.onboardingDataStore)
@@ -31,6 +34,10 @@ class MainActivity : AppCompatActivity() {
         println(getOnboardingPreferences)
         ViewComponentUtil.showToast(this, "onboarding status: $getOnboardingPreferences")
 
+        setupBottomNavigation()
+    }
+
+    private fun setupBottomNavigation() {
         val navView: BottomNavigationView = binding.navView
 
         val navController = findNavController(R.id.nav_host_fragment_activity_main)

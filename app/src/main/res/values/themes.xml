@@ -10,7 +10,7 @@
 <!--        <item name="colorSecondary">@color/lavender_purple</item>-->
 <!--        <item name="colorSecondaryVariant">@color/lavender_purple</item>-->
         <item name="colorOnSecondary">@color/black</item>
-        <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
     </style>
 
     <style name="Theme.SortSavvy" parent="Base.Theme.SortSavvy" />
