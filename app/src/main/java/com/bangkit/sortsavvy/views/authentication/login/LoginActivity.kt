@@ -30,7 +30,8 @@ class LoginActivity : AppCompatActivity() {
         viewModel = ViewModelProvider(this, viewModelFactory)[LoginViewModel::class.java]
 
         binding.loginButton.setOnClickListener {
-            loginAccount()
+            ViewComponentUtil.showToast(this@LoginActivity, "Fitur belum tersedia")
+//            loginAccount()
         }
 
         binding.buatAkunTextView.setOnClickListener {

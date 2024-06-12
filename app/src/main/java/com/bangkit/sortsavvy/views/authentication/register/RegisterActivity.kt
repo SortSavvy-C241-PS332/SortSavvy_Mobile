@@ -31,7 +31,8 @@ class RegisterActivity : AppCompatActivity() {
         viewModel = ViewModelProvider(this, viewModelFactory)[RegisterViewModel::class.java]
 
         binding.registerButton.setOnClickListener {
-            registerAccount()
+            ViewComponentUtil.showToast(this@RegisterActivity, "Fitur belum tersedia")
+//            registerAccount()
         }
 
         binding.loginNowTextView.setOnClickListener {
