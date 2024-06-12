@@ -64,7 +64,6 @@ class LoginActivity : AppCompatActivity() {
                         binding.loginButton.isEnabled = true
                         ViewComponentUtil.showToast(this@LoginActivity, resultState.errorMessage)
                     }
-                    else -> {}
                 }
             }
         }

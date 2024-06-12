@@ -1,4 +1,4 @@
-package com.bangkit.sortsavvy.views.main.profile
+package com.bangkit.sortsavvy.views.main.explore
 
 import androidx.fragment.app.viewModels
 import android.os.Bundle
@@ -8,13 +8,13 @@ import android.view.View
 import android.view.ViewGroup
 import com.bangkit.sortsavvy.R
 
-class ProfileFragment : Fragment() {
+class ExploreFragment : Fragment() {
 
     companion object {
-        fun newInstance() = ProfileFragment()
+        fun newInstance() = ExploreFragment()
     }
 
-    private val viewModel: ProfileViewModel by viewModels()
+    private val viewModel: ExploreViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -26,6 +26,6 @@ class ProfileFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        return inflater.inflate(R.layout.fragment_profile, container, false)
+        return inflater.inflate(R.layout.fragment_explore, container, false)
     }
 }
