@@ -1,12 +1,16 @@
 package com.bangkit.sortsavvy.views.main.snap
 
+import android.net.Uri
 import android.os.Bundle
+import android.util.Log
 import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.WindowManager
 import android.widget.Button
+import androidx.activity.result.PickVisualMediaRequest
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
@@ -19,7 +23,9 @@ import com.bangkit.sortsavvy.utils.ViewComponentUtil
 class SnapFragment : Fragment() {
 
     private lateinit var binding: FragmentSnapBinding
-    private val viewModel: SnapViewModel by viewModels()
+    private lateinit var viewModel: SnapViewModel
+
+    private var currentImageUri: Uri? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -53,7 +59,7 @@ class SnapFragment : Fragment() {
         }
 
         binding.galleryImageButton.setOnClickListener {
-
+            startGallery()
         }
 
         binding.cameraImageButton.setOnClickListener {
@@ -88,6 +94,34 @@ class SnapFragment : Fragment() {
         }
 
         dialog.show()
+    }
+
+    private val launcherGallery = registerForActivityResult(
+        ActivityResultContracts.PickVisualMedia()
+    ) { uri: Uri? ->
+        if (uri != null) {
+            currentImageUri = uri
+            showImage()
+        } else {
+            Log.d("Photo Picker", "No media selected")
+        }
+    }
+
+    private fun startGallery() {
+        launcherGallery.launch(
+            PickVisualMediaRequest(
+                ActivityResultContracts
+                    .PickVisualMedia
+                    .ImageOnly
+            )
+        )
+    }
+
+    private fun showImage() {
+        currentImageUri?.let {  uri ->
+            Log.d("image uri", "show image uri: $uri")
+            binding.previewSelectedImageView.setImageURI(uri)
+        }
     }
 
     companion object {
