@@ -1,13 +1,135 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/background_dark"
     tools:context=".views.main.snap.SnapFragment">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Snap" />
+    <ImageButton
+        android:id="@+id/backBtnImageButton"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginStart="25dp"
+        android:background="@drawable/ic_background_back_button"
+        android:contentDescription="@string/back_btn"
+        android:src="@drawable/ic_round_arrow_back_white_24"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-</FrameLayout>
+    <ImageButton
+        android:id="@+id/helpBtnImageButton"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginEnd="25dp"
+        android:background="@drawable/ic_background_back_button"
+        android:contentDescription="@string/back_btn"
+        android:src="@drawable/ic_round_question_mark_white_24"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/backgroundBottomMenuSnapImageView"
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:contentDescription="@string/bottom_background_menu_snap"
+        android:src="@drawable/background_bottom_rectangle_white_gray"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+    <ImageButton
+        android:id="@+id/galleryImageButton"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/icon_background_square_rounded"
+        android:contentDescription="@string/background_gallery_button"
+        android:src="@drawable/ic_btn_pick_gallery"
+        app:layout_constraintBottom_toBottomOf="@+id/backgroundBottomMenuSnapImageView"
+        app:layout_constraintStart_toStartOf="@+id/backgroundBottomMenuSnapImageView"
+        app:layout_constraintTop_toTopOf="@+id/backgroundBottomMenuSnapImageView" />
+
+    <TextView
+        android:id="@+id/labelGalleryTextView"
+        style="@style/TextContent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/label_gallery"
+        android:fontFamily="@font/baloo_bhai_2_bold"
+        app:layout_constraintEnd_toEndOf="@+id/galleryImageButton"
+        app:layout_constraintStart_toStartOf="@+id/galleryImageButton"
+        app:layout_constraintTop_toBottomOf="@+id/galleryImageButton" />
+
+    <Button
+        android:id="@+id/cariButton"
+        style="@style/ButtonGeneral.ActiveGreen"
+        android:layout_width="wrap_content"
+        android:layout_height="51dp"
+        android:backgroundTint="@color/background_light_green"
+        android:drawableLeft="@drawable/icon_ai_search"
+        android:text="@string/label_cari_tau_button"
+        android:textColor="@color/background_white_gray_2"
+        app:layout_constraintEnd_toEndOf="@+id/backgroundBottomMenuSnapImageView"
+        app:layout_constraintStart_toStartOf="@+id/backgroundBottomMenuSnapImageView"
+        app:layout_constraintTop_toTopOf="@+id/galleryImageButton" />
+
+    <TextView
+        style="@style/TextContent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="12sp"
+        android:text="@string/cari_tahu_jenis_sampah_tersebut"
+        app:layout_constraintEnd_toEndOf="@+id/cariButton"
+        app:layout_constraintStart_toStartOf="@+id/cariButton"
+        app:layout_constraintTop_toBottomOf="@+id/cariButton" />
+
+    <ImageButton
+        android:id="@+id/cameraImageButton"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_marginEnd="25dp"
+        android:background="@drawable/icon_background_square_rounded"
+        android:contentDescription="@string/background_gallery_button"
+        android:src="@drawable/ic_btn_pick_camera"
+        app:layout_constraintEnd_toEndOf="@+id/backgroundBottomMenuSnapImageView"
+        app:layout_constraintTop_toTopOf="@+id/galleryImageButton" />
+
+    <TextView
+        android:id="@+id/labelCameraTextView"
+        style="@style/TextContent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/baloo_bhai_2_bold"
+        android:text="@string/label_camera"
+        app:layout_constraintEnd_toEndOf="@+id/cameraImageButton"
+        app:layout_constraintStart_toStartOf="@+id/cameraImageButton"
+        app:layout_constraintTop_toBottomOf="@+id/cameraImageButton" />
+
+    <include
+        android:visibility="invisible"
+        android:id="@+id/requestCameraAccessDialogInclude"
+        layout="@layout/dialog_layout_request_access_camera"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="25dp"
+        android:layout_marginEnd="25dp"
+        app:layout_constraintStart_toStartOf="@id/backBtnImageButton"
+        app:layout_constraintEnd_toEndOf="@id/helpBtnImageButton"
+        app:layout_constraintBottom_toTopOf="@+id/backgroundBottomMenuSnapImageView"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <ImageView
+        android:id="@+id/previewSelectedImageView"
+        android:layout_width="256dp"
+        android:layout_height="256dp"
+        android:contentDescription="@string/preview_selected_image"
+        android:src="@drawable/ic_background_outline_image_64"
+        app:layout_constraintBottom_toTopOf="@+id/backgroundBottomMenuSnapImageView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

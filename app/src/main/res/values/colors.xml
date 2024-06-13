@@ -19,8 +19,15 @@
 
     // background
     <color name="background_green">#13875B</color>
+    <color name="background_light_green">#23BA66</color>
     <color name="background_emerald_green">#24BF67</color>
     <color name="background_white_gray">#F2F3F7</color>
     <color name="background_ivory_white">#EBF2EB</color>
+    <color name="background_dark">#3F444D</color>
+
+
+    <color name="background_white_gray_2">#F8F9FC</color>
+    <color name="background_green_super_light">#DAFFE9</color>
+    <color name="background_gray_darker">#989898</color>
 
 </resources>

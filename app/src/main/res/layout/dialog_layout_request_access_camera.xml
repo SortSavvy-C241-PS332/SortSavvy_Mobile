@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/logoCameraImageView"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:contentDescription="@string/ic_camera_logo"
+        android:src="@drawable/ic_btn_pick_camera"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/titleTextView"
+        style="@style/TextContent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:fontFamily="@font/baloo_bhai_2_bold"
+        android:textColor="@color/background_white_gray_2"
+        android:text="@string/label_title_request_access_camera"
+        app:layout_constraintEnd_toEndOf="@+id/logoCameraImageView"
+        app:layout_constraintStart_toStartOf="@+id/logoCameraImageView"
+        app:layout_constraintTop_toBottomOf="@+id/logoCameraImageView" />
+
+    <TextView
+        android:id="@+id/subTitleTextView"
+        style="@style/TextContent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:textAlignment="center"
+        android:textColor="@color/background_white_gray_2"
+        android:text="@string/sub_title_request_access_camera"
+        app:layout_constraintEnd_toEndOf="@+id/titleTextView"
+        app:layout_constraintStart_toStartOf="@+id/titleTextView"
+        app:layout_constraintTop_toBottomOf="@id/titleTextView" />
+
+    <Button
+        android:id="@+id/allowButton"
+        style="@style/ButtonGeneral.ActiveGreen"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:backgroundTint="@color/background_green_super_light"
+        android:text="@string/label_allow_button"
+        android:textColor="@color/background_green"
+        app:layout_constraintEnd_toEndOf="@+id/subTitleTextView"
+        app:layout_constraintStart_toStartOf="@+id/subTitleTextView"
+        app:layout_constraintTop_toBottomOf="@+id/subTitleTextView" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

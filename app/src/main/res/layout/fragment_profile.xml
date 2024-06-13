@@ -88,9 +88,9 @@
                 android:layout_marginStart="32dp"
                 android:fontFamily="@font/baloo_bhai_2_bold"
                 android:text="Pengaturan Akun"
+                android:textColor="@color/font_black"
                 android:textSize="23sp"
                 android:textStyle="bold"
-                android:textColor="@color/font_black"
                 app:layout_constraintBottom_toTopOf="@+id/textView3"
                 app:layout_constraintStart_toEndOf="@+id/gear"
                 app:layout_constraintTop_toTopOf="@+id/gear" />
@@ -100,9 +100,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="-40dp"
-                android:textColor="@color/font_black"
                 android:fontFamily="@font/baloo_bhai_2"
                 android:text="Ganti nama, foto, dan kata sandi"
+                android:textColor="@color/font_black"
                 app:layout_constraintBottom_toBottomOf="@+id/gear"
                 app:layout_constraintStart_toStartOf="@+id/title"
                 app:layout_constraintTop_toBottomOf="@+id/title" />

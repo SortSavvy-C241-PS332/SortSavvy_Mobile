@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/icon_background_square_rounded_white"
+    android:paddingHorizontal="32dp"
+    android:paddingVertical="48dp">
+
+    <ImageView
+        android:id="@+id/scanObjectImageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:contentDescription="@string/scan_object_help"
+        android:src="@drawable/ic_photo_object_green"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        style="@style/TextContent"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/label_help_1"
+        android:layout_marginStart="15dp"
+        app:layout_constraintBottom_toBottomOf="@+id/scanObjectImageView"
+        app:layout_constraintStart_toEndOf="@+id/scanObjectImageView"
+        app:layout_constraintTop_toTopOf="@+id/scanObjectImageView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintWidth_default="wrap" />
+
+    <ImageView
+        android:id="@+id/searchImageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:contentDescription="@string/scan_object_help"
+        android:src="@drawable/ic_ai_search_green"
+        android:layout_marginTop="35dp"
+        app:layout_constraintEnd_toEndOf="@+id/scanObjectImageView"
+        app:layout_constraintStart_toStartOf="@+id/scanObjectImageView"
+        app:layout_constraintTop_toBottomOf="@+id/scanObjectImageView" />
+
+    <TextView
+        style="@style/TextContent"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/label_help_2"
+        android:layout_marginStart="15dp"
+        app:layout_constraintBottom_toBottomOf="@+id/searchImageView"
+        app:layout_constraintStart_toEndOf="@+id/searchImageView"
+        app:layout_constraintTop_toTopOf="@+id/searchImageView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintWidth_default="wrap" />
+
+    <ImageView
+        android:id="@+id/trashBinImageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:contentDescription="@string/scan_object_help"
+        android:src="@drawable/ic_trash_bin_green"
+        android:layout_marginTop="35dp"
+        app:layout_constraintEnd_toEndOf="@+id/searchImageView"
+        app:layout_constraintStart_toStartOf="@+id/searchImageView"
+        app:layout_constraintTop_toBottomOf="@+id/searchImageView" />
+
+    <TextView
+        style="@style/TextContent"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/label_help_3"
+        android:layout_marginStart="15dp"
+        app:layout_constraintBottom_toBottomOf="@+id/trashBinImageView"
+        app:layout_constraintStart_toEndOf="@+id/trashBinImageView"
+        app:layout_constraintTop_toTopOf="@+id/trashBinImageView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintWidth_default="wrap" />
+
+    <Button
+        android:id="@+id/okeButton"
+        style="@style/ButtonGeneral.ActiveGreen"
+        android:layout_width="128dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:backgroundTint="@color/background_green_super_light"
+        android:text="@string/label_oke_button"
+        android:textColor="@color/background_green"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/trashBinImageView" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
