@@ -58,7 +58,7 @@ class SnapResultFragment : Fragment() {
 
             binding.previewSelectedImageView.setImageURI(Uri.parse(imageUri))
             binding.titleResultSnapTextView.text = result
-            binding.accuracyResultSnapTextView.text = "Tingkat Keyakinan: ${accuracy?.times(100)}%"
+            binding.accuracyResultSnapTextView.text = "Tingkat Keyakinan: ${accuracy}%"  // dari awal sudah dikali 100
             if (result != null) {
                 setItemCard(result)
             }

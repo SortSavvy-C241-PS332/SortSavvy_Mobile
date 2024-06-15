@@ -67,4 +67,6 @@
     <string name="scan_lagi">Scan lagi</string>
     <string name="label_title_item_card">Label Title Item Card</string>
     <string name="label_description_item_card">Label Description Item Card</string>
+
+    <string name="error_initializing_model">Image classifier failed to initialize. See error logs for details</string>
 </resources>

@@ -28,6 +28,10 @@ loggingInterceptor = "4.11.0"
 legacySupportV4 = "1.0.0"
 fragmentKtx = "1.7.1"
 
+tensorflowLiteTaskVision = "0.4.4"
+tensorflowLiteSupport = "0.4.4"
+tensorflowLiteMetadata = "0.4.4"
+
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }
@@ -55,6 +59,10 @@ retrofit2-converter-gson = { module = "com.squareup.retrofit2:converter-gson", v
 logging-interceptor = { module = "com.squareup.okhttp3:logging-interceptor", version.ref = "loggingInterceptor" }
 androidx-legacy-support-v4 = { group = "androidx.legacy", name = "legacy-support-v4", version.ref = "legacySupportV4" }
 androidx-fragment-ktx = { group = "androidx.fragment", name = "fragment-ktx", version.ref = "fragmentKtx" }
+
+tensorflow-lite-support = { group = "org.tensorflow", name = "tensorflow-lite-support", version.ref = "tensorflowLiteSupport" }
+tensorflow-lite-metadata = { group = "org.tensorflow", name = "tensorflow-lite-metadata", version.ref = "tensorflowLiteMetadata" }
+tensorflow-lite-task-vision = { group = "org.tensorflow", name = "tensorflow-lite-task-vision", version.ref = "tensorflowLiteTaskVision" }
 
 #com-google-code-gson = { module = "com.google.code.gson:gson", version.ref = "codeGson" }  // ini untuk converter ke json atau sebaliknya, biasanya buat convert message dari retrofit kalau ada error
 

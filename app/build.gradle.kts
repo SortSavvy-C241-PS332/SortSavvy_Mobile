@@ -45,6 +45,7 @@ android {
     buildFeatures {
         viewBinding = true
         buildConfig = true
+        mlModelBinding = true
     }
 }
 
@@ -72,4 +73,8 @@ dependencies {
     implementation(libs.retrofit) //   retrofit -> networking
     implementation(libs.retrofit2.converter.gson) //   gson -> converter for retrofit
     implementation(libs.logging.interceptor) //  logging interceptor -> logging for retrofit
+
+    implementation(libs.tensorflow.lite.support)
+    implementation(libs.tensorflow.lite.metadata)
+    implementation(libs.tensorflow.lite.task.vision)
 }
