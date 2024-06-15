@@ -1,24 +1,30 @@
 package com.bangkit.sortsavvy.views.main.snap
 
+import android.content.pm.PackageManager
 import android.net.Uri
 import android.os.Bundle
 import android.util.Log
-import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.view.WindowManager
 import android.widget.Button
 import androidx.activity.result.PickVisualMediaRequest
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
+import android.Manifest
+import android.app.Activity
+import android.content.Intent
+import android.provider.MediaStore
+import android.widget.ImageView
+import android.widget.Toast
+import androidx.fragment.app.commit
 import com.bangkit.sortsavvy.R
 import com.bangkit.sortsavvy.databinding.FragmentSnapBinding
-import com.bangkit.sortsavvy.utils.ViewComponentUtil
+import com.bangkit.sortsavvy.utils.CameraUtil
 
 class SnapFragment : Fragment() {
 
@@ -55,7 +61,7 @@ class SnapFragment : Fragment() {
 
         binding.helpBtnImageButton.setOnClickListener {
             // navigate to help fragment
-            showCustomDialog()
+            showCustomHelpDialog()
         }
 
         binding.galleryImageButton.setOnClickListener {
@@ -63,15 +69,49 @@ class SnapFragment : Fragment() {
         }
 
         binding.cameraImageButton.setOnClickListener {
-
+            checkCameraPermissionAndStartCamera()
         }
 
         binding.cariButton.setOnClickListener {
-
+            analyzeImage()
         }
     }
 
-    private fun showCustomDialog() {
+    private fun analyzeImage() {
+        currentImageUri?.let { imageUri ->
+//            val (label, accuracy) = classifyImage(imageUri)
+            val label = "Sampah Anorganik"
+            val accuracy = 0.8f
+            navigateToResultFragment(imageUri, label, accuracy)
+        }?:Toast.makeText(this.requireContext(), "Ambil gambar dari galeri atau kamera dulu yaa", Toast.LENGTH_SHORT).show()
+    }
+
+    private fun classifyImage(imageUri: Uri): Pair<String, Float> {
+//        imageClassifierHelper?.classifyStaticImage(imageUri)
+//        return Pair(classificationLabel ?: "Unknown", classificationAccuracy ?: 0f)
+        return Pair("Sampah Anorganik", 0.8f)
+    }
+
+    private fun navigateToResultFragment(imageUri: Uri, result: String, accuracy: Float) {
+        val snapResultFragment = SnapResultFragment()
+
+        val bundleData = Bundle().apply {
+            putString(SNAP_IMAGE_URI, imageUri.toString())
+            putString(SNAP_RESULT, result)
+            putFloat(SNAP_ACCURACY, accuracy)
+        }
+
+        findNavController().navigate(R.id.action_snapFragment_to_snapResultFragment, bundleData)
+//        snapResultFragment.arguments = bundleData
+//
+//        val fragmentManager = parentFragmentManager
+//        fragmentManager.commit {
+//            addToBackStack(null)
+//            add(R.id.nav_host_fragment_activity_main, snapResultFragment, SnapResultFragment::class.java.simpleName)
+//        }
+    }
+
+    private fun showCustomHelpDialog() {
         val dialogViewBuilder = AlertDialog.Builder(this.requireContext())
         val inflater = this.layoutInflater
         val dialogView = inflater.inflate(R.layout.dialog_layout_help_intruction, null)
@@ -79,17 +119,29 @@ class SnapFragment : Fragment() {
 
         val dialog = dialogViewBuilder.create()
         dialog.window?.setBackgroundDrawableResource(R.drawable.icon_background_square_rounded_white)
-        // doest work set margin for dialog
-//        dialog.window?.attributes?.let {
-//            val marginSize = resources.getDimensionPixelSize(R.dimen.dialog_help)
-//            it.width = WindowManager.LayoutParams.MATCH_PARENT - 2 * marginSize
-//            it.height = WindowManager.LayoutParams.WRAP_CONTENT
-//            dialog.window?.attributes = it
-//            dialog.window?.setGravity(Gravity.CENTER)
-//        }
 
         // click oke button
         dialogView.findViewById<Button>(R.id.okeButton).setOnClickListener {
+            dialog.dismiss()
+        }
+
+        dialog.show()
+    }
+
+    private fun showCustomCameraRequestDialog(permission: String? = null) {
+        val dialogViewBuilder = AlertDialog.Builder(this.requireContext())
+        val inflater = this.layoutInflater
+        val dialogView = inflater.inflate(R.layout.dialog_layout_request_access_camera, null)
+        dialogViewBuilder.setView(dialogView)
+
+        val dialog = dialogViewBuilder.create()
+        dialog.window?.setBackgroundDrawableResource(R.drawable.icon_background_square_rounded_dark)
+
+        // click oke button
+        dialogView.findViewById<Button>(R.id.allowButton).setOnClickListener {
+            permission?.let {  access ->
+                requestCameraPermission.launch(access)
+            }
             dialog.dismiss()
         }
 
@@ -117,14 +169,60 @@ class SnapFragment : Fragment() {
         )
     }
 
+    private val requestCameraPermission = registerForActivityResult(
+        ActivityResultContracts.RequestPermission()
+    ) { isSuccess ->
+        if (isSuccess) {
+            startCamera()
+        }
+    }
+
+    private val launcherIntentCamera = registerForActivityResult(
+        ActivityResultContracts.StartActivityForResult()
+    ) {
+        if (it.resultCode == Activity.RESULT_OK) {
+            showImage()
+        }
+    }
+    private fun startCamera() {
+        currentImageUri = CameraUtil.getImageUri(this.requireContext())
+
+        val intentCamera = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
+        intentCamera.resolveActivity(this.requireContext().packageManager)
+        intentCamera.putExtra(MediaStore.EXTRA_OUTPUT, currentImageUri)
+        launcherIntentCamera.launch(intentCamera)
+    }
+
+    private fun checkCameraPermissionAndStartCamera() {
+        val permission = Manifest.permission.CAMERA
+        when {
+            ContextCompat.checkSelfPermission(this.requireContext(), permission) == PackageManager.PERMISSION_GRANTED -> {
+                startCamera()
+            }
+            shouldShowRequestPermissionRationale(permission) -> {
+                showCustomCameraRequestDialog(permission)
+            }
+            else -> {
+                showCustomCameraRequestDialog(permission)
+            }
+        }
+    }
+
     private fun showImage() {
         currentImageUri?.let {  uri ->
             Log.d("image uri", "show image uri: $uri")
-            binding.previewSelectedImageView.setImageURI(uri)
+            binding.previewSelectedImageView.apply {
+                scaleType = ImageView.ScaleType.FIT_CENTER
+                setImageURI(uri)
+            }
         }
     }
 
     companion object {
         fun newInstance() = SnapFragment()
+
+        const val SNAP_IMAGE_URI = "EXTRA_IMAGE_URI"
+        const val SNAP_RESULT = "EXTRA_SNAP_RESULT"
+        const val SNAP_ACCURACY = "EXTRA_SNAP_ACCURACY"
     }
 }

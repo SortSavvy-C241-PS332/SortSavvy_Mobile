@@ -60,6 +60,10 @@ class MainActivity : AppCompatActivity() {
                     supportActionBar?.hide()
                     navView.visibility = View.GONE
                 }
+                R.id.navigation_snap_result -> {
+                    supportActionBar?.hide()
+                    navView.visibility = View.GONE
+                }
                 else -> {
                     navView.visibility = View.VISIBLE
                 }

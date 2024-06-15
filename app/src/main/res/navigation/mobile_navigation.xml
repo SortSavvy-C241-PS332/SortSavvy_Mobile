@@ -21,7 +21,11 @@
         android:id="@+id/navigation_snap"
         android:name="com.bangkit.sortsavvy.views.main.snap.SnapFragment"
         android:label="@string/title_snap"
-        tools:layout="@layout/fragment_snap" />
+        tools:layout="@layout/fragment_snap">
+        <action
+            android:id="@+id/action_snapFragment_to_snapResultFragment"
+            app:destination="@id/navigation_snap_result" />
+    </fragment>
 
     <fragment
         android:id="@+id/navigation_challenge"
@@ -34,4 +38,10 @@
         android:name="com.bangkit.sortsavvy.views.main.profile.ProfileFragment"
         android:label="@string/title_profile"
         tools:layout="@layout/fragment_profile" />
+
+    <fragment
+        android:id="@+id/navigation_snap_result"
+        android:name="com.bangkit.sortsavvy.views.main.snap.SnapResultFragment"
+        android:label="SnapResultFragment"
+        tools:layout="@layout/fragment_snap_result"/>
 </navigation>

@@ -64,4 +64,7 @@
     <string name="label_help_2">Pilih cari untuk mengetahui jenis sampah yang kamu foto</string>
     <string name="label_help_3">Buanglah sampah sesuai jenisnya dan pelajari cara olahnya</string>
     <string name="label_oke_button">Oke!</string>
+    <string name="scan_lagi">Scan lagi</string>
+    <string name="label_title_item_card">Label Title Item Card</string>
+    <string name="label_description_item_card">Label Description Item Card</string>
 </resources>

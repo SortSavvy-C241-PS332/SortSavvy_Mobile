@@ -31,6 +31,15 @@
         <item name="android:textSize">16sp</item>
     </style>
 
+    <style name="TextContent.DarkGreen">
+        <item name="android:textColor">@color/background_green</item>
+    </style>
+
+    <style name="TextContent.DarkGreen.TitleCard">
+        <item name="android:textSize">20sp</item>
+        <item name="android:fontFamily">@font/baloo_bhai_2_bold</item>
+    </style>
+
     <style name="TextContent.GreenEmerald" >
         <item name="android:textColor">@color/font_emerald_green</item>
     </style>
