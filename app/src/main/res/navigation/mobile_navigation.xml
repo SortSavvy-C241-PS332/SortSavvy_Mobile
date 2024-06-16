@@ -37,11 +37,31 @@
         android:id="@+id/navigation_profile"
         android:name="com.bangkit.sortsavvy.views.main.profile.ProfileFragment"
         android:label="@string/title_profile"
-        tools:layout="@layout/fragment_profile" />
+        tools:layout="@layout/fragment_profile" >
+        <action
+            android:id="@+id/action_navigation_profile_to_navigation_profile_settings"
+            app:destination="@id/navigation_profile_settings" />
+    </fragment>
 
     <fragment
         android:id="@+id/navigation_snap_result"
         android:name="com.bangkit.sortsavvy.views.main.snap.SnapResultFragment"
         android:label="SnapResultFragment"
         tools:layout="@layout/fragment_snap_result"/>
+
+    <fragment
+        android:id="@+id/navigation_profile_settings"
+        android:name="com.bangkit.sortsavvy.views.main.profile.SettingsProfileFragment"
+        android:label="ProfileSettingsFragment"
+        tools:layout="@layout/fragment_settings_profile">
+        <action
+            android:id="@+id/action_navigation_profile_settings_to_navigation_profile_settings_change_password"
+            app:destination="@id/navigation_profile_settings_change_password" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_profile_settings_change_password"
+        android:name="com.bangkit.sortsavvy.views.main.profile.ChangePasswordProfileFragment"
+        android:label="ProfileSettingsChangePasswordFragment"
+        tools:layout="@layout/fragment_change_password_profile"/>
 </navigation>

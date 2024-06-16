@@ -88,20 +88,23 @@ class SnapFragment : Fragment(), ImageClassifierUtil.ClassifierListener {
     }
 
     private fun analyzeImage() {
+
+        println("current image uri: $currentImageUri")
+
         currentImageUri?.let { imageUri ->
             val (label, accuracy) = classifyImage(imageUri)
-            navigateToResultFragment(imageUri, label, accuracy)
+            if (label != null && accuracy != null) {
+                navigateToResultFragment(imageUri, label, accuracy)
+            }
         }?:Toast.makeText(this.requireContext(), "Ambil gambar dari galeri atau kamera dulu yaa", Toast.LENGTH_SHORT).show()
     }
 
-    private fun classifyImage(imageUri: Uri): Pair<String, Float> {
+    private fun classifyImage(imageUri: Uri): Pair<String?, Float?> {
         imageClassifierUtil?.classifyStaticImage(imageUri)
-        return Pair(classificationLabel ?: "Unknown", classificationAccuracy ?: 0f)
+        return Pair(classificationLabel, classificationAccuracy)
     }
 
     private fun navigateToResultFragment(imageUri: Uri, result: String, accuracy: Float) {
-        val snapResultFragment = SnapResultFragment()
-
         val bundleData = Bundle().apply {
             putString(SNAP_IMAGE_URI, imageUri.toString())
             putString(SNAP_RESULT, result)
@@ -116,6 +119,7 @@ class SnapFragment : Fragment(), ImageClassifierUtil.ClassifierListener {
 //            addToBackStack(null)
 //            add(R.id.nav_host_fragment_activity_main, snapResultFragment, SnapResultFragment::class.java.simpleName)
 //        }
+        currentImageUri = null
     }
 
     private fun showCustomHelpDialog() {

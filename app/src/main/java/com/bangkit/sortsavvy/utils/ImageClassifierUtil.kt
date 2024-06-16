@@ -20,9 +20,9 @@ import org.tensorflow.lite.support.metadata.schema.NormalizationOptions
 import org.tensorflow.lite.support.metadata.schema.NormalizationOptionsT
 
 class ImageClassifierUtil(
-    var threshold: Float = 0.1f,
+    var threshold: Float = 0.001f,
     var maxResults: Int = 1,
-    var modelName: String = "model_ML_sort_savvy.tflite",
+    var modelName: String = "model_ML_sort_savvy_new_metadata_anorganik.tflite",
     val context: Context,
     val classifierListener: ClassifierListener?
 ) {
@@ -67,10 +67,9 @@ class ImageClassifierUtil(
         }
 
         val imageProcessor = ImageProcessor.Builder()
-            .add(ResizeOp(224, 224, ResizeOp.ResizeMethod.NEAREST_NEIGHBOR))
+            .add(ResizeOp(150, 150, ResizeOp.ResizeMethod.NEAREST_NEIGHBOR))
             .add(CastOp(DataType.FLOAT32))
-//            .add(NormalizeOp(0.0f, 1.0f))
-            .add(NormalizeOp(127.5f, 127.5f))  // This scales the values from [0, 255] to [-1, 1]
+//            .add(NormalizeOp(127.5f, 127.5f))  // This scales the values from [0, 255] to [-1, 1]
             .build()
 
         val copiedBitmap = uriToBitmap(imageUri, imageProcessor)
@@ -80,10 +79,25 @@ class ImageClassifierUtil(
 
             val results = imageClassifier?.classify(tensorImage)
 
-            val topResult = results?.get(0)?.categories?.get(0)
-            topResult?.let { category ->
-                val result = category.label // label result cancer or non-cancer
-                val accuracy = category.score * 100 // accuracy/confidenceScore
+//            results?.firstOrNull()?.categories?.firstOrNull()?.let { category ->
+//                val score = category.score
+//                val result = if (score >= 0.5) "organik" else "non_organik"
+//
+//                val accuracy = if (score >= 0.5) score else 1 - score
+//                classifierListener?.onResults(result, accuracy*100)
+//            }
+            if (results.isNullOrEmpty()) {
+                classifierListener?.onError("Failed to classify image.")
+                return
+            } else {
+                val topResult = results[0]
+                if (topResult.categories.isNullOrEmpty()) {
+                    classifierListener?.onError("No categories in classification result.")
+                    return
+                }
+                val topCategory = topResult.categories[0]
+                val accuracy = topCategory.score * 100
+                val result = topCategory.label
                 classifierListener?.onResults(result, accuracy)
             }
         }

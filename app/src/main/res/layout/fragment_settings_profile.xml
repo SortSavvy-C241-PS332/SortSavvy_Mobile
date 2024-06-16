@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/gradient_green"
+    android:fitsSystemWindows="true">
+
+        <ImageView
+            android:id="@+id/backgroundBottomProfileImageView"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:src="@drawable/background_bottom_rectangle_white_gray"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHeight_percent="0.7" />
+
+        <ImageButton
+            android:id="@+id/backBtnImageButton"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="25dp"
+            android:layout_marginTop="25dp"
+            android:background="@drawable/icon_background_next_btn"
+            android:contentDescription="@string/back_btn"
+            android:src="@drawable/ic_round_arrow_back_green_24"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/avatarImageView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="32dp"
+            android:padding="8dp"
+            android:background="@drawable/icon_background_next_btn"
+            android:src="@drawable/profile_thumbnail_avatar_syella"
+            app:layout_constraintBottom_toTopOf="@+id/backgroundBottomProfileImageView"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageButton
+            android:id="@+id/editAvatarImageButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:src="@drawable/icon_edit_image_avatar"
+            app:layout_constraintBottom_toBottomOf="@+id/avatarImageView"
+            app:layout_constraintEnd_toEndOf="@+id/avatarImageView" />
+
+        <TextView
+            android:id="@+id/emailTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/baloo_bhai_2"
+            android:text="syellamar@gmail.com"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            android:layout_marginTop="16dp"
+            app:layout_constraintEnd_toEndOf="@+id/avatarImageView"
+            app:layout_constraintStart_toStartOf="@+id/avatarImageView"
+            app:layout_constraintTop_toBottomOf="@+id/avatarImageView" />
+
+        <TextView
+            android:id="@+id/pageTitleTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/baloo_bhai_2_bold"
+            android:text="Pengaturan Akun"
+            android:textColor="@color/font_green"
+            android:textSize="28sp"
+            android:layout_marginTop="16dp"
+            app:layout_constraintEnd_toEndOf="@+id/backgroundBottomProfileImageView"
+            app:layout_constraintStart_toStartOf="@+id/backgroundBottomProfileImageView"
+            app:layout_constraintTop_toTopOf="@+id/backgroundBottomProfileImageView" />
+
+        <TextView
+            android:id="@+id/pageSubtitleTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/baloo_bhai_2"
+            android:textSize="14sp"
+            android:textColor="@color/background_green"
+            android:text="Ubah informasi akunmu di halaman ini"
+            app:layout_constraintEnd_toEndOf="@+id/pageTitleTextView"
+            app:layout_constraintStart_toStartOf="@+id/pageTitleTextView"
+            app:layout_constraintTop_toBottomOf="@+id/pageTitleTextView" />
+
+        <include
+            android:id="@+id/changePasswordCardButtonInclude"
+            layout="@layout/item_container_button_card"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="-16dp"
+            app:layout_constraintStart_toStartOf="@id/VerticalGuideline"
+            app:layout_constraintTop_toBottomOf="@+id/pageSubtitleTextView" />
+
+        <TextView
+            android:id="@+id/nameTitleTextView"
+            style="@style/TextContent.TitleEditText"
+            android:layout_marginTop="-16dp"
+            android:layout_marginStart="24dp"
+            android:text="@string/name"
+            app:layout_constraintStart_toStartOf="@+id/nameEditText"
+            app:layout_constraintTop_toBottomOf="@+id/changePasswordCardButtonInclude" />
+
+        <EditText
+            android:id="@+id/nameEditText"
+            style="@style/EditTextGeneral"
+            android:autofillHints="name"
+            android:hint="@string/name"
+            android:inputType="text"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/nameTitleTextView" />
+
+        <TextView
+            android:id="@+id/emailTitleTextView"
+            style="@style/TextContent.TitleEditText"
+            android:text="@string/email"
+            android:layout_marginStart="24dp"
+            app:layout_constraintStart_toStartOf="@+id/emailEditText"
+            app:layout_constraintTop_toBottomOf="@+id/nameEditText" />
+
+        <EditText
+            android:id="@+id/emailEditText"
+            style="@style/EditTextGeneral"
+            android:autofillHints="emailAddress"
+            android:hint="@string/email"
+            android:inputType="textEmailAddress"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/emailTitleTextView" />
+
+        <TextView
+            android:id="@+id/passwordTitleTextView"
+            style="@style/TextContent.TitleEditText"
+            android:layout_marginStart="50dp"
+            android:text="Masukkan kata sandi anda saat ini"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/emailEditText" />
+
+        <EditText
+            android:id="@+id/passwordEditText"
+            style="@style/EditTextGeneral"
+            android:autofillHints="password"
+            android:hint="Kata sandi anda saat ini"
+            android:inputType="textPassword"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/passwordTitleTextView" />
+
+        <Button
+            android:id="@+id/saveButton"
+            style="@style/ButtonGeneral.ActiveGreen"
+            android:text="@string/label_save"
+            android:layout_marginBottom="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/HorizontalGuideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_begin="314dp" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/VerticalGuideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="25dp" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

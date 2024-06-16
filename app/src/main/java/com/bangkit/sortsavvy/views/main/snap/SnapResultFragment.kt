@@ -38,12 +38,12 @@ class SnapResultFragment : Fragment() {
     }
 
     private fun setUpButtonListener() {
-        binding.backBtnImageButton.setOnClickListener {
-            // kalau pakai .popBackStack() bisa juga, tapi nanti ada bug ketika user ga sengaja double tap button nya
-            findNavController().navigateUp()
-        }
+//        binding.backBtnImageButton.setOnClickListener {
+//            // kalau pakai .popBackStack() bisa juga, tapi nanti ada bug ketika user ga sengaja double tap button nya
+//            findNavController().navigateUp()
+//        }
         binding.scanLagiButton.setOnClickListener {
-
+            findNavController().navigateUp()
         }
         binding.resultCardInclude.cardItemView.setOnClickListener {
             Toast.makeText(this.requireContext(), "Item Card Clicked", Toast.LENGTH_SHORT).show()

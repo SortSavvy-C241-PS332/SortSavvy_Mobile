@@ -21,12 +21,12 @@
     <string name="masuk">masuk</string>
     <string name="lanjutkan_guest_mode">Lanjutkan Guest Mode</string>
     <string name="title_login_register">Selamat Datang Sorters!</string>
-    <string name="email">Email</string>
+    <string name="email">Email Anda</string>
     <string name="password">Kata Sandi</string>
     <string name="login">Masuk</string>
     <string name="belum_punya_akun">Belum punya akun?</string>
     <string name="buat_akun">Buat Akun</string>
-    <string name="name">Nama</string>
+    <string name="name">Nama Lengkap</string>
     <string name="confirm_password">Ulangi Kata Sandi</string>
     <string name="register">Daftar</string>
     <string name="sudah_punya_akun">Sudah punya akun?</string>
@@ -69,4 +69,5 @@
     <string name="label_description_item_card">Label Description Item Card</string>
 
     <string name="error_initializing_model">Image classifier failed to initialize. See error logs for details</string>
+    <string name="label_save">Simpan</string>
 </resources>

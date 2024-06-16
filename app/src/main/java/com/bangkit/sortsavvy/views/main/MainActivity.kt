@@ -55,13 +55,18 @@ class MainActivity : AppCompatActivity() {
 
         // custom bottom navigation for specific fragment
         navController.addOnDestinationChangedListener { _, destination, _ ->
+            supportActionBar?.hide()
             when (destination.id) {
                 R.id.navigation_snap -> {
-                    supportActionBar?.hide()
                     navView.visibility = View.GONE
                 }
                 R.id.navigation_snap_result -> {
-                    supportActionBar?.hide()
+                    navView.visibility = View.GONE
+                }
+                R.id.navigation_profile_settings -> {
+                    navView.visibility = View.GONE
+                }
+                R.id.navigation_profile_settings_change_password -> {
                     navView.visibility = View.GONE
                 }
                 else -> {
