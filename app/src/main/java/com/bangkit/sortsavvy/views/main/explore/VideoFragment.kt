@@ -1,3 +1,5 @@
+package com.bangkit.sortsavvy.views.main.explore
+
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View

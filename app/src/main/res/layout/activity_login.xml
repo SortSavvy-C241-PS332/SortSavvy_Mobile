@@ -1,114 +1,134 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/gradient_green"
+    android:fillViewport="true"
     tools:context=".views.authentication.login.LoginActivity">
 
-    <ImageView
-        android:id="@+id/bottomBackgroundImageView"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:src="@drawable/login_rounded_background"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHeight_percent="0.75" />
+        android:layout_height="wrap_content" >
 
-    <ImageView
-        android:id="@+id/logoImageView"
-        android:layout_width="125dp"
-        android:layout_height="125dp"
-        android:src="@drawable/splashscreen_logo_sortsavvy"
-        app:layout_constraintBottom_toTopOf="@+id/bottomBackgroundImageView"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        <ImageView
+            android:id="@+id/bottomBackgroundImageView"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:src="@drawable/login_rounded_background"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHeight_percent="0.75" />
 
-    <TextView
-        android:id="@+id/titleTextView"
-        style="@style/TextContent.GreenEmerald.Title"
-        android:text="@string/title_login_register"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/bottomBackgroundImageView" />
+        <ImageView
+            android:id="@+id/logoImageView"
+            android:layout_width="125dp"
+            android:layout_height="125dp"
+            android:src="@drawable/splashscreen_logo_sortsavvy"
+            app:layout_constraintBottom_toTopOf="@+id/bottomBackgroundImageView"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/emailTitleTextView"
-        style="@style/TextContent.TitleEditText"
-        android:text="@string/email"
-        android:layout_marginStart="50dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/titleTextView" />
+        <TextView
+            android:id="@+id/titleTextView"
+            style="@style/TextContent.GreenEmerald.Title"
+            android:text="@string/title_login_register"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/bottomBackgroundImageView" />
 
-    <EditText
-        android:id="@+id/emailEditText"
-        style="@style/EditTextGeneral"
-        android:autofillHints="emailAddress"
-        android:hint="@string/email"
-        android:inputType="textEmailAddress"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/emailTitleTextView" />
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/emailEditTextLayout"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginHorizontal="25dp"
+            app:boxCornerRadiusTopStart="16dp"
+            app:boxCornerRadiusTopEnd="16dp"
+            app:boxCornerRadiusBottomStart="16dp"
+            app:boxCornerRadiusBottomEnd="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/titleTextView"
+            app:startIconDrawable="@drawable/ic_baseline_email_24">
 
-    <TextView
-        android:id="@+id/passwordTitleTextView"
-        style="@style/TextContent.TitleEditText"
-        android:layout_marginStart="50dp"
-        android:text="@string/password"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/emailEditText" />
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/emailEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/email"
+                android:ems="10"
+                android:inputType="textEmailAddress" />
+        </com.google.android.material.textfield.TextInputLayout>
 
-    <EditText
-        android:id="@+id/passwordEditText"
-        style="@style/EditTextGeneral"
-        android:autofillHints="password"
-        android:hint="@string/password"
-        android:inputType="textPassword"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/passwordTitleTextView" />
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/passwordEditTextLayout"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginHorizontal="25dp"
+            app:boxCornerRadiusTopStart="16dp"
+            app:boxCornerRadiusTopEnd="16dp"
+            app:boxCornerRadiusBottomStart="16dp"
+            app:boxCornerRadiusBottomEnd="16dp"
+            app:endIconMode="password_toggle"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/emailEditTextLayout"
+            app:startIconDrawable="@drawable/ic_baseline_password_24">
 
-    <Button
-        android:id="@+id/loginButton"
-        style="@style/ButtonGeneral.ActiveGreen"
-        android:layout_marginTop="24dp"
-        android:text="@string/login"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/passwordEditText" />
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/passwordEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/password"
+                android:ems="10"
+                android:inputType="textPassword" />
+        </com.google.android.material.textfield.TextInputLayout>
 
-    <TextView
-        android:id="@+id/labelBuatAkunTextView"
-        style="@style/TextContent"
-        android:layout_marginTop="14dp"
-        android:layout_marginStart="50dp"
-        android:text="@string/belum_punya_akun"
-        app:layout_constraintEnd_toStartOf="@+id/buatAkunTextView"
-        app:layout_constraintStart_toStartOf="@+id/loginButton"
-        app:layout_constraintTop_toBottomOf="@+id/loginButton" />
+        <Button
+            android:id="@+id/loginButton"
+            style="@style/ButtonGeneral.ActiveGreen"
+            android:layout_marginTop="24dp"
+            android:text="@string/login"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/passwordEditTextLayout" />
 
-    <TextView
-        android:id="@+id/buatAkunTextView"
-        style="@style/TextContent.GreenEmerald"
-        android:fontFamily="@font/baloo_bhai_2_bold"
-        android:text="@string/buat_akun"
-        android:layout_marginEnd="50dp"
-        app:layout_constraintEnd_toEndOf="@+id/loginButton"
-        app:layout_constraintStart_toEndOf="@+id/labelBuatAkunTextView"
-        app:layout_constraintTop_toTopOf="@+id/labelBuatAkunTextView" />
+        <TextView
+            android:id="@+id/labelBuatAkunTextView"
+            style="@style/TextContent"
+            android:layout_marginTop="14dp"
+            android:layout_marginStart="50dp"
+            android:text="@string/belum_punya_akun"
+            app:layout_constraintEnd_toStartOf="@+id/buatAkunTextView"
+            app:layout_constraintStart_toStartOf="@+id/loginButton"
+            app:layout_constraintTop_toBottomOf="@+id/loginButton" />
 
-    <ProgressBar
-        android:id="@+id/progress_bar"
-        android:visibility="invisible"
-        style="?android:attr/progressBarStyle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        <TextView
+            android:id="@+id/buatAkunTextView"
+            style="@style/TextContent.GreenEmerald"
+            android:fontFamily="@font/baloo_bhai_2_bold"
+            android:text="@string/buat_akun"
+            android:layout_marginEnd="50dp"
+            app:layout_constraintEnd_toEndOf="@+id/loginButton"
+            app:layout_constraintStart_toEndOf="@+id/labelBuatAkunTextView"
+            app:layout_constraintTop_toTopOf="@+id/labelBuatAkunTextView" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <ProgressBar
+            android:id="@+id/progress_bar"
+            android:visibility="invisible"
+            style="?android:attr/progressBarStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

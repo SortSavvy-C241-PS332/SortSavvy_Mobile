@@ -3,16 +3,22 @@ package com.bangkit.sortsavvy.views.main
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.bangkit.sortsavvy.R
 import com.bangkit.sortsavvy.data.pref.OnboardingPreferences
+import com.bangkit.sortsavvy.data.pref.UserPreferences
 import com.bangkit.sortsavvy.data.pref.onboardingDataStore
+import com.bangkit.sortsavvy.data.pref.userDataStore
 import com.bangkit.sortsavvy.databinding.ActivityMainBinding
 import com.bangkit.sortsavvy.utils.ViewComponentUtil
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import kotlinx.coroutines.flow.count
+import kotlinx.coroutines.flow.first
+import kotlinx.coroutines.launch
 
 class MainActivity : AppCompatActivity() {
 
@@ -29,8 +35,27 @@ class MainActivity : AppCompatActivity() {
             .getInstance(this.onboardingDataStore)
             .getOnboardingViewedStatus()
 
-        println(getOnboardingPreferences)
-        ViewComponentUtil.showToast(this, "onboarding status: $getOnboardingPreferences")
+        println("onboarding viewed? $getOnboardingPreferences")
+
+        lifecycleScope.launch {
+            getOnboardingPreferences.collect { isOnboardingViewed ->
+                println("onboarding viewed? $isOnboardingViewed")
+            }
+        }
+
+        val getUserSessionPreferences = UserPreferences
+            .getInstance(this.userDataStore)
+            .getSession()
+
+        lifecycleScope.launch {
+            getUserSessionPreferences.collect { userModel ->
+                println("User ID: ${userModel.userId}")
+                println("Email: ${userModel.email}")
+                println("Full Name: ${userModel.fullName}")
+                println("Profile Photo: ${userModel.profilePhoto}")
+                println("Is Login: ${userModel.isLogin}")
+            }
+        }
 
         setupBottomNavigation()
     }

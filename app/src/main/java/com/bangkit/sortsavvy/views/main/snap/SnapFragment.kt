@@ -22,25 +22,31 @@ import android.provider.MediaStore
 import android.widget.ImageView
 import android.widget.Toast
 import androidx.fragment.app.commit
+import androidx.lifecycle.ViewModelProvider
 import com.bangkit.sortsavvy.R
 import com.bangkit.sortsavvy.databinding.FragmentSnapBinding
+import com.bangkit.sortsavvy.factory.ViewModelFactory
 import com.bangkit.sortsavvy.utils.CameraUtil
 import com.bangkit.sortsavvy.utils.ImageClassifierUtil
+import com.bangkit.sortsavvy.utils.ViewComponentUtil
+import com.bangkit.sortsavvy.views.authentication.login.LoginViewModel
 
-class SnapFragment : Fragment(), ImageClassifierUtil.ClassifierListener {
+class SnapFragment : Fragment() {
 
     private lateinit var binding: FragmentSnapBinding
     private lateinit var viewModel: SnapViewModel
 
-    private var currentImageUri: Uri? = null
+//    private var currentImageUri: Uri? = null
 
     private var imageClassifierUtil: ImageClassifierUtil? = null
-    private var classificationLabel: String? = null
-    private var classificationAccuracy: Float? = null
+//    private var classificationLabel: String? = null
+//    private var classificationAccuracy: Float? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        (activity as AppCompatActivity).supportActionBar?.hide()
+
+        val viewModelFactory= ViewModelFactory.getInstance(this.requireContext())
+        viewModel = ViewModelProvider(this, viewModelFactory)[SnapViewModel::class.java]
     }
 
     override fun onCreateView(
@@ -58,19 +64,43 @@ class SnapFragment : Fragment(), ImageClassifierUtil.ClassifierListener {
 
         imageClassifierUtil = ImageClassifierUtil(
             context = this.requireContext(),
-            classifierListener = this@SnapFragment
+            classifierListener = viewModel
         )
+
+        viewModel.currentImageUri.observe(viewLifecycleOwner) { uri ->
+            println("observe currentImageUri -> $uri")
+            if (uri != null) {
+                println("observe currentImageUri show image -> $uri")
+                showImage(uri)
+            } else {
+                binding.previewSelectedImageView.setImageResource(R.drawable.ic_background_outline_image_64)
+            }
+        }
+
+        viewModel.classificationResults.observe(viewLifecycleOwner) { result ->
+            println("observe classificationResults -> ${result?.first} - ${result?.second}")
+            result?.let { (label, accuracy) ->
+                viewModel.currentImageUri.value?.let { uri ->
+                    println("observe classificationResults -> $uri, $label, $accuracy")
+                    navigateToResultFragment(uri, label, accuracy)
+                }
+            }
+        }
+
+        viewModel.error.observe(viewLifecycleOwner) { error ->
+            println("observe error -> $error")
+            error?.let { message ->
+                ViewComponentUtil.showToast(this.requireContext(), message)
+            }
+        }
     }
 
     private fun setUpButtonListener() {
         binding.backBtnImageButton.setOnClickListener {
-            // kalau pakai .popBackStack() bisa juga, tapi nanti ada bug ketika user ga sengaja double tap button nya
-            // https://youtu.be/y2zLFONuk7c?t=122
             findNavController().navigateUp()
         }
 
         binding.helpBtnImageButton.setOnClickListener {
-            // navigate to help fragment
             showCustomHelpDialog()
         }
 
@@ -83,26 +113,32 @@ class SnapFragment : Fragment(), ImageClassifierUtil.ClassifierListener {
         }
 
         binding.cariButton.setOnClickListener {
-            analyzeImage()
+            viewModel.currentImageUri.value?.let { uri ->
+                println("cariButton currentImageUri -> $uri")
+                imageClassifierUtil?.let { util ->
+                    println("cariButton imageClassifierUtil -> $uri")
+                    viewModel.analyzeImage(uri, util)
+                }
+            } ?: ViewComponentUtil.showToast(this.requireContext(), "Ambil gambar dari galeri atau kamera dulu yaa")
         }
     }
 
-    private fun analyzeImage() {
+//    private fun analyzeImage() {
+//
+//        println("current image uri: $currentImageUri")
+//
+//        currentImageUri?.let { imageUri ->
+//            val (label, accuracy) = classifyImage(imageUri)
+//            if (label != null && accuracy != null) {
+//                navigateToResultFragment(imageUri, label, accuracy)
+//            }
+//        }?: ViewComponentUtil.showToast(this.requireContext(), "Ambil gambar dari galeri atau kamera dulu yaa")
+//    }
 
-        println("current image uri: $currentImageUri")
-
-        currentImageUri?.let { imageUri ->
-            val (label, accuracy) = classifyImage(imageUri)
-            if (label != null && accuracy != null) {
-                navigateToResultFragment(imageUri, label, accuracy)
-            }
-        }?:Toast.makeText(this.requireContext(), "Ambil gambar dari galeri atau kamera dulu yaa", Toast.LENGTH_SHORT).show()
-    }
-
-    private fun classifyImage(imageUri: Uri): Pair<String?, Float?> {
-        imageClassifierUtil?.classifyStaticImage(imageUri)
-        return Pair(classificationLabel, classificationAccuracy)
-    }
+//    private fun classifyImage(imageUri: Uri): Pair<String?, Float?> {
+//        imageClassifierUtil?.classifyStaticImage(imageUri)
+//        return Pair(classificationLabel, classificationAccuracy)
+//    }
 
     private fun navigateToResultFragment(imageUri: Uri, result: String, accuracy: Float) {
         val bundleData = Bundle().apply {
@@ -119,7 +155,7 @@ class SnapFragment : Fragment(), ImageClassifierUtil.ClassifierListener {
 //            addToBackStack(null)
 //            add(R.id.nav_host_fragment_activity_main, snapResultFragment, SnapResultFragment::class.java.simpleName)
 //        }
-        currentImageUri = null
+        viewModel.setCurrentImageUri(null)
     }
 
     private fun showCustomHelpDialog() {
@@ -163,8 +199,7 @@ class SnapFragment : Fragment(), ImageClassifierUtil.ClassifierListener {
         ActivityResultContracts.PickVisualMedia()
     ) { uri: Uri? ->
         if (uri != null) {
-            currentImageUri = uri
-            showImage()
+            viewModel.setCurrentImageUri(uri)
         } else {
             Log.d("Photo Picker", "No media selected")
         }
@@ -184,7 +219,12 @@ class SnapFragment : Fragment(), ImageClassifierUtil.ClassifierListener {
         ActivityResultContracts.RequestPermission()
     ) { isSuccess ->
         if (isSuccess) {
+            println("requestCameraPermission start camera")
             startCamera()
+        } else {
+            viewModel.currentImageUri.value?.let { uri ->
+                showImage(uri)
+            } ?: viewModel.setCurrentImageUri(null)
         }
     }
 
@@ -192,15 +232,33 @@ class SnapFragment : Fragment(), ImageClassifierUtil.ClassifierListener {
         ActivityResultContracts.StartActivityForResult()
     ) {
         if (it.resultCode == Activity.RESULT_OK) {
-            showImage()
+            println("launcherIntentCamera currentUri -> ${viewModel.currentImageUri.value}")
+            val getTempUri = viewModel.tempImageUri.value
+            println("launcherIntentCamera tempUri -> $getTempUri")
+            viewModel.setCurrentImageUri(getTempUri)
+            println("launcherIntentCamera currentUri after setobserve -> ${viewModel.currentImageUri.value}")
+
+//            viewModel.currentImageUri.value?.let { uri ->
+//                println("launcherIntentCamera RESULT_OK uri -> $uri")
+//                showImage(uri)
+//            }
+        } else {
+            println("launcherIntentCamera uri else -> ${viewModel.currentImageUri.value}")
+            viewModel.currentImageUri.value?.let { uri ->
+                showImage(uri)
+            } ?: viewModel.setCurrentImageUri(null)
         }
     }
+
     private fun startCamera() {
-        currentImageUri = CameraUtil.getImageUri(this.requireContext())
+        val uri = CameraUtil.getImageUri(this.requireContext())
+        viewModel.setTempImageUri(uri)
+
+        println("startCamera uri -> $uri")
 
         val intentCamera = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
         intentCamera.resolveActivity(this.requireContext().packageManager)
-        intentCamera.putExtra(MediaStore.EXTRA_OUTPUT, currentImageUri)
+        intentCamera.putExtra(MediaStore.EXTRA_OUTPUT, uri)
         launcherIntentCamera.launch(intentCamera)
     }
 
@@ -219,13 +277,10 @@ class SnapFragment : Fragment(), ImageClassifierUtil.ClassifierListener {
         }
     }
 
-    private fun showImage() {
-        currentImageUri?.let {  uri ->
-            Log.d("image uri", "show image uri: $uri")
-            binding.previewSelectedImageView.apply {
-                scaleType = ImageView.ScaleType.FIT_CENTER
-                setImageURI(uri)
-            }
+    private fun showImage(uri: Uri) {
+        binding.previewSelectedImageView.apply {
+            scaleType = ImageView.ScaleType.FIT_CENTER
+            setImageURI(uri)
         }
     }
 
@@ -235,14 +290,5 @@ class SnapFragment : Fragment(), ImageClassifierUtil.ClassifierListener {
         const val SNAP_IMAGE_URI = "EXTRA_IMAGE_URI"
         const val SNAP_RESULT = "EXTRA_SNAP_RESULT"
         const val SNAP_ACCURACY = "EXTRA_SNAP_ACCURACY"
-    }
-
-    override fun onError(error: String) {
-
-    }
-
-    override fun onResults(result: String, accuracy: Float) {
-        classificationLabel = result
-        classificationAccuracy = accuracy
     }
 }

@@ -5,8 +5,10 @@ import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.lifecycleScope
 import com.bangkit.sortsavvy.data.model.ResultState
 import com.bangkit.sortsavvy.data.model.UserModel
+import com.bangkit.sortsavvy.data.remote.response.UserDataLogin
 import com.bangkit.sortsavvy.databinding.ActivityLoginBinding
 import com.bangkit.sortsavvy.factory.ViewModelFactory
 import com.bangkit.sortsavvy.utils.ViewComponentUtil
@@ -30,8 +32,7 @@ class LoginActivity : AppCompatActivity() {
         viewModel = ViewModelProvider(this, viewModelFactory)[LoginViewModel::class.java]
 
         binding.loginButton.setOnClickListener {
-            ViewComponentUtil.showToast(this@LoginActivity, "Fitur belum tersedia")
-//            loginAccount()
+            validateUserForm()
         }
 
         binding.buatAkunTextView.setOnClickListener {
@@ -39,11 +40,19 @@ class LoginActivity : AppCompatActivity() {
             startActivity(intent)
             finish()
         }
+
+        viewModel.invalidValidation.observe(this) { message ->
+            ViewComponentUtil.showToast(this@LoginActivity, message)
+        }
     }
 
-    private fun loginAccount() {
+    private fun validateUserForm() {
         val (email, password) = getDataUserFromForm()
+        val isValid: Boolean = viewModel.validateUserForm(email, password)
+        if (isValid) loginAccount(email, password)
+    }
 
+    private fun loginAccount(email: String, password: String) {
         viewModel.loginAccount(email, password).observe(this@LoginActivity) { resultState ->
             if (resultState != null) {
                 when (resultState) {
@@ -54,11 +63,13 @@ class LoginActivity : AppCompatActivity() {
                     is ResultState.Success -> {
                         binding.progressBar.visibility = View.GONE
                         binding.loginButton.isEnabled = true
-//                        val message = "Selamat datang ${resultState.data.loginResult.name}"
-//                        ViewComponentUtil.showToast(this@LoginActivity, message)
+                        // bug resultState.data.message is not found
+                        val message = "Selamat datang ${resultState.data.userDataLogin.fullName}"
+                        ViewComponentUtil.showToast(this@LoginActivity, message)
 
-                        val user = createUserModelSession(resultState)
+                        val user = createUserModelSession(resultState.data.userDataLogin)
                         viewModel.setSession(user)
+                        viewModel.setOnboardingViewedStatus(true)
                     }
                     is ResultState.Error -> {
                         binding.progressBar.visibility = View.GONE
@@ -69,18 +80,21 @@ class LoginActivity : AppCompatActivity() {
             }
         }
 
-        viewModel.isSessionSaved.observe(this) { isSessionSaved ->
-            if (isSessionSaved) {
+        viewModel.isReadyToNavigate.observe(this@LoginActivity) { isReadyToNavigate ->
+            if (isReadyToNavigate) {
                 navigateToHomeScreen()
             }
         }
     }
 
-    private fun createUserModelSession(resultState: ResultState<Unit>):  UserModel {
-        val email = "resultState.data.loginResult.email"
-        val token = "resultState.data.loginResult.token"
+    private fun createUserModelSession(userData: UserDataLogin):  UserModel {
+        val userID = "123"
+        val email = userData.email
+        val fullName = userData.fullName
+        val profilePhoto = userData.profilePhoto
         val isLogin = true
-        return UserModel(email, token, isLogin)
+
+        return UserModel(userID, email, fullName, profilePhoto,isLogin)
     }
 
     private fun getDataUserFromForm(): Pair<String, String> {

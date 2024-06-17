@@ -96,8 +96,12 @@ class ImageClassifierUtil(
                     return
                 }
                 val topCategory = topResult.categories[0]
-                val accuracy = topCategory.score * 100
-                val result = topCategory.label
+                var accuracy = topCategory.score * 100
+                var result = topCategory.label
+                if (accuracy < 50) {
+                    result = "organik"
+                    accuracy = 100 - accuracy
+                }
                 classifierListener?.onResults(result, accuracy)
             }
         }

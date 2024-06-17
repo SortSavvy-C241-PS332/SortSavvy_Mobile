@@ -62,6 +62,5 @@ class WelcomeActivity : AppCompatActivity() {
         val moveIntent = Intent(this@WelcomeActivity, MainActivity::class.java)
         startActivity(moveIntent)
         finish()
-        ViewComponentUtil.showToast(this, "Navigate to home screen")
     }
 }

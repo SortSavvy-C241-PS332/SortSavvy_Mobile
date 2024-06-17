@@ -9,9 +9,12 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.bangkit.sortsavvy.R
 import com.bangkit.sortsavvy.databinding.FragmentSnapResultBinding
+import com.bangkit.sortsavvy.factory.ViewModelFactory
+import com.bangkit.sortsavvy.utils.ViewComponentUtil
 
 class SnapResultFragment : Fragment() {
 
@@ -20,6 +23,9 @@ class SnapResultFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        val viewModelFactory= ViewModelFactory.getInstance(this.requireContext())
+        viewModel = ViewModelProvider(this, viewModelFactory)[SnapResultViewModel::class.java]
     }
 
     override fun onCreateView(
@@ -35,18 +41,23 @@ class SnapResultFragment : Fragment() {
 
         setUpButtonListener()
         getDataBundleSnapResult()
+
+        viewModel.imageUri.observe(viewLifecycleOwner) { uri ->
+            binding.previewSelectedImageView.setImageURI(uri)
+        }
+
+        viewModel.classificationResults.observe(viewLifecycleOwner) { result ->
+            binding.titleResultSnapTextView.text = result?.first
+            binding.accuracyResultSnapTextView.text = "Tingkat Keyakinan: " + String.format("%.2f", result?.second)
+        }
     }
 
     private fun setUpButtonListener() {
-//        binding.backBtnImageButton.setOnClickListener {
-//            // kalau pakai .popBackStack() bisa juga, tapi nanti ada bug ketika user ga sengaja double tap button nya
-//            findNavController().navigateUp()
-//        }
         binding.scanLagiButton.setOnClickListener {
             findNavController().navigateUp()
         }
         binding.resultCardInclude.cardItemView.setOnClickListener {
-            Toast.makeText(this.requireContext(), "Item Card Clicked", Toast.LENGTH_SHORT).show()
+            ViewComponentUtil.showToast(this.requireContext(), "Item Card Clicked")
         }
     }
 
@@ -56,17 +67,21 @@ class SnapResultFragment : Fragment() {
             val result = arguments?.getString(SnapFragment.SNAP_RESULT)
             val accuracy = arguments?.getFloat(SnapFragment.SNAP_ACCURACY)
 
-            binding.previewSelectedImageView.setImageURI(Uri.parse(imageUri))
-            binding.titleResultSnapTextView.text = result
-            binding.accuracyResultSnapTextView.text = "Tingkat Keyakinan: ${accuracy}%"  // dari awal sudah dikali 100
-            if (result != null) {
+            if (result != null && accuracy != null && imageUri != null) {
+                viewModel.setDataBundleSnapResult(imageUri, result, accuracy)
                 setItemCard(result)
             }
+
         }
     }
 
     private fun setItemCard(result: String) {
         binding.resultCardInclude.itemTitleObjectTextView.text = result
+        if (result == "organik") {
+            binding.resultCardInclude.itemDescriptionObjectTextView.text = "Sampah organik adalah sampah yang berasal dari makhluk hidup, baik itu hewan maupun tumbuhan, dan mudah terurai oleh mikroorganisme."
+        } else if (result == "anorganik") {
+            binding.resultCardInclude.itemDescriptionObjectTextView.text = "Sampah anorganik adalah sampah yang berasal dari bahan-bahan non-biologis dan tidak mudah terurai oleh mikroorganisme."
+        }
     }
 
     companion object {

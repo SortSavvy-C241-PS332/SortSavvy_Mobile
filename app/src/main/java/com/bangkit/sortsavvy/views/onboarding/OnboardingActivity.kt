@@ -41,9 +41,8 @@ class OnboardingActivity : AppCompatActivity() {
         viewModel = ViewModelProvider(this, viewModelFactory)[OnboardingViewModel::class.java]
 
         viewModel.getOnboardingPreferences().observe(this) { isOnboardingViewedStatus ->
-            println("isOnboardingViewedStatus: $isOnboardingViewedStatus")
             if (isOnboardingViewedStatus == true) {
-                ViewComponentUtil.showToast(this, "Onboarding viewed")
+                println("ActivityOnboardingBinding onboarding viewed -> $isOnboardingViewedStatus")
                 Log.d(TAG, isOnboardingViewedStatus.toString())
                 navigateToMainActivityScreen()
             } else {
@@ -142,7 +141,6 @@ class OnboardingActivity : AppCompatActivity() {
         val moveIntent = Intent(this@OnboardingActivity, MainActivity::class.java)
         startActivity(moveIntent)
         finish()
-        ViewComponentUtil.showToast(this, "Navigate to main home screen")
     }
 
     private fun setupIndicators() {

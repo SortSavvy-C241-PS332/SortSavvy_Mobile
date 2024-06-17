@@ -4,6 +4,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
 import com.bangkit.sortsavvy.views.main.explore.LangkahLangkahFragment
+import com.bangkit.sortsavvy.views.main.explore.VideoFragment
 
 class CaraOlahPagerAdapter(fm: FragmentManager) : FragmentPagerAdapter(fm, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT) {
 

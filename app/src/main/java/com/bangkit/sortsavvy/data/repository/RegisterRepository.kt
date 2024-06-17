@@ -11,10 +11,10 @@ class RegisterRepository(
     private val apiService: ApiService
 ) {
 
-    fun registerAccount(name: String, email: String, password: String) = liveData {
+    fun registerAccount(name: String, email: String, password: String, confirmPassword: String) = liveData {
         emit(ResultState.Loading)
         try {
-            val successResponse = apiService.registerAccount(name, email, password)
+            val successResponse = apiService.registerAccount(name, email, password, confirmPassword)
             emit(ResultState.Success(successResponse))
         } catch (e: HttpException) {
             val errorJsonString = e.response()?.errorBody()?.string()

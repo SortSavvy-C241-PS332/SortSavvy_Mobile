@@ -7,6 +7,8 @@ import com.bangkit.sortsavvy.di.AuthenticationInjection
 import com.bangkit.sortsavvy.di.OnboardingInjection
 import com.bangkit.sortsavvy.views.authentication.login.LoginViewModel
 import com.bangkit.sortsavvy.views.authentication.register.RegisterViewModel
+import com.bangkit.sortsavvy.views.main.snap.SnapResultViewModel
+import com.bangkit.sortsavvy.views.main.snap.SnapViewModel
 import com.bangkit.sortsavvy.views.onboarding.OnboardingViewModel
 import com.bangkit.sortsavvy.views.welcome.WelcomeViewModel
 
@@ -21,7 +23,8 @@ class ViewModelFactory(private val context: Context) : ViewModelProvider.NewInst
             }
             modelClass.isAssignableFrom(LoginViewModel::class.java) -> {
                 val loginRepository = AuthenticationInjection.provideLoginRepository(context)
-                LoginViewModel(loginRepository) as T
+                val onboardingRepository = OnboardingInjection.provideOnboardingRepository(context)
+                LoginViewModel(loginRepository, onboardingRepository) as T
             }
             modelClass.isAssignableFrom(RegisterViewModel::class.java) -> {
                 val registerRepository = AuthenticationInjection.provideRegisterRepository()
@@ -30,6 +33,12 @@ class ViewModelFactory(private val context: Context) : ViewModelProvider.NewInst
             modelClass.isAssignableFrom(WelcomeViewModel::class.java) -> {
                 val onboardingRepository = OnboardingInjection.provideOnboardingRepository(context)
                 WelcomeViewModel(onboardingRepository) as T
+            }
+            modelClass.isAssignableFrom(SnapViewModel::class.java) -> {
+                SnapViewModel() as T
+            }
+            modelClass.isAssignableFrom(SnapResultViewModel::class.java) -> {
+                SnapResultViewModel() as T
             }
             else -> throw IllegalArgumentException("Unknown ViewModel class: ${modelClass.name}. Ensure the ViewModel class is correctly registered.")
         }
