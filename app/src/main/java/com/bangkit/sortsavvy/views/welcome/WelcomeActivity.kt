@@ -21,7 +21,7 @@ class WelcomeActivity : AppCompatActivity() {
         binding = ActivityWelcomeBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        setUnderLineGuestModeTextView()
+//        setUnderLineGuestModeTextView()
         supportActionBar?.hide()
 
         val viewModelFactory = ViewModelFactory.getInstance(this@WelcomeActivity)
@@ -30,12 +30,12 @@ class WelcomeActivity : AppCompatActivity() {
         setButtonNavigationListener()
     }
 
-    private fun setUnderLineGuestModeTextView() {
-        val valueString = binding.guestModeTextView.text
-        val spannableString = ViewComponentUtil.createUnderlinedSpannableString(valueString.toString())
-
-        binding.guestModeTextView.text = spannableString
-    }
+//    private fun setUnderLineGuestModeTextView() {
+//        val valueString = binding.guestModeTextView.text
+//        val spannableString = ViewComponentUtil.createUnderlinedSpannableString(valueString.toString())
+//
+//        binding.guestModeTextView.text = spannableString
+//    }
 
     private fun setButtonNavigationListener() {
         binding.loginButton.setOnClickListener {
@@ -48,14 +48,14 @@ class WelcomeActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
-        binding.guestModeTextView.setOnClickListener {
-            viewModel.setOnboardingViewedStatus(true)
-            viewModel.isOnboardingViewed.observe(this) { isOnboardingViewedStatus ->
-                if (isOnboardingViewedStatus == true) {
-                    navigateToHomeScreen()
-                }
-            }
-        }
+//        binding.guestModeTextView.setOnClickListener {
+//            viewModel.setOnboardingViewedStatus(true)
+//            viewModel.isOnboardingViewed.observe(this) { isOnboardingViewedStatus ->
+//                if (isOnboardingViewedStatus == true) {
+//                    navigateToHomeScreen()
+//                }
+//            }
+//        }
     }
 
     private fun navigateToHomeScreen() {
