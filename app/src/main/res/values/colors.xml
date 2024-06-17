@@ -8,7 +8,8 @@
 <!--    <color name="emerald_green">#24BF67</color>-->
 <!--    <color name="ivory_white">#EBF2EB</color>-->
 
-    <color name="light_green">#F2F7F4</color>
+    <color name="light_green">#DAFFE9</color>
+    <color name="light_purple">#EEE1FF</color>
     <color name="light_gray" >#BFBFBF</color>
 
     // font
@@ -19,6 +20,7 @@
 
     // background
     <color name="background_green">#13875B</color>
+    <color name="background_purple">#91209C</color>
     <color name="background_light_green">#23BA66</color>
     <color name="background_emerald_green">#24BF67</color>
     <color name="background_white_gray">#F2F3F7</color>

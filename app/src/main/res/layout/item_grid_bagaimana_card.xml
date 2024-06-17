@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GridLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:rowCount="3"
+    android:columnCount="1"
+    android:orientation="horizontal"
+    android:paddingStart="25dp"
+    android:paddingEnd="25dp"
+    android:layout_margin="4dp">
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_columnWeight="1"
+        android:layout_margin="4dp"
+        app:cardElevation="4dp"
+        app:cardCornerRadius="16dp">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="7"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/itemTitleObject1TextView"
+                style="@style/TextContent.DarkGreen.TitleCard"
+                android:textSize="16sp"
+                android:textColor="@color/font_black"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:text="Memahami Bumi Kita Tidak Baik-Baik Saja"
+                android:ellipsize="end"
+                android:maxLines="1" />
+
+            <TextView
+                android:id="@+id/itemDescriptionObject1TextView"
+
+                style="@style/TextContent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginBottom="16dp"
+                android:layout_marginEnd="16dp"
+                android:text="Pahamilah pentingnya menjaga kebersihan lingkungan dan bagaimana sampah yang tidak dikelola dengan baik bisa merusak bumi kita."
+                android:ellipsize="end"
+                android:maxLines="4" />
+        </LinearLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_columnWeight="1"
+        android:layout_margin="4dp"
+        app:cardElevation="4dp"
+        app:cardCornerRadius="16dp">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="7"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/itemTitleObject2TextView"
+                style="@style/TextContent.DarkGreen.TitleCard"
+                android:textSize="16sp"
+                android:textColor="@color/font_black"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:text="Memahami Cara Pilah Sampah"
+                android:ellipsize="end"
+                android:maxLines="1" />
+
+            <TextView
+                android:id="@+id/itemDescriptionObject2TextView"
+                style="@style/TextContent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginBottom="16dp"
+                android:layout_marginEnd="16dp"
+                android:text="Dengan memahami cara membedakan jenis sampah organik dan anorganik, kita bisa membantu proses daur ulang dan pengelolaan sampah yang lebih efektif."
+                android:ellipsize="end"
+                android:maxLines="4" />
+        </LinearLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_columnWeight="1"
+        android:layout_margin="4dp"
+        app:cardElevation="4dp"
+        app:cardCornerRadius="16dp">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="7"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/itemTitleObject3TextView"
+                style="@style/TextContent.DarkGreen.TitleCard"
+                android:textSize="16sp"
+                android:textColor="@color/font_black"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:text="Mulailah dari Hal Kecil"
+                android:ellipsize="end"
+                android:maxLines="1" />
+
+            <TextView
+                android:id="@+id/itemDescriptionObject3TextView"
+                style="@style/TextContent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginBottom="16dp"
+                android:layout_marginEnd="16dp"
+                android:text="Buang sampah sesuai jenisnya dan sebarkan pemahaman ini ke teman-teman, sehingga lebih banyak orang yang peduli dan beraksi untuk menjaga kebersihan lingkungan."
+                android:ellipsize="end"
+                android:maxLines="4" />
+        </LinearLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+</GridLayout>

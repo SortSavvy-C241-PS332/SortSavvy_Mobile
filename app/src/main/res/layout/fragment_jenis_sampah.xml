@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/gradient_green"
+    tools:context=".views.main.explore.JenisSampahFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/jenisImageView"
+            android:layout_width="411dp"
+            android:layout_height="294dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:src="@drawable/organik_ldscp" />
+
+        <ImageButton
+            android:id="@+id/backBtnImageButton"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="25dp"
+            android:layout_marginTop="25dp"
+            android:background="@drawable/ic_background_back_button"
+            android:contentDescription="@string/back_btn"
+            android:src="@drawable/ic_round_arrow_back_white_24"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/backgroundDeskripsiPengenalanImageView"
+            android:layout_width="match_parent"
+            android:layout_height="1613dp"
+            android:layout_marginTop="272dp"
+            android:contentDescription="@string/bottom_background_menu_snap"
+            android:src="@drawable/background_bottom_rectangle_white_gray"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:layout_editor_absoluteX="0dp" />
+
+        <TextView
+            android:id="@+id/judulTextView"
+            style="@style/TextContent.DarkGreen.TitleCard"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="Organik"
+            android:textSize="32sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/backgroundDeskripsiPengenalanImageView" />
+
+        <TextView
+            android:id="@+id/deskripsiHeadTextView"
+            style="@style/TextContent.DarkGreen.TitleCard"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="25dp"
+            android:layout_marginTop="13dp"
+            android:text="Deskripsi"
+            android:textColor="@color/font_black"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/judulTextView" />
+
+        <TextView
+            android:id="@+id/deskripsiTextView"
+            style="@style/TextContent"
+            android:layout_width="362dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="3dp"
+            android:text="Sampah organik adalah sampah yang berasal dari makhluk hidup, baik itu hewan maupun tumbuhan, dan mudah terurai oleh mikroorganisme."
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.51"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/deskripsiHeadTextView" />
+
+        <TextView
+            android:id="@+id/ciriHeadTextView"
+            style="@style/TextContent.DarkGreen.TitleCard"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="25dp"
+            android:layout_marginTop="13dp"
+            android:text="Ciri-ciri"
+            android:textColor="@color/font_black"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/deskripsiTextView" />
+
+        <include
+            android:id="@+id/ciri1CardInclude"
+            layout="@layout/item_ciri_card"
+            android:layout_marginStart="25dp"
+            android:layout_marginEnd="25dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/ciriHeadTextView" />
+
+        <include
+            android:id="@+id/ciri2CardInclude"
+            layout="@layout/item_ciri_card"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="25dp"
+            android:layout_marginEnd="25dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/ciri1CardInclude" />
+
+        <TextView
+            android:id="@+id/contohHeadTextView"
+            style="@style/TextContent.DarkGreen.TitleCard"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="25dp"
+            android:layout_marginTop="20dp"
+            android:text="Contoh"
+            android:textColor="@color/font_black"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ciri2CardInclude" />
+
+        <!--include contoh array nested-->
+
+        <TextView
+            android:id="@+id/caraOlahHeadTextView"
+            style="@style/TextContent.DarkGreen.TitleCard"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="25dp"
+            android:layout_marginTop="20dp"
+            android:text="Cara Olah"
+            android:textColor="@color/font_black"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/contohHeadTextView" />
+
+        <include
+            android:id="@+id/caraOlah1CardInclude"
+            layout="@layout/item_content_card"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="25dp"
+            android:layout_marginEnd="25dp"
+            app:layout_constraintTop_toBottomOf="@+id/caraOlahHeadTextView" />
+
+        <include
+            android:id="@+id/caraOlah2CardInclude"
+            layout="@layout/item_content_card"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="13dp"
+            android:layout_marginStart="25dp"
+            android:layout_marginEnd="25dp"
+            app:layout_constraintTop_toBottomOf="@+id/caraOlah1CardInclude" />
+
+        <include
+            android:id="@+id/caraOlah3CardInclude"
+            layout="@layout/item_content_card"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="13dp"
+            android:layout_marginStart="25dp"
+            android:layout_marginEnd="25dp"
+            app:layout_constraintTop_toBottomOf="@+id/caraOlah2CardInclude" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>

@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/gradient_green"
+    tools:context=".views.main.explore.PenangananFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/penangananImageView"
+            android:layout_width="411dp"
+            android:layout_height="294dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:src="@drawable/penanganan_ldscp" />
+
+        <ImageButton
+            android:id="@+id/backBtnImageButton"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="25dp"
+            android:layout_marginTop="25dp"
+            android:background="@drawable/ic_background_back_button"
+            android:contentDescription="@string/back_btn"
+            android:src="@drawable/ic_round_arrow_back_white_24"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/backgroundDeskripsiPengenalanImageView"
+            android:layout_width="match_parent"
+            android:layout_height="1613dp"
+            android:layout_marginTop="272dp"
+            android:contentDescription="@string/bottom_background_menu_snap"
+            android:src="@drawable/background_bottom_rectangle_white_gray"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:layout_editor_absoluteX="0dp" />
+
+        <TextView
+            android:id="@+id/judulTextView"
+            style="@style/TextContent.DarkGreen.TitleCard"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="3R dan Bank Sampah"
+            android:textSize="32sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/backgroundDeskripsiPengenalanImageView" />
+
+        <TextView
+            android:id="@+id/deskripsiHeadTextView"
+            style="@style/TextContent.DarkGreen.TitleCard"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="25dp"
+            android:layout_marginTop="13dp"
+            android:text="Deskripsi"
+            android:textColor="@color/font_black"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/judulTextView" />
+
+        <TextView
+            android:id="@+id/deskripsiTextView"
+            style="@style/TextContent"
+            android:layout_width="362dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="3dp"
+            android:text="Sampah adalah segala jenis bahan yang sudah tidak digunakan lagi dan dibuang oleh pemiliknya. Sampah dapat berasal dari rumah tangga, industri, pertanian, dan berbagai aktivitas manusia lainnya."
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.51"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/deskripsiHeadTextView" />
+
+        <TextView
+            android:id="@+id/tripleRHeadTextView"
+            style="@style/TextContent.DarkGreen.TitleCard"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="25dp"
+            android:layout_marginTop="13dp"
+            android:text="Prinsip 3R (Reduce, Reuse, Recycle)"
+            android:textColor="@color/font_black"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/deskripsiTextView" />
+
+        <include
+            android:id="@+id/tripleRCardInclude"
+            layout="@layout/item_dual_content_card"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/tripleRHeadTextView" />
+
+        <TextView
+            android:id="@+id/deskripsiBankSampahHeadTextView"
+            style="@style/TextContent.DarkGreen.TitleCard"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="25dp"
+            android:layout_marginTop="20dp"
+            android:text="Apa Itu Bank Sampah?"
+            android:textColor="@color/font_black"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tripleRCardInclude" />
+
+        <TextView
+            android:id="@+id/deskripsiBankSampahTextView"
+            style="@style/TextContent"
+            android:layout_width="362dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="3dp"
+            android:text="Bank sampah adalah tempat di mana kita bisa menyetor sampah anorganik yang terpilah untuk ditukar dengan uang. Bank sampah bisa mencegah penumpukan sampah di TPS."
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.51"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/deskripsiBankSampahHeadTextView" />
+
+        <TextView
+            android:id="@+id/caraBankSampahHeadTextView"
+            style="@style/TextContent.DarkGreen.TitleCard"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="25dp"
+            android:layout_marginTop="20dp"
+            android:text="Cara Menukar Sampah Menjadi Uang"
+            android:textColor="@color/font_black"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/deskripsiBankSampahTextView" />
+
+        <include
+            android:id="@+id/langkah1CardInclude"
+            layout="@layout/item_langkah_card"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginStart="25dp"
+            android:layout_marginEnd="25dp"
+            app:layout_constraintTop_toBottomOf="@+id/caraBankSampahHeadTextView"/>
+
+        <include
+            android:id="@+id/langkah2CardInclude"
+            layout="@layout/item_langkah_card"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginStart="25dp"
+            android:layout_marginEnd="25dp"
+            app:layout_constraintTop_toBottomOf="@+id/langkah1CardInclude"/>
+
+        <include
+            android:id="@+id/langkah3CardInclude"
+            layout="@layout/item_langkah_card"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginStart="25dp"
+            android:layout_marginEnd="25dp"
+            app:layout_constraintTop_toBottomOf="@+id/langkah2CardInclude"/>
+
+        <include
+            android:id="@+id/langkah4CardInclude"
+            layout="@layout/item_langkah_card"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginStart="25dp"
+            android:layout_marginEnd="25dp"
+            app:layout_constraintTop_toBottomOf="@+id/langkah3CardInclude"/>
+
+        <include
+            android:id="@+id/langkah5CardInclude"
+            layout="@layout/item_langkah_card"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginStart="25dp"
+            android:layout_marginEnd="25dp"
+            app:layout_constraintTop_toBottomOf="@+id/langkah4CardInclude"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>

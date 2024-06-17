@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GridLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:rowCount="1"
+    android:columnCount="2"
+    android:orientation="horizontal"
+    android:paddingStart="25dp"
+    android:paddingEnd="25dp"
+    android:layout_margin="4dp">
+
+    <!-- Card 1: Reduce -->
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/reduceCardView"
+        android:layout_width="70dp"
+        android:layout_height="137dp"
+        android:layout_columnWeight="0.1"
+        android:layout_margin="4dp"
+        app:cardBackgroundColor="@color/light_purple"
+        app:cardCornerRadius="16dp"
+        app:cardElevation="4dp">
+
+        <ImageView
+            android:id="@+id/reduceIconImageView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="4dp"
+            android:src="@drawable/ikandanplastik"
+            android:textAlignment="center" />
+
+    </com.google.android.material.card.MaterialCardView>
+
+    <!-- Card 2: Reduce Content -->
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_columnWeight="1"
+        android:layout_margin="4dp"
+        app:cardElevation="4dp"
+        app:cardCornerRadius="16dp">
+
+        <TextView
+            android:id="@+id/reduceContentTextView"
+            style="@style/TextContent"
+            android:layout_width="match_parent"
+            android:layout_height="137dp"
+            android:padding="16dp"
+            android:textColor="@android:color/black"
+            android:textSize="14sp"
+            android:text="Mengurangi jumlah sampah yang kita hasilkan dengan cara membeli produk minim kemasan, menggunakan tas belanja sendiri, dan menghindari barang sekali pakai."/>
+
+    </com.google.android.material.card.MaterialCardView>
+
+    <!-- Card 3: Reuse -->
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/reuseCardView"
+        android:layout_width="70dp"
+        android:layout_height="137dp"
+        android:layout_columnWeight="0.1"
+        android:layout_margin="4dp"
+        app:cardBackgroundColor="@color/light_green"
+        app:cardCornerRadius="16dp"
+        app:cardElevation="4dp">
+
+        <ImageView
+            android:id="@+id/reuseIconImageView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="4dp"
+            android:src="@drawable/ikandanplastik"
+            android:textAlignment="center" />
+
+    </com.google.android.material.card.MaterialCardView>
+
+    <!-- Card 4: Reuse Content -->
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_columnWeight="1"
+        android:layout_margin="4dp"
+        app:cardElevation="4dp"
+        app:cardCornerRadius="16dp">
+
+        <TextView
+            android:id="@+id/reuseContentTextView"
+            style="@style/TextContent"
+            android:layout_width="match_parent"
+            android:layout_height="137dp"
+            android:padding="16dp"
+            android:textColor="@android:color/black"
+            android:textSize="14sp"
+            android:text="Memanfaatkan kembali barang-barang yang masih bisa digunakan seperti botol bekas, kantong plastik, dan pakaian."/>
+
+    </com.google.android.material.card.MaterialCardView>
+
+    <!-- Card 5: Recycle -->
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/recycleCardView"
+        android:layout_width="70dp"
+        android:layout_height="137dp"
+        android:layout_columnWeight="0.1"
+        android:layout_margin="4dp"
+        app:cardBackgroundColor="@color/light_purple"
+        app:cardCornerRadius="16dp"
+        app:cardElevation="4dp">
+
+        <ImageView
+            android:id="@+id/recycleIconImageView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="4dp"
+            android:src="@drawable/ikandanplastik"
+            android:textAlignment="center" />
+
+    </com.google.android.material.card.MaterialCardView>
+
+    <!-- Card 6: Recycle Content -->
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_columnWeight="1"
+        android:layout_margin="4dp"
+        app:cardElevation="4dp"
+        app:cardCornerRadius="16dp">
+
+        <TextView
+            android:id="@+id/recycleContentTextView"
+            style="@style/TextContent"
+            android:layout_width="match_parent"
+            android:layout_height="137dp"
+            android:padding="16dp"
+            android:textColor="@android:color/black"
+            android:textSize="14sp"
+            android:text="Mengolah kembali sampah menjadi produk baru, seperti mendaur ulang kertas, plastik, dan logam dengan memilah sampah di rumah dan menyetorkannya ke Bank Sampah."/>
+
+    </com.google.android.material.card.MaterialCardView>
+
+</GridLayout>

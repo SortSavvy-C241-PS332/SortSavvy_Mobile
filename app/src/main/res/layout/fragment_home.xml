@@ -1,13 +1,306 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".views.main.home.HomeFragment">
+    android:background="@drawable/gradient_green"
+    tools:context=".views.main.explore.ExploreFragment">
 
-    <TextView
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Beranda" />
+        android:layout_height="wrap_content">
 
-</FrameLayout>
+        <ImageView
+            android:id="@+id/logoImageView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="35dp"
+            android:src="@drawable/logo_solid_white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/profileCardView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="25dp"
+            app:cardElevation="25dp"
+            app:cardCornerRadius="30dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/logoImageView">
+
+            <!-- Background Image -->
+            <ImageView
+                android:id="@+id/background_image"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:scaleType="centerCrop"
+                android:src="@drawable/bcg_home" />
+
+            <!-- Background rounded rectangle -->
+            <LinearLayout
+                android:id="@+id/profileLinear"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <!-- Image (profile picture) -->
+                <ImageView
+                    android:id="@+id/avatarImageView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="20dp"
+                    android:background="@drawable/icon_background_next_btn"
+                    android:padding="8dp"
+                    android:src="@drawable/profile_thumbnail_avatar_syella" />
+
+                <!-- Name Text -->
+                <TextView
+                    android:id="@+id/name_text"
+                    style="@style/TextContent.DarkGreen.TitleCard"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="8dp"
+                    android:text="Syella Marsella"
+                    android:textSize="30sp" />
+
+                <!-- Description Text -->
+                <TextView
+                    android:id="@+id/description_text"
+                    style="@style/TextContent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="25dp"
+                    android:layout_marginEnd="25dp"
+                    android:text="Jadilah jagoan dalam mengelola sampah dan menjaga lingkungan!"
+                    android:textAlignment="center"
+
+                    android:textSize="16sp" />
+
+                <!-- Button -->
+
+
+                <Button
+                    android:id="@+id/homeToSnapButton"
+                    style="@style/ButtonGeneral.ActiveGreen"
+                    android:layout_width="wrap_content"
+                    android:layout_height="51dp"
+                    android:layout_marginTop="15dp"
+                    android:backgroundTint="@color/font_green"
+                    android:text="Pilah sampah di dekatmu!"
+                    android:layout_gravity="center"
+                    android:textColor="@color/background_white_gray_2" />
+
+
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <TextView
+            android:id="@+id/totalTemuanHead"
+            style="@style/TextContent.DarkGreen.TitleCard"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:text="Total Temuan"
+            android:textColor="@android:color/white"
+            android:layout_marginTop="30dp"
+            android:layout_marginStart="25dp"
+            android:textSize="25sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/profileCardView" />
+
+        <!-- Organic Waste Card -->
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/organicCardView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:backgroundTint="@color/white"
+            app:cardCornerRadius="30dp"
+            android:layout_marginStart="25dp"
+            android:layout_marginEnd="25dp"
+            app:cardElevation="4dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/totalTemuanHead">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="16dp">
+
+                <!-- Icon and Text -->
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:gravity="center_vertical">
+
+                    <ImageView
+                        android:layout_width="75dp"
+                        android:layout_height="75dp"
+                        android:layout_gravity="center"
+                        android:src="@drawable/organik" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Sampah Organik"
+                        android:layout_gravity="center"
+                        style="@style/TextContent.DarkGreen.TitleCard"
+                        android:textSize="16sp" />
+                </LinearLayout>
+
+                <!-- Count -->
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:gravity="center_vertical"
+                    android:background="@drawable/rounded_rectangle"
+                    android:padding="8dp"
+                    android:layout_marginStart="16dp">
+
+                    <TextView
+                        style="@style/TextContent.DarkGreen.TitleCard"
+                        android:layout_width="wrap_content"
+                        android:layout_height="61dp"
+                        android:layout_gravity="center"
+                        android:text="14"
+                        android:textSize="55sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        style="@style/TextContent.DarkGreen.TitleCard"
+                        android:text="Item"
+                        android:textSize="16sp"
+                        android:layout_marginTop="5dp"
+                        android:layout_gravity="center" />
+                </LinearLayout>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- Inorganic Waste Card -->
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/inorganicCardView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:backgroundTint="@color/white"
+            app:cardCornerRadius="30dp"
+            android:layout_marginStart="25dp"
+            android:layout_marginEnd="25dp"
+            android:layout_marginTop="13dp"
+            app:cardElevation="4dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/organicCardView">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="16dp">
+
+                <!-- Icon and Text -->
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:gravity="center_vertical">
+
+                    <ImageView
+                        android:layout_width="75dp"
+                        android:layout_height="75dp"
+                        android:layout_gravity="center"
+                        android:src="@drawable/nonorganik" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Sampah Organik"
+                        android:layout_gravity="center"
+                        style="@style/TextContent.DarkGreen.TitleCard"
+                        android:textColor="@color/background_purple"
+                        android:textSize="16sp" />
+                </LinearLayout>
+
+                <!-- Count -->
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:gravity="center_vertical"
+                    android:background="@drawable/rounded_rectangle"
+                    android:backgroundTint="@color/light_purple"
+                    android:padding="8dp"
+                    android:layout_marginStart="16dp">
+
+                    <TextView
+                        style="@style/TextContent.DarkGreen.TitleCard"
+                        android:layout_width="wrap_content"
+                        android:layout_height="61dp"
+                        android:layout_gravity="center"
+                        android:text="7"
+                        android:textColor="@color/background_purple"
+                        android:textSize="55sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        style="@style/TextContent.DarkGreen.TitleCard"
+                        android:text="Item"
+                        android:textColor="@color/background_purple"
+                        android:textSize="16sp"
+                        android:layout_marginTop="5dp"
+                        android:layout_gravity="center" />
+                </LinearLayout>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <TextView
+            android:id="@+id/levelHeadTextView"
+            style="@style/TextContent.DarkGreen.TitleCard"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:text="Level Saya"
+            android:textColor="@android:color/white"
+            android:layout_marginTop="30dp"
+            android:layout_marginStart="25dp"
+            android:textSize="25sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/inorganicCardView" />
+
+        <TextView
+            android:id="@+id/levelDescriptionTextView"
+            style="@style/TextContent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:text="Selesaikan Tantangan untuk naik level!"
+            android:textColor="@android:color/white"
+            android:layout_marginStart="25dp"
+            android:textSize="17sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/levelHeadTextView" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>

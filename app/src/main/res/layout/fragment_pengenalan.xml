@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/gradient_green"
+    tools:context=".views.main.explore.PengenalanFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/pengenalanImageView"
+            android:layout_width="411dp"
+            android:layout_height="294dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:src="@drawable/pengenalan_ldscp" />
+
+        <ImageButton
+            android:id="@+id/backBtnImageButton"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="25dp"
+            android:layout_marginTop="25dp"
+            android:background="@drawable/ic_background_back_button"
+            android:contentDescription="@string/back_btn"
+            android:src="@drawable/ic_round_arrow_back_white_24"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/backgroundDeskripsiPengenalanImageView"
+            android:layout_width="match_parent"
+            android:layout_height="1613dp"
+            android:layout_marginTop="272dp"
+            android:contentDescription="@string/bottom_background_menu_snap"
+            android:src="@drawable/background_bottom_rectangle_white_gray"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:layout_editor_absoluteX="0dp" />
+
+        <TextView
+            android:id="@+id/judulTextView"
+            style="@style/TextContent.DarkGreen.TitleCard"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="Apa Itu Sampah?"
+            android:textSize="32sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/backgroundDeskripsiPengenalanImageView" />
+
+        <TextView
+            android:id="@+id/deskripsiTextView"
+            style="@style/TextContent.DarkGreen.TitleCard"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="25dp"
+            android:layout_marginTop="13dp"
+            android:text="Deskripsi"
+            android:textColor="@color/font_black"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/judulTextView" />
+
+        <TextView
+            android:id="@+id/textView2"
+            style="@style/TextContent"
+            android:layout_width="362dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="3dp"
+            android:text="Sampah adalah segala jenis bahan yang sudah tidak digunakan lagi dan dibuang oleh pemiliknya. Sampah dapat berasal dari rumah tangga, industri, pertanian, dan berbagai aktivitas manusia lainnya."
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.51"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/deskripsiTextView" />
+
+        <TextView
+            android:id="@+id/kenapaPeduliTextView"
+            style="@style/TextContent.DarkGreen.TitleCard"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="25dp"
+            android:layout_marginTop="13dp"
+            android:text="Kenapa Harus Peduli dengan Sampah?"
+            android:textColor="@color/font_black"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView2" />
+
+        <include
+            android:id="@+id/kenapaPeduliCardInclude"
+            layout="@layout/item_grid_kenapa_card"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/kenapaPeduliTextView" />
+
+        <TextView
+            android:id="@+id/apaMasalahTextView"
+            style="@style/TextContent.DarkGreen.TitleCard"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="25dp"
+            android:layout_marginTop="20dp"
+            android:text="Apa Masalah Sampah di Sekitarku?"
+            android:textColor="@color/font_black"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/kenapaPeduliCardInclude" />
+
+        <include
+            android:id="@+id/masalahCardInclude"
+            layout="@layout/item_grid_apa_card"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/apaMasalahTextView" />
+
+        <TextView
+            android:id="@+id/bagaimanaBerkontribusiTextView"
+            style="@style/TextContent.DarkGreen.TitleCard"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="25dp"
+            android:layout_marginTop="20dp"
+            android:text="Bagaimana Aku Bisa Berkontribusi?"
+            android:textColor="@color/font_black"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/masalahCardInclude" />
+
+        <include
+            android:id="@+id/bagaimanaBerkontribusiCardInclude"
+            layout="@layout/item_grid_bagaimana_card"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/bagaimanaBerkontribusiTextView"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>
