@@ -10,9 +10,12 @@ import com.google.gson.Gson
 import kotlinx.coroutines.flow.Flow
 import retrofit2.HttpException
 
+//class LoginRepository(
+//    private val apiService: ApiService,
+//    private val userPreferences: UserPreferences
+//) {
 class LoginRepository(
     private val apiService: ApiService,
-    private val userPreferences: UserPreferences
 ) {
 
     fun loginAccount(email: String, password: String) = liveData {
@@ -31,20 +34,22 @@ class LoginRepository(
         }
     }
 
-    fun getSession(): Flow<UserModel> {
-        return userPreferences.getSession()
-    }
-
-    suspend fun saveSession(userModel: UserModel) {
-        userPreferences.saveSession(userModel)
-    }
+//    fun getSession(): Flow<UserModel> {
+//        return userPreferences.getSession()
+//    }
+//
+//    suspend fun saveSession(userModel: UserModel) {
+//        userPreferences.saveSession(userModel)
+//    }
 
     companion object {
         @Volatile
         private var instance: LoginRepository? = null
-        fun getInstance(apiService: ApiService, userPref: UserPreferences) =
+//        fun getInstance(apiService: ApiService, userPref: UserPreferences) =
+        fun getInstance(apiService: ApiService) =
             instance ?: synchronized(this) {
-                instance ?: LoginRepository(apiService, userPref)
+//                instance ?: LoginRepository(apiService, userPref)
+                instance ?: LoginRepository(apiService)
             }.also { instance = it }
     }
 }

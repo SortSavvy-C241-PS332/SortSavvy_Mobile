@@ -14,7 +14,7 @@ import com.bangkit.sortsavvy.views.main.MainActivity
 class WelcomeActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityWelcomeBinding
-    private lateinit var viewModel: WelcomeViewModel
+//    private lateinit var viewModel: WelcomeViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -24,8 +24,8 @@ class WelcomeActivity : AppCompatActivity() {
 //        setUnderLineGuestModeTextView()
         supportActionBar?.hide()
 
-        val viewModelFactory = ViewModelFactory.getInstance(this@WelcomeActivity)
-        viewModel = ViewModelProvider(this, viewModelFactory)[WelcomeViewModel::class.java]
+//        val viewModelFactory = ViewModelFactory.getInstance(this@WelcomeActivity)
+//        viewModel = ViewModelProvider(this, viewModelFactory)[WelcomeViewModel::class.java]
 
         setButtonNavigationListener()
     }
@@ -58,9 +58,9 @@ class WelcomeActivity : AppCompatActivity() {
 //        }
     }
 
-    private fun navigateToHomeScreen() {
-        val moveIntent = Intent(this@WelcomeActivity, MainActivity::class.java)
-        startActivity(moveIntent)
-        finish()
-    }
+//    private fun navigateToHomeScreen() {
+//        val moveIntent = Intent(this@WelcomeActivity, MainActivity::class.java)
+//        startActivity(moveIntent)
+//        finish()
+//    }
 }

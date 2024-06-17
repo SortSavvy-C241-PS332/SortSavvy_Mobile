@@ -14,11 +14,14 @@ import com.bangkit.sortsavvy.factory.ViewModelFactory
 import com.bangkit.sortsavvy.utils.ViewComponentUtil
 import com.bangkit.sortsavvy.views.authentication.register.RegisterActivity
 import com.bangkit.sortsavvy.views.main.MainActivity
+import kotlinx.coroutines.launch
 
 class LoginActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityLoginBinding
     private lateinit var viewModel: LoginViewModel
+
+    private lateinit var userData: Pair<String, String>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,8 +34,19 @@ class LoginActivity : AppCompatActivity() {
         val viewModelFactory= ViewModelFactory.getInstance(this@LoginActivity)
         viewModel = ViewModelProvider(this, viewModelFactory)[LoginViewModel::class.java]
 
+//        val session = viewModel.getSession()
+//        lifecycleScope.launch {
+//            println("User ID: ${session.value?.userId}")
+//            println("Email: ${session.value?.email}")
+//            println("Full Name: ${session.value?.fullName}")
+//            println("Profile Photo: ${session.value?.profilePhoto}")
+//            println("Is Login: ${session.value?.isLogin}")
+//        }
+
         binding.loginButton.setOnClickListener {
-            validateUserForm()
+            println("Login Button Clicked")
+            val isValid = validateUserForm()
+            if (isValid) loginAccount(userData.first, userData.second)
         }
 
         binding.buatAkunTextView.setOnClickListener {
@@ -44,15 +58,25 @@ class LoginActivity : AppCompatActivity() {
         viewModel.invalidValidation.observe(this) { message ->
             ViewComponentUtil.showToast(this@LoginActivity, message)
         }
+
+        viewModel.getSession().observe(this) { userModel ->
+            if (userModel.isLogin && userModel.isOnboardingViewed) {
+                navigateToHomeScreen()
+            }
+        }
     }
 
-    private fun validateUserForm() {
-        val (email, password) = getDataUserFromForm()
-        val isValid: Boolean = viewModel.validateUserForm(email, password)
-        if (isValid) loginAccount(email, password)
+    private fun validateUserForm(): Boolean {
+        println("Validating User Form")
+        userData = getDataUserFromForm()
+        println("email: ${userData.first}, password: ${userData.second}")
+        val isValid: Boolean = viewModel.validateUserForm(userData.first, userData.second)
+        println("isValid: $isValid")
+        return isValid
     }
 
     private fun loginAccount(email: String, password: String) {
+        println("Logging in Account")
         viewModel.loginAccount(email, password).observe(this@LoginActivity) { resultState ->
             if (resultState != null) {
                 when (resultState) {
@@ -68,8 +92,12 @@ class LoginActivity : AppCompatActivity() {
                         ViewComponentUtil.showToast(this@LoginActivity, message)
 
                         val user = createUserModelSession(resultState.data.userDataLogin)
+                        println("created session User: $user")
+
+//                        viewModel.setOnboardingViewedStatus(true)
+//                        println("setOnboardingViewedStatus(true)")
                         viewModel.setSession(user)
-                        viewModel.setOnboardingViewedStatus(true)
+                        println("setSession(user)")
                     }
                     is ResultState.Error -> {
                         binding.progressBar.visibility = View.GONE
@@ -80,21 +108,24 @@ class LoginActivity : AppCompatActivity() {
             }
         }
 
-        viewModel.isReadyToNavigate.observe(this@LoginActivity) { isReadyToNavigate ->
-            if (isReadyToNavigate) {
-                navigateToHomeScreen()
-            }
-        }
+//        viewModel.isReadyToNavigate.observe(this@LoginActivity) { isReadyToNavigate ->
+//            println("isReadyToNavigate: $isReadyToNavigate")
+//            if (isReadyToNavigate) {
+//                navigateToHomeScreen()
+//            }
+//        }
     }
 
     private fun createUserModelSession(userData: UserDataLogin):  UserModel {
+        // hardcode userID (nanti perlu revisi)
         val userID = "123"
         val email = userData.email
         val fullName = userData.fullName
         val profilePhoto = userData.profilePhoto
         val isLogin = true
+        val isOnboardingViewed = true
 
-        return UserModel(userID, email, fullName, profilePhoto,isLogin)
+        return UserModel(userID, email, fullName, profilePhoto, isLogin, isOnboardingViewed)
     }
 
     private fun getDataUserFromForm(): Pair<String, String> {

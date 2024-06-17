@@ -19,24 +19,34 @@ class UserPreferences(private val dataStore: DataStore<Preferences>) {
     // This function returns the user session
     fun getSession(): Flow<UserModel> {
         return dataStore.data.map { preferences ->
-            UserModel(
-                preferences[USER_ID_KEY] ?: "",
-                preferences[EMAIL_KEY] ?: "",
-                preferences[FULL_NAME_KEY] ?: "",
-                preferences[PROFILE_PHOTO_KEY],
-                preferences[IS_LOGIN_KEY] ?: false
-            )
+            val userId = preferences[USER_ID_KEY]
+            val email = preferences[EMAIL_KEY]
+            val fullName = preferences[FULL_NAME_KEY]
+            val profilePhoto = preferences[PROFILE_PHOTO_KEY]
+            val isLogin = preferences[IS_LOGIN_KEY] ?: false
+            val isOnboardingViewed = preferences[IS_ONBOARDING_VIEWED_KEY] ?: false
+//            if (userId != null && email != null && fullName != null && profilePhoto != null && isLogin) {
+                UserModel(userId, email, fullName, profilePhoto, isLogin, isOnboardingViewed)
+//            } else null
         }
     }
 
     // This function saves the user session, enabling the user to stay logged in
     suspend fun saveSession(user: UserModel) {
         dataStore.edit { preferences ->
-            preferences[USER_ID_KEY] = user.userId
-            preferences[EMAIL_KEY] = user.email
-            preferences[FULL_NAME_KEY] = user.fullName
-            if (user.profilePhoto != null) preferences[PROFILE_PHOTO_KEY] = user.profilePhoto
+            user.userId?.let { preferences[USER_ID_KEY] = it }
+            user.email?.let { preferences[EMAIL_KEY] = it }
+            user.fullName?.let { preferences[FULL_NAME_KEY] = it }
+            user.profilePhoto?.let { preferences[PROFILE_PHOTO_KEY] = it }
             preferences[IS_LOGIN_KEY] = user.isLogin
+            preferences[IS_ONBOARDING_VIEWED_KEY] = user.isOnboardingViewed
+        }
+    }
+
+    suspend fun removeSession() {
+        dataStore.edit { preferences ->
+            preferences.clear() // Clear all data, isLogin will be false
+            preferences[IS_ONBOARDING_VIEWED_KEY] = true
         }
     }
 
@@ -49,6 +59,7 @@ class UserPreferences(private val dataStore: DataStore<Preferences>) {
         private val FULL_NAME_KEY = stringPreferencesKey("fullName")
         private val PROFILE_PHOTO_KEY = stringPreferencesKey("profilePhoto")
         private val IS_LOGIN_KEY = booleanPreferencesKey("isLogin")
+        private val IS_ONBOARDING_VIEWED_KEY = booleanPreferencesKey("isOnboardingViewed")
 
         fun getInstance(dataStore: DataStore<Preferences>): UserPreferences {
             return INSTANCE ?: synchronized(this) {

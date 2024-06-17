@@ -15,6 +15,7 @@ import androidx.viewpager2.widget.ViewPager2
 import com.bangkit.sortsavvy.R
 import com.bangkit.sortsavvy.adapter.OnboardingItemAdapter
 import com.bangkit.sortsavvy.data.model.OnboardingItem
+import com.bangkit.sortsavvy.data.model.UserModel
 import com.bangkit.sortsavvy.data.pref.OnboardingPreferences
 import com.bangkit.sortsavvy.databinding.ActivityOnboardingBinding
 import com.bangkit.sortsavvy.factory.ViewModelFactory
@@ -26,7 +27,6 @@ class OnboardingActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityOnboardingBinding
     private lateinit var viewModel: OnboardingViewModel
-    private lateinit var preferences: OnboardingPreferences
 
     private lateinit var adapter: OnboardingItemAdapter
 
@@ -40,12 +40,25 @@ class OnboardingActivity : AppCompatActivity() {
         val viewModelFactory = ViewModelFactory.getInstance(this@OnboardingActivity)
         viewModel = ViewModelProvider(this, viewModelFactory)[OnboardingViewModel::class.java]
 
-        viewModel.getOnboardingPreferences().observe(this) { isOnboardingViewedStatus ->
-            if (isOnboardingViewedStatus == true) {
-                println("ActivityOnboardingBinding onboarding viewed -> $isOnboardingViewedStatus")
-                Log.d(TAG, isOnboardingViewedStatus.toString())
+//        viewModel.getOnboardingPreferences().observe(this) { isOnboardingViewedStatus ->
+//            // kalau onboarding sudah dilihat, langsung ke MainActivity
+//            if (isOnboardingViewedStatus == true) {
+//                println("ActivityOnboardingBinding onboarding viewed -> $isOnboardingViewedStatus")
+//                navigateToMainActivityScreen()
+//            } else {
+//                setContentView(binding.root)
+//            }
+//        }
+
+        viewModel.getSession().observe(this) { userModel ->
+            if (userModel.isLogin && userModel.isOnboardingViewed) {
+                // kalau user sedang login, langsung ke MainActivity (home screen)
                 navigateToMainActivityScreen()
+            } else if (!userModel.isLogin && userModel.isOnboardingViewed) {
+                // kalau user belum login, tapi udah pernah lihat welcome, langsung ke WelcomeActivity
+                navigateToWelcomeActivity()
             } else {
+                // kalau baru pertama kali install aplikasi dan belum pernah lihat welcome
                 setContentView(binding.root)
             }
         }
@@ -87,10 +100,12 @@ class OnboardingActivity : AppCompatActivity() {
 //            }
         }
         binding.skipTextView.setOnClickListener {
-            navigateToWelcomeActivity()
+            val userModel = createUserSession(loginStatus = false, onboardingStatus = true)
+            viewModel.setSession(userModel)
         }
         binding.getStartedButton.setOnClickListener {
-            navigateToWelcomeActivity()
+            val userModel = createUserSession(loginStatus = false, onboardingStatus = true)
+            viewModel.setSession(userModel)
         }
     }
 
@@ -135,6 +150,13 @@ class OnboardingActivity : AppCompatActivity() {
         val moveIntent = Intent(this@OnboardingActivity, WelcomeActivity::class.java)
         startActivity(moveIntent)
         finish()
+    }
+
+    private fun createUserSession(loginStatus: Boolean, onboardingStatus: Boolean): UserModel {
+        return UserModel(
+            isLogin = loginStatus,
+            isOnboardingViewed = onboardingStatus
+        )
     }
 
     private fun navigateToMainActivityScreen() {

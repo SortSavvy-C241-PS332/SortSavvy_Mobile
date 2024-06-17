@@ -7,15 +7,20 @@ import androidx.lifecycle.asLiveData
 import androidx.lifecycle.viewModelScope
 import com.bangkit.sortsavvy.R
 import com.bangkit.sortsavvy.data.model.OnboardingItem
+import com.bangkit.sortsavvy.data.model.UserModel
 import com.bangkit.sortsavvy.data.repository.OnboardingRepository
+import com.bangkit.sortsavvy.data.repository.SessionRepository
 import kotlinx.coroutines.launch
 
-class OnboardingViewModel(private val onboardingRepository: OnboardingRepository) : ViewModel() {
+class OnboardingViewModel(
+    private val sessionRepository: SessionRepository
+) : ViewModel() {
+
     private val _onboardingItems = MutableLiveData<List<OnboardingItem>>()
     val onboardingItems: LiveData<List<OnboardingItem>> = _onboardingItems
 
-    private val _isOnboardingViewed = MutableLiveData<Boolean>()
-    val isOnboardingViewed: LiveData<Boolean> = _isOnboardingViewed
+//    private val _isOnboardingViewed = MutableLiveData<Boolean>()
+//    val isOnboardingViewed: LiveData<Boolean> = _isOnboardingViewed
 
     fun loadOnboardingItems() {
         val items = listOf(
@@ -38,14 +43,28 @@ class OnboardingViewModel(private val onboardingRepository: OnboardingRepository
         _onboardingItems.value = items
     }
 
-    fun getOnboardingPreferences(): LiveData<Boolean> {
-        return onboardingRepository.getOnboardingStatus().asLiveData()
+    fun getSession(): LiveData<UserModel> {
+        return sessionRepository.getSession().asLiveData()
     }
 
-    fun setOnboardingViewedStatus(status: Boolean) {
+//    private val _isSessionSaved = MutableLiveData<Boolean>()
+//    val isSessionSaved: LiveData<Boolean> = _isSessionSaved
+
+    fun setSession(userModel: UserModel) {
         viewModelScope.launch {
-            onboardingRepository.setOnboardingViewedStatus(status)
-            _isOnboardingViewed.value = status
+            sessionRepository.saveSession(userModel)
+//            _isSessionSaved.value = true
         }
     }
+
+//    fun getOnboardingPreferences(): LiveData<Boolean> {
+//        return onboardingRepository.getOnboardingStatus().asLiveData()
+//    }
+
+//    fun setOnboardingViewedStatus(status: Boolean) {
+//        viewModelScope.launch {
+//            onboardingRepository.setOnboardingViewedStatus(status)
+//            _isOnboardingViewed.value = status
+//        }
+//    }
 }

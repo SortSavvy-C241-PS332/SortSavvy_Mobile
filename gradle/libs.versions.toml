@@ -32,6 +32,8 @@ tensorflowLiteTaskVision = "0.4.4"
 tensorflowLiteSupport = "0.4.4"
 tensorflowLiteMetadata = "0.4.4"
 
+glide = "4.16.0"
+
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }
@@ -65,6 +67,8 @@ tensorflow-lite-metadata = { group = "org.tensorflow", name = "tensorflow-lite-m
 tensorflow-lite-task-vision = { group = "org.tensorflow", name = "tensorflow-lite-task-vision", version.ref = "tensorflowLiteTaskVision" }
 
 #com-google-code-gson = { module = "com.google.code.gson:gson", version.ref = "codeGson" }  // ini untuk converter ke json atau sebaliknya, biasanya buat convert message dari retrofit kalau ada error
+
+com-github-bumptech-glide = { module = "com.github.bumptech.glide:glide", version.ref = "glide" }
 
 
 [plugins]

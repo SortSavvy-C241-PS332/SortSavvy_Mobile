@@ -4,9 +4,11 @@ import android.content.Context
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.bangkit.sortsavvy.di.AuthenticationInjection
-import com.bangkit.sortsavvy.di.OnboardingInjection
+//import com.bangkit.sortsavvy.di.OnboardingInjection
 import com.bangkit.sortsavvy.views.authentication.login.LoginViewModel
 import com.bangkit.sortsavvy.views.authentication.register.RegisterViewModel
+import com.bangkit.sortsavvy.views.main.MainViewModel
+import com.bangkit.sortsavvy.views.main.profile.ProfileViewModel
 import com.bangkit.sortsavvy.views.main.snap.SnapResultViewModel
 import com.bangkit.sortsavvy.views.main.snap.SnapViewModel
 import com.bangkit.sortsavvy.views.onboarding.OnboardingViewModel
@@ -18,28 +20,47 @@ class ViewModelFactory(private val context: Context) : ViewModelProvider.NewInst
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
         return when {
             modelClass.isAssignableFrom(OnboardingViewModel::class.java) -> {
-                val onboardingRepository = OnboardingInjection.provideOnboardingRepository(context)
-                OnboardingViewModel(onboardingRepository) as T
+                val sessionRepository = AuthenticationInjection.provideSessionRepository(context)
+                OnboardingViewModel(sessionRepository) as T
             }
-            modelClass.isAssignableFrom(LoginViewModel::class.java) -> {
-                val loginRepository = AuthenticationInjection.provideLoginRepository(context)
-                val onboardingRepository = OnboardingInjection.provideOnboardingRepository(context)
-                LoginViewModel(loginRepository, onboardingRepository) as T
-            }
+//            modelClass.isAssignableFrom(WelcomeViewModel::class.java) -> {
+//                val onboardingRepository = OnboardingInjection.provideOnboardingRepository(context)
+//                WelcomeViewModel(onboardingRepository) as T
+//            }
             modelClass.isAssignableFrom(RegisterViewModel::class.java) -> {
                 val registerRepository = AuthenticationInjection.provideRegisterRepository()
                 RegisterViewModel(registerRepository) as T
             }
-            modelClass.isAssignableFrom(WelcomeViewModel::class.java) -> {
-                val onboardingRepository = OnboardingInjection.provideOnboardingRepository(context)
-                WelcomeViewModel(onboardingRepository) as T
+            modelClass.isAssignableFrom(LoginViewModel::class.java) -> {
+                val loginRepository = AuthenticationInjection.provideLoginRepository(context)
+                val sessionRepository = AuthenticationInjection.provideSessionRepository(context)
+//                val onboardingRepository = OnboardingInjection.provideOnboardingRepository(context)
+//                LoginViewModel(loginRepository, sessionRepository, onboardingRepository) as T
+                LoginViewModel(loginRepository, sessionRepository) as T
             }
+            modelClass.isAssignableFrom(MainViewModel::class.java) -> {
+//                val onboardingRepository = OnboardingInjection.provideOnboardingRepository(context)
+                val sessionRepository = AuthenticationInjection.provideSessionRepository(context)
+//                MainViewModel(onboardingRepository, sessionRepository) as T
+                MainViewModel(sessionRepository) as T
+//                MainViewModel() as T
+            }
+            modelClass.isAssignableFrom(ProfileViewModel::class.java) -> {
+                val sessionRepository = AuthenticationInjection.provideSessionRepository(context)
+                ProfileViewModel(sessionRepository) as T
+            }
+
+
             modelClass.isAssignableFrom(SnapViewModel::class.java) -> {
                 SnapViewModel() as T
             }
+
             modelClass.isAssignableFrom(SnapResultViewModel::class.java) -> {
                 SnapResultViewModel() as T
             }
+
+
+
             else -> throw IllegalArgumentException("Unknown ViewModel class: ${modelClass.name}. Ensure the ViewModel class is correctly registered.")
         }
     }

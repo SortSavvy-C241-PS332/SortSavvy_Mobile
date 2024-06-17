@@ -74,7 +74,11 @@ dependencies {
     implementation(libs.retrofit2.converter.gson) //   gson -> converter for retrofit
     implementation(libs.logging.interceptor) //  logging interceptor -> logging for retrofit
 
+    // ml stuff
     implementation(libs.tensorflow.lite.support)
     implementation(libs.tensorflow.lite.metadata)
     implementation(libs.tensorflow.lite.task.vision)
+
+    // glide for image loading
+    implementation(libs.com.github.bumptech.glide)
 }

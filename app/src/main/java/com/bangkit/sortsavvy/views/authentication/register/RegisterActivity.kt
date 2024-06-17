@@ -36,7 +36,8 @@ class RegisterActivity : AppCompatActivity() {
         viewModel = ViewModelProvider(this, viewModelFactory)[RegisterViewModel::class.java]
 
         binding.registerButton.setOnClickListener {
-            validateUserForm()
+            val isValid = validateUserForm()
+            if (isValid) registerAccount()
         }
 
         binding.loginNowTextView.setOnClickListener {
@@ -50,10 +51,10 @@ class RegisterActivity : AppCompatActivity() {
         }
     }
 
-    private fun validateUserForm() {
+    private fun validateUserForm(): Boolean {
         userData = getDataUserFromForm()
         val isValid: Boolean = viewModel.validateUserForm(userData)
-        if (isValid) registerAccount()
+        return isValid
     }
 
     private fun registerAccount() {

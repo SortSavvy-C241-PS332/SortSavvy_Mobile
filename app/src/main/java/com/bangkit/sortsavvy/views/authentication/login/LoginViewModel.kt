@@ -5,25 +5,30 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MediatorLiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.asLiveData
 import androidx.lifecycle.viewModelScope
 import com.bangkit.sortsavvy.data.model.UserModel
 import com.bangkit.sortsavvy.data.repository.LoginRepository
 import com.bangkit.sortsavvy.data.repository.OnboardingRepository
+import com.bangkit.sortsavvy.data.repository.SessionRepository
 import kotlinx.coroutines.launch
 
 class LoginViewModel(
     private val loginRepository: LoginRepository,
-    private val onboardingRepository: OnboardingRepository
+    private val sessionRepository: SessionRepository,
+//    private val onboardingRepository: OnboardingRepository
 ) : ViewModel() {
 
-    private val _isSessionSaved = MutableLiveData<Boolean>()
+//    private val _isSessionSaved = MutableLiveData<Boolean>()
 //    val isSessionSaved: LiveData<Boolean> = _isSessionSaved
 
+    fun getSession(): LiveData<UserModel> {
+        return sessionRepository.getSession().asLiveData()
+    }
     fun setSession(user: UserModel) {
         viewModelScope.launch {
-            loginRepository.saveSession(user)
-            _isSessionSaved.value = true
-            checkReadyToNavigate()
+            sessionRepository.saveSession(user)
+//            _isSessionSaved.value = true
         }
     }
 
@@ -41,24 +46,27 @@ class LoginViewModel(
         return true
     }
 
-    private val _isOnboardingViewed = MutableLiveData<Boolean>()
+//    private val _isOnboardingViewed = MutableLiveData<Boolean>()
 //    val isOnboardingViewed: LiveData<Boolean> = _isOnboardingViewed
 
-    fun setOnboardingViewedStatus(status: Boolean) {
-        viewModelScope.launch {
-            onboardingRepository.setOnboardingViewedStatus(status)
-            _isOnboardingViewed.value = status
-        }
-    }
+//    fun setOnboardingViewedStatus(status: Boolean) {
+//        viewModelScope.launch {
+//            onboardingRepository.setOnboardingViewedStatus(status)
+//            _isOnboardingViewed.value = status
+//        }
+//    }
 
-    private val _isReadyToNavigate = MutableLiveData<Boolean>()
-    val isReadyToNavigate: LiveData<Boolean> = _isReadyToNavigate
+//    private val _isReadyToNavigate = MediatorLiveData<Boolean>().apply {
+//        addSource(_isSessionSaved) { checkReadyToNavigate() }
+//        addSource(_isOnboardingViewed) { checkReadyToNavigate() }
+//    }
+//    val isReadyToNavigate: LiveData<Boolean> = _isReadyToNavigate
 
-    private fun checkReadyToNavigate() {
-        if (_isSessionSaved.value == true && _isOnboardingViewed.value == true) {
-            _isReadyToNavigate.value = true
-        }
-    }
+//    private fun checkReadyToNavigate() {
+//        val sessionSaved = _isSessionSaved.value ?: false
+//        val onboardingViewed = _isOnboardingViewed.value ?: false
+//        _isReadyToNavigate.value = sessionSaved && onboardingViewed
+//    }
 
     fun loginAccount(email: String, password: String) = loginRepository.loginAccount(email, password)
 //    fun getOnboardingPreferences(): LiveData<Boolean> {
