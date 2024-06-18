@@ -48,7 +48,10 @@ class HomeFragment : Fragment() {
             if (!userModel.isLogin && userModel.isOnboardingViewed) {
                 navigateToWelcomeActivity()
             } else if (userModel.isLogin && userModel.isOnboardingViewed) {
+                println("userModel.isLogin -> ${userModel.isLogin} && userModel.isOnboardingViewed -> ${userModel.isOnboardingViewed}")
                 currentUser = userModel
+                println("userModel -> $userModel")
+                println("currentUser -> $currentUser")
                 getCurrentUserData(currentUser)
             }
         }
