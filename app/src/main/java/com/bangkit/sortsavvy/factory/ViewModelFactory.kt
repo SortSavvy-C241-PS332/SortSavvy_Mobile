@@ -10,6 +10,7 @@ import com.bangkit.sortsavvy.views.authentication.login.LoginViewModel
 import com.bangkit.sortsavvy.views.authentication.register.RegisterViewModel
 import com.bangkit.sortsavvy.views.main.MainViewModel
 import com.bangkit.sortsavvy.views.main.challenge.ChallengeHomeViewModel
+import com.bangkit.sortsavvy.views.main.home.HomeViewModel
 import com.bangkit.sortsavvy.views.main.profile.ProfileViewModel
 import com.bangkit.sortsavvy.views.main.profile.SettingsProfileViewModel
 import com.bangkit.sortsavvy.views.main.snap.SnapResultViewModel
@@ -69,6 +70,12 @@ class ViewModelFactory(private val context: Context) : ViewModelProvider.NewInst
 
             modelClass.isAssignableFrom(ChallengeHomeViewModel::class.java) -> {
                 ChallengeHomeViewModel() as T
+            }
+
+
+            modelClass.isAssignableFrom(HomeViewModel::class.java) -> {
+                val sessionRepository = AuthenticationInjection.provideSessionRepository(context)
+                HomeViewModel(sessionRepository) as T
             }
 
             else -> throw IllegalArgumentException("Unknown ViewModel class: ${modelClass.name}. Ensure the ViewModel class is correctly registered.")
