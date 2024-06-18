@@ -52,12 +52,12 @@ class HomeFragment : Fragment() {
                 currentUser = userModel
                 println("userModel -> $userModel")
                 println("currentUser -> $currentUser")
-                getCurrentUserData(currentUser)
+                setCurrentUserData(currentUser)
             }
         }
     }
 
-    private fun getCurrentUserData(userData: UserModel) {
+    private fun setCurrentUserData(userData: UserModel) {
         binding.nameText.text = userData.fullName
         if (userData.profilePhoto != null) {
             Glide.with(this)

@@ -79,6 +79,14 @@ class ChallengeResultFragment : Fragment() {
         // nanti atur level akun user apa "sort explorer" atau yg lain
     }
 
+    override fun onDestroy() {
+        super.onDestroy()
+        val navOptions = NavOptions.Builder()
+            .setPopUpTo(R.id.navigation_challenge_home, true)
+            .build()
+        findNavController().navigate(R.id.navigation_challenge_home, null, navOptions)
+    }
+
     companion object {
         fun newInstance() = ChallengeResultFragment()
     }
