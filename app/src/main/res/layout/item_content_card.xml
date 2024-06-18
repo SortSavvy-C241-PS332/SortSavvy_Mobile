@@ -9,61 +9,74 @@
     app:strokeWidth="2dp"
     android:id="@+id/cardItemView">
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:background="@color/background_white_gray_2"
-        android:weightSum="10">
-
-        <ImageView
-            android:id="@+id/thumbnailImageView"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="3"
-            android:scaleType="centerCrop"
-            android:src="@drawable/ic_launcher_background" />
+        android:layout_height="wrap_content">
 
         <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="6"
-            android:orientation="vertical">
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:background="@color/background_white_gray_2"
+            android:weightSum="10">
 
-            <TextView
-                android:id="@+id/itemTitleObjectTextView"
-                style="@style/TextContent.DarkGreen.TitleCard"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:layout_marginStart="16dp"
-                android:layout_marginEnd="16dp"
-                android:text="Title Item"
-                android:ellipsize="end"
-                android:maxLines="1" />
+            <ImageView
+                android:id="@+id/thumbnailImageView"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="3"
+                android:scaleType="centerCrop"
+                android:src="@drawable/ic_launcher_background" />
 
-            <TextView
-                android:id="@+id/itemDescriptionObjectTextView"
-                style="@style/TextContent"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginBottom="16dp"
-                android:layout_marginEnd="16dp"
-                android:text="Sampah anorganik adalah sampah yang berasal dari bahan-bahan ..."
-                android:ellipsize="end"
-                android:maxLines="2" />
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="6"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/itemTitleObjectTextView"
+                    style="@style/TextContent.DarkGreen.TitleCard"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:text="Title Item"
+                    android:ellipsize="end"
+                    android:maxLines="1" />
+
+                <TextView
+                    android:id="@+id/itemDescriptionObjectTextView"
+                    style="@style/TextContent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginBottom="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:text="Sampah anorganik adalah sampah yang berasal dari bahan-bahan ..."
+                    android:ellipsize="end"
+                    android:maxLines="2" />
+            </LinearLayout>
         </LinearLayout>
-    </LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true">
+            <ImageButton
+                android:id="@+id/detailImageButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:scaleType="centerCrop"
+                android:src="@drawable/round_arrow_forward_24"
+                android:background="@color/background_white_gray_2" />
+        </LinearLayout>
+    </RelativeLayout>
 
-    <ImageButton
-        android:id="@+id/detailImageButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:scaleType="centerCrop"
-        android:layout_marginEnd="16dp"
-        android:src="@drawable/round_arrow_forward_24"
-        android:background="@color/background_white_gray_2"
-        android:layout_gravity="center|end" />
+
+
+
 
 </com.google.android.material.card.MaterialCardView>

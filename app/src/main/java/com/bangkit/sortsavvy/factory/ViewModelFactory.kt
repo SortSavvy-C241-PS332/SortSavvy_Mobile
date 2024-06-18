@@ -9,13 +9,12 @@ import com.bangkit.sortsavvy.di.UserDataInjection
 import com.bangkit.sortsavvy.views.authentication.login.LoginViewModel
 import com.bangkit.sortsavvy.views.authentication.register.RegisterViewModel
 import com.bangkit.sortsavvy.views.main.MainViewModel
-import com.bangkit.sortsavvy.views.main.challenge.ChallengeViewModel
+import com.bangkit.sortsavvy.views.main.challenge.ChallengeHomeViewModel
 import com.bangkit.sortsavvy.views.main.profile.ProfileViewModel
 import com.bangkit.sortsavvy.views.main.profile.SettingsProfileViewModel
 import com.bangkit.sortsavvy.views.main.snap.SnapResultViewModel
 import com.bangkit.sortsavvy.views.main.snap.SnapViewModel
 import com.bangkit.sortsavvy.views.onboarding.OnboardingViewModel
-import com.bangkit.sortsavvy.views.welcome.WelcomeViewModel
 
 class ViewModelFactory(private val context: Context) : ViewModelProvider.NewInstanceFactory() {
 
@@ -68,8 +67,8 @@ class ViewModelFactory(private val context: Context) : ViewModelProvider.NewInst
                 SnapResultViewModel() as T
             }
 
-            modelClass.isAssignableFrom(ChallengeViewModel::class.java) -> {
-                ChallengeViewModel() as T
+            modelClass.isAssignableFrom(ChallengeHomeViewModel::class.java) -> {
+                ChallengeHomeViewModel() as T
             }
 
             else -> throw IllegalArgumentException("Unknown ViewModel class: ${modelClass.name}. Ensure the ViewModel class is correctly registered.")

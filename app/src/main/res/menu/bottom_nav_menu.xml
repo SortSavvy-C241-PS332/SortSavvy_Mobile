@@ -17,7 +17,7 @@
         android:title="@string/title_snap" />
 
     <item
-        android:id="@+id/navigation_challenge"
+        android:id="@+id/navigation_challenge_home"
         android:icon="@drawable/icon_tantangan"
         android:title="@string/title_challenge" />
 

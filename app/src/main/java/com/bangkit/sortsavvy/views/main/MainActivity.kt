@@ -121,6 +121,9 @@ class MainActivity : AppCompatActivity() {
                 R.id.navigation_profile_settings_change_password -> {
                     navView.visibility = View.GONE
                 }
+                R.id.navigation_challenge -> {
+                    navView.visibility = View.GONE
+                }
                 else -> {
                     navView.visibility = View.VISIBLE
                 }

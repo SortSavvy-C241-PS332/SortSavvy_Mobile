@@ -28,6 +28,16 @@
     </fragment>
 
     <fragment
+        android:id="@+id/navigation_challenge_home"
+        android:name="com.bangkit.sortsavvy.views.main.challenge.ChallengeHomeFragment"
+        android:label="@string/title_challenge"
+        tools:layout="@layout/fragment_challenge_home" >
+        <action
+            android:id="@+id/action_navigation_challenge_home_to_navigation_challenge"
+            app:destination="@id/navigation_challenge" />
+    </fragment>
+
+    <fragment
         android:id="@+id/navigation_challenge"
         android:name="com.bangkit.sortsavvy.views.main.challenge.ChallengeFragment"
         android:label="@string/title_challenge"
