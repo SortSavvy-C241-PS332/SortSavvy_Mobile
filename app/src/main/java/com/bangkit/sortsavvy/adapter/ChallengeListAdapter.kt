@@ -1,5 +1,6 @@
 package com.bangkit.sortsavvy.adapter
 
+import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.navigation.NavController
@@ -7,7 +8,10 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.bangkit.sortsavvy.R
 import com.bangkit.sortsavvy.data.model.ChallengeModel
+import com.bangkit.sortsavvy.databinding.FragmentChallengeBinding
 import com.bangkit.sortsavvy.databinding.ItemContentWithHeaderCardBinding
+import com.bangkit.sortsavvy.views.main.challenge.ChallengeFragment
+import com.bangkit.sortsavvy.views.main.profile.ProfileFragment
 
 class ChallengeListAdapter(
     private val challengeModelList : List<ChallengeModel>,
@@ -25,6 +29,10 @@ class ChallengeListAdapter(
                 cardItemViewInclude.itemDescriptionObjectTextView.text = item.description
                 cardItemViewInclude.thumbnailImageView.setImageResource(item.thumbnailImage)
                 root.setOnClickListener {
+                    ChallengeFragment.questionModelList = item.questionList
+                    ChallengeFragment.titleChallenge = item.title
+//                    val bundle = Bundle()
+//                    bundle.putParcelable(ProfileFragment.EXTRA_USER_DATA, userModel)
                     navController.navigate(R.id.action_navigation_challenge_home_to_navigation_challenge)
                 }
             }

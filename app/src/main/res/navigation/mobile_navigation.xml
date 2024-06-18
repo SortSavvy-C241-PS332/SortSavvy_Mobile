@@ -41,7 +41,24 @@
         android:id="@+id/navigation_challenge"
         android:name="com.bangkit.sortsavvy.views.main.challenge.ChallengeFragment"
         android:label="@string/title_challenge"
-        tools:layout="@layout/fragment_challenge" />
+        tools:layout="@layout/fragment_challenge" >
+        <action
+            android:id="@+id/action_navigation_challenge_to_navigation_challenge_result"
+            app:destination="@id/navigation_challenge_result" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_challenge_result"
+        android:name="com.bangkit.sortsavvy.views.main.challenge.ChallengeResultFragment"
+        android:label="@string/title_challenge"
+        tools:layout="@layout/fragment_challenge_result" >
+        <action
+            android:id="@+id/action_navigation_challenge_result_to_navigation_challenge_home"
+            app:destination="@id/navigation_challenge_home" />
+        <action
+            android:id="@+id/action_navigation_challenge_result_to_navigation_home"
+            app:destination="@id/navigation_home" />
+    </fragment>
 
     <fragment
         android:id="@+id/navigation_profile"

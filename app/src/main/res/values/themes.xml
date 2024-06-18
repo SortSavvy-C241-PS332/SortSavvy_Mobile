@@ -83,9 +83,16 @@
         <item name="android:layout_marginEnd">25dp</item>
     </style>
 
+    <style name="ButtonGeneral.ActiveLightGreen">
+        <item name="android:backgroundTint">@color/background_light_green</item>
+        <item name="android:fontFamily">@font/baloo_bhai_2_bold</item>
+        <item name="android:textColor">@color/background_white_gray</item>
+        <item name="android:text">Button</item>
+    </style>
+
     <style name="ButtonGeneral.ActiveSecondaryWhite">
         <item name="android:backgroundTint">@color/background_white_gray</item>
-        <item name="android:fontFamily">@font/baloo_bhai_2_bold</item>
+        <item name="android:fontFamily">@font/baloo_bhai_2</item>
     </style>
 
 <!--    EditText Input -->
