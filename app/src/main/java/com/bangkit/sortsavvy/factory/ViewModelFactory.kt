@@ -4,11 +4,14 @@ import android.content.Context
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.bangkit.sortsavvy.di.AuthenticationInjection
+import com.bangkit.sortsavvy.di.UserDataInjection
 //import com.bangkit.sortsavvy.di.OnboardingInjection
 import com.bangkit.sortsavvy.views.authentication.login.LoginViewModel
 import com.bangkit.sortsavvy.views.authentication.register.RegisterViewModel
 import com.bangkit.sortsavvy.views.main.MainViewModel
+import com.bangkit.sortsavvy.views.main.challenge.ChallengeViewModel
 import com.bangkit.sortsavvy.views.main.profile.ProfileViewModel
+import com.bangkit.sortsavvy.views.main.profile.SettingsProfileViewModel
 import com.bangkit.sortsavvy.views.main.snap.SnapResultViewModel
 import com.bangkit.sortsavvy.views.main.snap.SnapViewModel
 import com.bangkit.sortsavvy.views.onboarding.OnboardingViewModel
@@ -49,6 +52,12 @@ class ViewModelFactory(private val context: Context) : ViewModelProvider.NewInst
                 val sessionRepository = AuthenticationInjection.provideSessionRepository(context)
                 ProfileViewModel(sessionRepository) as T
             }
+            modelClass.isAssignableFrom(SettingsProfileViewModel::class.java) -> {
+                val profileRepository = UserDataInjection.provideProfileRepository(context)
+                val sessionRepository = AuthenticationInjection.provideSessionRepository(context)
+                SettingsProfileViewModel(profileRepository, sessionRepository) as T
+            }
+
 
 
             modelClass.isAssignableFrom(SnapViewModel::class.java) -> {
@@ -59,7 +68,9 @@ class ViewModelFactory(private val context: Context) : ViewModelProvider.NewInst
                 SnapResultViewModel() as T
             }
 
-
+            modelClass.isAssignableFrom(ChallengeViewModel::class.java) -> {
+                ChallengeViewModel() as T
+            }
 
             else -> throw IllegalArgumentException("Unknown ViewModel class: ${modelClass.name}. Ensure the ViewModel class is correctly registered.")
         }

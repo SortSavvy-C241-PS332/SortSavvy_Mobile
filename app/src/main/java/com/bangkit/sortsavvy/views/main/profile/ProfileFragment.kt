@@ -24,11 +24,11 @@ class ProfileFragment : Fragment() {
     private lateinit var binding: FragmentProfileBinding
     private lateinit var viewModel: ProfileViewModel
 
+    private lateinit var currentUser: UserModel
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        val viewModelFactory= ViewModelFactory.getInstance(this.requireContext())
-        viewModel = ViewModelProvider(this, viewModelFactory)[ProfileViewModel::class.java]
     }
 
     override fun onCreateView(
@@ -41,6 +41,9 @@ class ProfileFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding = FragmentProfileBinding.bind(view)
+
+        val viewModelFactory= ViewModelFactory.getInstance(this.requireContext())
+        viewModel = ViewModelProvider(this, viewModelFactory)[ProfileViewModel::class.java]
 
         setUpButtonCardItem()
         setUpButtonListener()
@@ -63,7 +66,8 @@ class ProfileFragment : Fragment() {
             if (!userModel.isLogin && userModel.isOnboardingViewed) {
                 navigateToWelcomeActivity()
             } else if (userModel.isLogin && userModel.isOnboardingViewed) {
-                getCurrentUserData(userModel)
+                currentUser = userModel
+                getCurrentUserData(currentUser)
             }
         }
 
@@ -84,7 +88,12 @@ class ProfileFragment : Fragment() {
 
     private fun setUpButtonListener() {
         binding.settingCardButtonInclude.cardItemView.setOnClickListener {
-            findNavController().navigate(R.id.action_navigation_profile_to_navigation_profile_settings)
+            currentUser.let { userModel ->
+                val bundle = Bundle()
+                bundle.putParcelable(EXTRA_USER_DATA, userModel)
+                findNavController().navigate(R.id.action_navigation_profile_to_navigation_profile_settings, bundle)
+            }
+//            findNavController().navigate(R.id.action_navigation_profile_ to_navigation_profile_settings)
         }
 
         binding.logoutCardButtonInclude.cardItemView.setOnClickListener {
@@ -116,5 +125,6 @@ class ProfileFragment : Fragment() {
 
     companion object {
         fun newInstance() = ProfileFragment()
+        const val EXTRA_USER_DATA = "extra_user_data"
     }
 }

@@ -1,13 +1,133 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:background="@drawable/gradient_green"
     tools:context=".views.main.challenge.ChallengeFragment">
 
-    <TextView
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="tantangan" />
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="128dp">
 
-</FrameLayout>
+        <TextView
+            android:id="@+id/tantanganTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="25dp"
+            android:layout_marginTop="35dp"
+            style="@style/TextContent.DarkGreen.TitleCard"
+            android:textSize="28sp"
+            android:textColor="@color/white"
+            android:text="Tantangan"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/deskripsiTantanganTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="25dp"
+            style="@style/TextContent.LightGray"
+            android:textSize="16sp"
+            android:text="Tunjukkan pemahamanmu tentang sampah di sini!"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tantanganTextView" />
+
+        <TextView
+            android:id="@+id/sortExplorerHeadTextView"
+            style="@style/TextContent.DarkGreen.TitleCard"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="25dp"
+            android:layout_marginTop="13dp"
+            android:text="Level 1: Sort Explorer"
+            android:textColor="@color/font_light_gray"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/deskripsiTantanganTextView" />
+
+        <include
+            android:id="@+id/sortExplorerCardInclude"
+            layout="@layout/item_content_card"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="25dp"
+            android:layout_marginEnd="25dp"
+            app:layout_constraintTop_toBottomOf="@+id/sortExplorerHeadTextView" />
+
+        <TextView
+            android:id="@+id/sortWariorHeadTextView"
+            style="@style/TextContent.DarkGreen.TitleCard"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="25dp"
+            android:layout_marginTop="13dp"
+            android:text="Level 2: Sort Warrior"
+            android:textColor="@color/font_light_gray"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/sortExplorerCardInclude" />
+
+        <include
+            android:id="@+id/sortWariorCardInclude"
+            layout="@layout/item_content_card"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="25dp"
+            android:layout_marginEnd="25dp"
+            app:layout_constraintTop_toBottomOf="@+id/sortWariorHeadTextView" />
+
+        <TextView
+            android:id="@+id/sortHeroHeadTextView"
+            style="@style/TextContent.DarkGreen.TitleCard"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="25dp"
+            android:layout_marginTop="13dp"
+            android:text="Level 3: Sort Hero"
+            android:textColor="@color/font_light_gray"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/sortWariorCardInclude" />
+
+        <include
+            android:id="@+id/sortHeroCardInclude"
+            layout="@layout/item_content_card"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="25dp"
+            android:layout_marginEnd="25dp"
+            app:layout_constraintTop_toBottomOf="@+id/sortHeroHeadTextView" />
+
+        <TextView
+            android:id="@+id/sortSavvierHeadTextView"
+            style="@style/TextContent.DarkGreen.TitleCard"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="25dp"
+            android:layout_marginTop="13dp"
+            android:text="Level 4: Sort Savvier"
+            android:textColor="@color/font_light_gray"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/sortHeroCardInclude" />
+
+        <include
+            android:id="@+id/sortSavvierCardInclude"
+            layout="@layout/item_content_card"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="25dp"
+            android:layout_marginEnd="25dp"
+            app:layout_constraintTop_toBottomOf="@+id/sortSavvierHeadTextView" />
+
+        <TextView
+            android:visibility="invisible"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="32dp"
+            android:text="add bottom margin"
+            app:layout_constraintTop_toBottomOf="@+id/sortSavvierCardInclude"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>

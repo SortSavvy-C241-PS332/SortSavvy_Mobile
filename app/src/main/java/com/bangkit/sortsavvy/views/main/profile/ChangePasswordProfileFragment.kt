@@ -9,7 +9,9 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.navigation.fragment.findNavController
 import com.bangkit.sortsavvy.R
+import com.bangkit.sortsavvy.data.model.UserModel
 import com.bangkit.sortsavvy.databinding.FragmentChangePasswordProfileBinding
+import com.bumptech.glide.Glide
 
 class ChangePasswordProfileFragment : Fragment() {
 
@@ -31,7 +33,20 @@ class ChangePasswordProfileFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         binding = FragmentChangePasswordProfileBinding.bind(view)
 
+        val userModel: UserModel? = arguments?.getParcelable(SettingsProfileFragment.EXTRA_USER_DATA)
+        if (userModel != null) {
+            setUserProfileDataToView(userModel)
+        }
+
         setUpButtonListener()
+    }
+
+    private fun setUserProfileDataToView(userModel: UserModel) {
+        binding.emailTextView.text = userModel.email
+        Glide.with(this)
+            .load(userModel.profilePhoto)
+            .placeholder(R.drawable.profile_thumbnail_avatar_syella)
+            .into(binding.avatarImageView)
     }
 
     private fun setUpButtonListener() {

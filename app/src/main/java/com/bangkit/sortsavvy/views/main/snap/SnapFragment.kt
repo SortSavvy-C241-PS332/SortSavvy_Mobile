@@ -44,9 +44,6 @@ class SnapFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-        val viewModelFactory= ViewModelFactory.getInstance(this.requireContext())
-        viewModel = ViewModelProvider(this, viewModelFactory)[SnapViewModel::class.java]
     }
 
     override fun onCreateView(
@@ -59,6 +56,9 @@ class SnapFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding = FragmentSnapBinding.bind(view)
+
+        val viewModelFactory= ViewModelFactory.getInstance(this.requireContext())
+        viewModel = ViewModelProvider(this, viewModelFactory)[SnapViewModel::class.java]
 
         setUpButtonListener()
 

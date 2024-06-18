@@ -107,6 +107,14 @@
         android:layout_marginStart="25dp"
         android:layout_marginEnd="25dp"
         app:layout_constraintTop_toBottomOf="@+id/penangananSampahHeadTextView" />
+
+    <TextView
+        android:visibility="invisible"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="32dp"
+        android:text="add bottom margin"
+        app:layout_constraintTop_toBottomOf="@+id/penangananCardInclude"/>
 </androidx.constraintlayout.widget.ConstraintLayout>
 
 </ScrollView>
