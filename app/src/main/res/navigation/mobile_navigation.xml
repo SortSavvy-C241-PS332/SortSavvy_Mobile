@@ -113,7 +113,11 @@
         android:id="@+id/navigation_snap_result"
         android:name="com.bangkit.sortsavvy.views.main.snap.SnapResultFragment"
         android:label="SnapResultFragment"
-        tools:layout="@layout/fragment_snap_result"/>
+        tools:layout="@layout/fragment_snap_result">
+        <action
+            android:id="@+id/action_navigation_snap_result_to_navigation_explore_detail_snap"
+            app:destination="@id/navigation_explore_detail_snap" />
+    </fragment>
 
     <fragment
         android:id="@+id/navigation_profile_settings"
