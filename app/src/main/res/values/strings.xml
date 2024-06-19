@@ -70,4 +70,7 @@
 
     <string name="error_initializing_model">Image classifier failed to initialize. See error logs for details</string>
     <string name="label_save">Simpan</string>
+
+    <string name="tab_text_cara_olah_1">Langkah-Langkah</string>
+    <string name="tab_text_cara_olah_2">Tonton Video</string>
 </resources>

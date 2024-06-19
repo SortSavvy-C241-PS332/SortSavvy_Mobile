@@ -130,6 +130,9 @@ class MainActivity : AppCompatActivity() {
                 R.id.navigation_explore_detail_snap -> {
                     navView.visibility = View.GONE
                 }
+                R.id.navigation_explore_detail_cara_olah -> {
+                    navView.visibility = View.GONE
+                }
                 else -> {
                     navView.visibility = View.VISIBLE
                 }

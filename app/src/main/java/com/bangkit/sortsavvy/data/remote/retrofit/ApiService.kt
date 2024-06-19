@@ -2,6 +2,7 @@ package com.bangkit.sortsavvy.data.remote.retrofit
 
 import com.bangkit.sortsavvy.data.remote.response.LoginResponse
 import com.bangkit.sortsavvy.data.remote.response.RegisterResponse
+import com.bangkit.sortsavvy.data.remote.response.UpdateProfileResponse
 import okhttp3.MultipartBody
 import okhttp3.RequestBody
 import retrofit2.http.Body
@@ -34,12 +35,12 @@ interface ApiService {
     @Multipart
     @PUT("users/{id}")
     suspend fun updateUserProfile(
-        @Path("id") id: String,
+        @Path("id") id: Int,
         @Part("fullName") fullName: RequestBody,
         @Part("email") email: RequestBody,
         @Part("password") password: RequestBody,
         @Part profilePhoto: MultipartBody.Part
-    )
+    ) : UpdateProfileResponse
 
     @FormUrlEncoded
     @PUT("users/{id}")

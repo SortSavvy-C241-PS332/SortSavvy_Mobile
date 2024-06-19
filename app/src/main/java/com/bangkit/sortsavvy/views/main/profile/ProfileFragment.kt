@@ -67,7 +67,8 @@ class ProfileFragment : Fragment() {
                 navigateToWelcomeActivity()
             } else if (userModel.isLogin && userModel.isOnboardingViewed) {
                 currentUser = userModel
-                getCurrentUserData(currentUser)
+                setCurrentUserData(currentUser)
+                println("getSession -> $userModel")
             }
         }
 
@@ -111,7 +112,7 @@ class ProfileFragment : Fragment() {
         binding.logoutCardButtonInclude.subTitleItemContainerTextView.text = "Keluar dari aplikasi"
     }
 
-    private fun getCurrentUserData(userData: UserModel) {
+    private fun setCurrentUserData(userData: UserModel) {
         binding.nameTitleTextView.text = userData.fullName
         binding.emailTextView.text = userData.email
         if (userData.profilePhoto != null) {

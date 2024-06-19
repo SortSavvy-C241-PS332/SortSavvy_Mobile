@@ -15,7 +15,7 @@ android {
         versionCode = 1
         versionName = "1.0"
 
-        buildConfigField ("String", "BASE_URL", "\"https://userapp-nccajmwkeq-et.a.run.app/\"")
+        buildConfigField ("String", "BASE_URL", "\"https://usersdata-nccajmwkeq-et.a.run.app/\"")
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -83,4 +83,5 @@ dependencies {
 
     // circle image view
     implementation (libs.circleimageview)
+
 }

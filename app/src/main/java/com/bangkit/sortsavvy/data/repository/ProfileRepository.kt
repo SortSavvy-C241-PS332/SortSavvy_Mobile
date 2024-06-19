@@ -14,7 +14,7 @@ class ProfileRepository(
     private val apiService: ApiService,
 ) {
 
-    fun updateUserProfile(userID: String, newDataUser: UserProfileModel) = liveData {
+    fun updateUserProfile(userID: Int, newDataUser: UserProfileModel) = liveData {
         emit(ResultState.Loading)
         try {
             val successResponse = apiService.updateUserProfile(
@@ -23,6 +23,26 @@ class ProfileRepository(
                 newDataUser.email,
                 newDataUser.password,
                 newDataUser.profilePhoto
+            )
+            emit(ResultState.Success(successResponse))
+        } catch (e: HttpException) {
+            val errorJsonString = e.response()?.errorBody()?.string()
+            val errorBody = Gson().fromJson(errorJsonString, ErrorResponse::class.java)
+            emit(
+                errorBody.message?.let {
+                    ResultState.Error(it)
+                }
+            )
+        }
+    }
+
+    fun updateUserPassword(userID: String, oldPassword: String, newPassword: String) = liveData {
+        emit(ResultState.Loading)
+        try {
+            val successResponse = apiService.updateUserPassword(
+                userID,
+                oldPassword,
+                newPassword
             )
             emit(ResultState.Success(successResponse))
         } catch (e: HttpException) {

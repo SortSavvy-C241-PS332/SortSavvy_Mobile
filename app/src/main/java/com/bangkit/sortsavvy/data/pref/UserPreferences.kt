@@ -5,6 +5,7 @@ import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.core.booleanPreferencesKey
 import androidx.datastore.preferences.core.edit
+import androidx.datastore.preferences.core.intPreferencesKey
 import androidx.datastore.preferences.core.stringPreferencesKey
 import androidx.datastore.preferences.preferencesDataStore
 import com.bangkit.sortsavvy.data.model.UserModel
@@ -54,7 +55,7 @@ class UserPreferences(private val dataStore: DataStore<Preferences>) {
         @Volatile
         private var INSTANCE: UserPreferences? = null
 
-        private val USER_ID_KEY = stringPreferencesKey("userId")
+        private val USER_ID_KEY = intPreferencesKey("userId")
         private val EMAIL_KEY = stringPreferencesKey("email")
         private val FULL_NAME_KEY = stringPreferencesKey("fullName")
         private val PROFILE_PHOTO_KEY = stringPreferencesKey("profilePhoto")

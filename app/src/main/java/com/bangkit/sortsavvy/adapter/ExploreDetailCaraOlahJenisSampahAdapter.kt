@@ -4,8 +4,10 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.navigation.NavController
 import androidx.recyclerview.widget.RecyclerView
+import com.bangkit.sortsavvy.R
 import com.bangkit.sortsavvy.data.model.ExploreDetailCaraOlahJenisSampahModel
 import com.bangkit.sortsavvy.databinding.ItemContentCardBinding
+import com.bangkit.sortsavvy.views.main.explore.refactor.ExploreDetailCaraOlahFragment
 
 class ExploreDetailCaraOlahJenisSampahAdapter(
     private val exploreDetailCaraOlahSampahList: List<ExploreDetailCaraOlahJenisSampahModel>,
@@ -46,8 +48,13 @@ class ExploreDetailCaraOlahJenisSampahAdapter(
                 itemDescriptionObjectTextView.text = item.description
                 thumbnailImageView.setImageResource(item.image)
                 root.setOnClickListener {
+                    ExploreDetailCaraOlahFragment.titleCaraOlah = item.title
+                    ExploreDetailCaraOlahFragment.descriptionCaraOlah = item.description
+                    ExploreDetailCaraOlahFragment.imageCaraOlah = item.image
+                    ExploreDetailCaraOlahFragment.langkahCaraOlahList = item.listStepCaraOlah
+                    ExploreDetailCaraOlahFragment.linkUrlContohCaraOlah = item.linkUrlContohCaraOlah
 
-//                    navController.navigate(R.id.action_navigation_explore_detail_snap_to_navigation_explore_detail_cara_olah)
+                    navController.navigate(R.id.action_navigation_explore_detail_snap_to_navigation_explore_detail_cara_olah)
                 }
             }
         }

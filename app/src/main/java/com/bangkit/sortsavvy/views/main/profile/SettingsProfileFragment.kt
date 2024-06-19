@@ -21,6 +21,7 @@ import com.bangkit.sortsavvy.data.model.UserProfileModel
 import com.bangkit.sortsavvy.databinding.FragmentSettingsProfileBinding
 import com.bangkit.sortsavvy.factory.ViewModelFactory
 import com.bangkit.sortsavvy.utils.ImageUtil
+import com.bangkit.sortsavvy.utils.ImageUtil.reduceFileImage
 import com.bangkit.sortsavvy.utils.ViewComponentUtil
 import com.bumptech.glide.Glide
 import okhttp3.MediaType.Companion.toMediaType
@@ -34,6 +35,7 @@ class SettingsProfileFragment : Fragment() {
     private lateinit var viewModel: SettingsProfileViewModel
 
     private lateinit var currentUser: UserModel
+    private lateinit var userData: Triple<String, String, String>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -74,6 +76,11 @@ class SettingsProfileFragment : Fragment() {
         viewModel.getSession().observe(viewLifecycleOwner) { userModel ->
             currentUser = userModel
             setUserProfileDataToView(currentUser)
+            println("getSession -> $userModel")
+        }
+
+        viewModel.invalidValidation.observe(viewLifecycleOwner) { message ->
+            ViewComponentUtil.showToast(this.requireContext(), message)
         }
     }
 
@@ -102,7 +109,8 @@ class SettingsProfileFragment : Fragment() {
         }
 
         binding.saveButton.setOnClickListener {
-            updateProfile()
+            val isValid = validateUserForm()
+            if (isValid) updateProfile()
         }
 
         binding.editAvatarImageButton.setOnClickListener {
@@ -110,11 +118,30 @@ class SettingsProfileFragment : Fragment() {
         }
     }
 
+    private fun validateUserForm(): Boolean {
+        println("Validating User Form")
+        userData = getDataUserFromForm()
+        println("fullName: ${userData.first}, email: ${userData.second}, password: ${userData.third}")
+        val isValid: Boolean = viewModel.validateUserForm(userData.first, userData.second, userData.third)
+        println("isValid: $isValid")
+        return isValid
+    }
+
+    private fun getDataUserFromForm(): Triple<String, String, String> {
+        val fullName = binding.nameEditText.text.toString()
+        val email = binding.emailEditText.text.toString()
+        val password = binding.passwordEditText.text.toString()
+        return Triple(fullName, email, password)
+    }
+
     private fun updateProfile() {
         val currentImageUri = viewModel.currentImageUri.value
+        println("currentImageUri -> $currentImageUri")
         currentImageUri?.let { uri ->
             val userProfileModel = getDataUser(uri)
+            println("userProfileModel -> $userProfileModel")
             val userID = currentUser.userId
+            println("userID -> $userID")
             if (userID != null) {
                 viewModel.updateUserProfile(userID, userProfileModel).observe(viewLifecycleOwner) { resultState ->
                     if (resultState != null) {
@@ -125,6 +152,7 @@ class SettingsProfileFragment : Fragment() {
                             is ResultState.Success -> {
 //                        binding.progressBar.visibility = View.GONE
                                 ViewComponentUtil.showToast(this.requireContext(), "Profile berhasil diubah")
+//                                viewModel.setSession(resultState.data.user)
                             }
                             is ResultState.Error -> {
 //                        binding.progressBar.visibility = View.GONE
@@ -141,7 +169,7 @@ class SettingsProfileFragment : Fragment() {
         val fullName = binding.nameEditText.text.toString()
         val email = binding.emailEditText.text.toString()
         val currentPassword = binding.passwordEditText.text.toString()
-        val imageProfileFile = ImageUtil.uriToFile(avatarUri, this.requireContext())
+        val imageProfileFile = ImageUtil.uriToFile(avatarUri, this.requireContext()).reduceFileImage()
 
         val requestImageProfileFile = imageProfileFile.asRequestBody("image/*".toMediaType())
         val multipartBody = MultipartBody.Part.createFormData(

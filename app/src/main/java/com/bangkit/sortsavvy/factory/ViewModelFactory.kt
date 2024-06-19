@@ -10,10 +10,11 @@ import com.bangkit.sortsavvy.views.authentication.login.LoginViewModel
 import com.bangkit.sortsavvy.views.authentication.register.RegisterViewModel
 import com.bangkit.sortsavvy.views.main.MainViewModel
 import com.bangkit.sortsavvy.views.main.challenge.ChallengeHomeViewModel
+import com.bangkit.sortsavvy.views.main.explore.refactor.ExploreDetailCaraOlahViewModel
 import com.bangkit.sortsavvy.views.main.explore.refactor.ExploreHomeViewModel
-import com.bangkit.sortsavvy.views.main.explore.refactor.ExploreDetailEducationViewModel
 import com.bangkit.sortsavvy.views.main.explore.refactor.ExploreDetailSnapViewModel
 import com.bangkit.sortsavvy.views.main.home.HomeViewModel
+import com.bangkit.sortsavvy.views.main.profile.ChangePasswordProfileViewModel
 import com.bangkit.sortsavvy.views.main.profile.ProfileViewModel
 import com.bangkit.sortsavvy.views.main.profile.SettingsProfileViewModel
 import com.bangkit.sortsavvy.views.main.snap.SnapResultViewModel
@@ -60,6 +61,10 @@ class ViewModelFactory(private val context: Context) : ViewModelProvider.NewInst
                 val sessionRepository = AuthenticationInjection.provideSessionRepository(context)
                 SettingsProfileViewModel(profileRepository, sessionRepository) as T
             }
+            modelClass.isAssignableFrom(ChangePasswordProfileViewModel::class.java) -> {
+                val profileRepository = UserDataInjection.provideProfileRepository(context)
+                ChangePasswordProfileViewModel(profileRepository) as T
+            }
 
 
 
@@ -83,12 +88,13 @@ class ViewModelFactory(private val context: Context) : ViewModelProvider.NewInst
             modelClass.isAssignableFrom(ExploreHomeViewModel::class.java) -> {
                 ExploreHomeViewModel() as T
             }
-            modelClass.isAssignableFrom(ExploreDetailEducationViewModel::class.java) -> {
-                ExploreDetailEducationViewModel() as T
-            }
 
             modelClass.isAssignableFrom(ExploreDetailSnapViewModel::class.java) -> {
                 ExploreDetailSnapViewModel() as T
+            }
+
+            modelClass.isAssignableFrom(ExploreDetailCaraOlahViewModel::class.java) -> {
+                ExploreDetailCaraOlahViewModel() as T
             }
 
 
