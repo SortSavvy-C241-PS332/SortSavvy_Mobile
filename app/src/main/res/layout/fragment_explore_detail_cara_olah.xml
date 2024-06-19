@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/gradient_green"
-    tools:context=".views.main.explore.PenangananFragment">
+    tools:context=".views.main.explore.refactor.ExploreDetailCaraOlahFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -13,12 +13,14 @@
 
         <ImageView
             android:id="@+id/caraOlahImageView"
-            android:layout_width="411dp"
-            android:layout_height="294dp"
-            app:layout_constraintTop_toTopOf="parent"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:scaleType="centerCrop"
+            app:layout_constraintBottom_toBottomOf="@+id/judulTextView"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            tools:src="@drawable/organik_ldscp" />
+            app:layout_constraintTop_toTopOf="parent"
+            tools:src="@drawable/ic_launcher_background" />
 
         <ImageButton
             android:id="@+id/backBtnImageButton"
@@ -33,26 +35,27 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
-            android:id="@+id/backgroundDeskripsiPengenalanImageView"
+            android:id="@+id/backgroundBottomImageView"
             android:layout_width="match_parent"
-            android:layout_height="1613dp"
-            android:layout_marginTop="272dp"
+            android:layout_height="0dp"
             android:contentDescription="@string/bottom_background_menu_snap"
             android:src="@drawable/background_bottom_rectangle_white_gray"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:layout_editor_absoluteX="0dp" />
+            app:layout_constraintHeight_percent="0.85"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
 
         <TextView
             android:id="@+id/judulTextView"
             style="@style/TextContent.DarkGreen.TitleCard"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:text="Kompos"
+            android:layout_marginTop="16dp"
+            android:text="Judul"
             android:textSize="32sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/backgroundDeskripsiPengenalanImageView" />
+            app:layout_constraintTop_toTopOf="@+id/backgroundBottomImageView" />
 
         <TextView
             android:id="@+id/deskripsiHeadTextView"
@@ -69,32 +72,31 @@
         <TextView
             android:id="@+id/deskripsiTextView"
             style="@style/TextContent"
-            android:layout_width="362dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="3dp"
-            android:text="Sampah organik adalah sampah yang berasal dari makhluk hidup, baik itu hewan maupun tumbuhan, dan mudah terurai oleh mikroorganisme."
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.51"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/deskripsiHeadTextView" />
-
-        <com.google.android.material.tabs.TabLayout
-            android:id="@+id/tabs"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="13dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/deskripsiTextView" />
+            android:layout_marginHorizontal="25dp"
+            tools:text="Sampah organik adalah sampah yang berasal dari makhluk hidup, baik itu hewan maupun tumbuhan, dan mudah terurai oleh mikroorganisme."
+            app:layout_constraintEnd_toEndOf="@+id/backgroundBottomImageView"
+            app:layout_constraintStart_toStartOf="@id/backgroundBottomImageView"
+            app:layout_constraintTop_toBottomOf="@+id/deskripsiHeadTextView" />
 
-        <androidx.viewpager.widget.ViewPager
-            android:id="@+id/viewPager"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tabs" />
+<!--        <com.google.android.material.tabs.TabLayout-->
+<!--            android:id="@+id/tabs"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginTop="13dp"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintTop_toBottomOf="@+id/deskripsiTextView" />-->
+
+<!--        <androidx.viewpager.widget.ViewPager-->
+<!--            android:id="@+id/viewPager"-->
+<!--            android:layout_width="0dp"-->
+<!--            android:layout_height="0dp"-->
+<!--            app:layout_constraintBottom_toBottomOf="parent"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintTop_toBottomOf="@+id/tabs" />-->
 
 <!--        <TextView-->
 <!--            android:id="@+id/caraBankSampahHeadTextView"-->

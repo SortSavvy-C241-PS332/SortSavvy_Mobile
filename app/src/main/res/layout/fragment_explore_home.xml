@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/gradient_green">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/jelajahTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="25dp"
+            android:layout_marginTop="35dp"
+            style="@style/TextContent.DarkGreen.TitleCard"
+            android:textSize="28sp"
+            android:textColor="@color/white"
+            android:text="Jelajah"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/deskripsiJelajahTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="25dp"
+            style="@style/TextContent.LightGray"
+            android:textSize="16sp"
+            android:text="Di sini, kamu bisa belajar semua tentang sampah!"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/jelajahTextView" />
+
+        <TextView
+            android:id="@+id/pengenalanHeadTextView"
+            style="@style/TextContent.DarkGreen.TitleCard"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="25dp"
+            android:layout_marginTop="13dp"
+            android:text="Pengenalan Sampah"
+            android:textColor="@color/font_light_gray"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/deskripsiJelajahTextView" />
+
+        <include
+            android:id="@+id/pengenalanCardInclude"
+            layout="@layout/item_content_card"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="25dp"
+            android:layout_marginEnd="25dp"
+            app:layout_constraintTop_toBottomOf="@+id/pengenalanHeadTextView" />
+
+        <TextView
+            android:id="@+id/jenisSampahHeadTextView"
+            style="@style/TextContent.DarkGreen.TitleCard"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="25dp"
+            android:layout_marginTop="13dp"
+            android:text="Jenis Sampah"
+            android:textColor="@color/font_light_gray"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/pengenalanCardInclude" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/jenisSampahItemRecyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="25dp"
+                tools:listitem="@layout/item_content_card" />
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/penangananSampahHeadTextView"
+            style="@style/TextContent.DarkGreen.TitleCard"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="25dp"
+            android:layout_marginTop="13dp"
+            android:text="Penanganan Sampah"
+            android:textColor="@color/font_light_gray"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/jenisSampahItemRecyclerView" />
+
+        <include
+            android:id="@+id/penangananCardInclude"
+            layout="@layout/item_content_card"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="25dp"
+            android:layout_marginEnd="25dp"
+            app:layout_constraintTop_toBottomOf="@+id/penangananSampahHeadTextView" />
+
+        <TextView
+            android:visibility="invisible"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="32dp"
+            android:text="add bottom margin"
+            app:layout_constraintTop_toBottomOf="@+id/penangananCardInclude"/>
+
+    </LinearLayout>
+
+<!--    <androidx.constraintlayout.widget.ConstraintLayout-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content">-->
+
+<!--        <TextView-->
+<!--            android:id="@+id/jelajahTextView"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginStart="25dp"-->
+<!--            android:layout_marginTop="35dp"-->
+<!--            style="@style/TextContent.DarkGreen.TitleCard"-->
+<!--            android:textSize="28sp"-->
+<!--            android:textColor="@color/white"-->
+<!--            android:text="Jelajah"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintTop_toTopOf="parent" />-->
+
+<!--        <TextView-->
+<!--            android:id="@+id/deskripsiJelajahTextView"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginStart="25dp"-->
+<!--            style="@style/TextContent.LightGray"-->
+<!--            android:textSize="16sp"-->
+<!--            android:text="Di sini, kamu bisa belajar semua tentang sampah!"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintTop_toBottomOf="@+id/jelajahTextView" />-->
+
+<!--        <TextView-->
+<!--            android:id="@+id/pengenalanHeadTextView"-->
+<!--            style="@style/TextContent.DarkGreen.TitleCard"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginStart="25dp"-->
+<!--            android:layout_marginTop="13dp"-->
+<!--            android:text="Pengenalan Sampah"-->
+<!--            android:textColor="@color/font_light_gray"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintTop_toBottomOf="@+id/deskripsiJelajahTextView" />-->
+
+<!--        <include-->
+<!--            android:id="@+id/pengenalanCardInclude"-->
+<!--            layout="@layout/item_content_card"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginStart="25dp"-->
+<!--            android:layout_marginEnd="25dp"-->
+<!--            app:layout_constraintTop_toBottomOf="@+id/pengenalanHeadTextView" />-->
+
+<!--        <TextView-->
+<!--            android:id="@+id/jenisSampahHeadTextView"-->
+<!--            style="@style/TextContent.DarkGreen.TitleCard"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginStart="25dp"-->
+<!--            android:layout_marginTop="13dp"-->
+<!--            android:text="Jenis Sampah"-->
+<!--            android:textColor="@color/font_light_gray"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintTop_toBottomOf="@+id/pengenalanCardInclude" />-->
+
+<!--        <include-->
+<!--            android:id="@+id/organikCardInclude"-->
+<!--            layout="@layout/item_content_card"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginStart="25dp"-->
+<!--            android:layout_marginEnd="25dp"-->
+<!--            app:layout_constraintTop_toBottomOf="@+id/jenisSampahHeadTextView" />-->
+
+<!--        <include-->
+<!--            android:id="@+id/anorganikCardInclude"-->
+<!--            layout="@layout/item_content_card"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginTop="13dp"-->
+<!--            android:layout_marginStart="25dp"-->
+<!--            android:layout_marginEnd="25dp"-->
+<!--            app:layout_constraintTop_toBottomOf="@+id/organikCardInclude" />-->
+
+<!--        <TextView-->
+<!--            android:id="@+id/penangananSampahHeadTextView"-->
+<!--            style="@style/TextContent.DarkGreen.TitleCard"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginStart="25dp"-->
+<!--            android:layout_marginTop="13dp"-->
+<!--            android:text="Penanganan Sampah"-->
+<!--            android:textColor="@color/font_light_gray"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintTop_toBottomOf="@+id/anorganikCardInclude" />-->
+
+<!--        <include-->
+<!--            android:id="@+id/penangananCardInclude"-->
+<!--            layout="@layout/item_content_card"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginStart="25dp"-->
+<!--            android:layout_marginEnd="25dp"-->
+<!--            app:layout_constraintTop_toBottomOf="@+id/penangananSampahHeadTextView" />-->
+
+<!--        <TextView-->
+<!--            android:visibility="invisible"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="match_parent"-->
+<!--            android:layout_marginTop="32dp"-->
+<!--            android:text="add bottom margin"-->
+<!--            app:layout_constraintTop_toBottomOf="@+id/penangananCardInclude"/>-->
+<!--    </androidx.constraintlayout.widget.ConstraintLayout>-->
+
+</ScrollView>

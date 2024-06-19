@@ -12,10 +12,30 @@
         tools:layout="@layout/fragment_home" />
 
     <fragment
-        android:id="@+id/navigation_explore"
-        android:name="com.bangkit.sortsavvy.views.main.explore.ExploreFragment"
+        android:id="@+id/navigation_explore_home"
+        android:name="com.bangkit.sortsavvy.views.main.explore.refactor.ExploreHomeFragment"
         android:label="@string/title_explore"
-        tools:layout="@layout/fragment_explore" />
+        tools:layout="@layout/fragment_explore_home" >
+        <action
+            android:id="@+id/action_navigation_explore_home_to_navigation_explore_detail_snap"
+            app:destination="@id/navigation_explore_detail_snap" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_explore_detail_snap"
+        android:name="com.bangkit.sortsavvy.views.main.explore.refactor.ExploreDetailSnapFragment"
+        android:label="@string/title_explore"
+        tools:layout="@layout/fragment_explore_detail_snap" >
+        <action
+            android:id="@+id/action_navigation_explore_detail_snap_to_navigation_explore_detail_cara_olah"
+            app:destination="@id/navigation_explore_detail_cara_olah" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_explore_detail_cara_olah"
+        android:name="com.bangkit.sortsavvy.views.main.explore.refactor.ExploreDetailCaraOlahFragment"
+        android:label="@string/title_explore"
+        tools:layout="@layout/fragment_explore_detail_cara_olah" />
 
     <fragment
         android:id="@+id/navigation_snap"

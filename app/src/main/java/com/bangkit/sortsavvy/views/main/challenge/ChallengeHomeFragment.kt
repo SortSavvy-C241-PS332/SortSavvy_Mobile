@@ -44,7 +44,7 @@ class ChallengeHomeFragment : Fragment() {
         viewModel.loadChallengeModelList()
         viewModel.challengeModelList.observe(viewLifecycleOwner) { challengeModelList ->
             setupRecyclerView(challengeModelList)
-            setButtonClickListener()
+//            setButtonClickListener()
         }
 
 //        viewModel.loadChallengeItems()

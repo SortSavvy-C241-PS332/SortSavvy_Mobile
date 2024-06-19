@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardUseCompatPadding="true"
+    app:cardCornerRadius="16dp" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp">
+
+        <TextView
+            android:id="@+id/titleContohItemTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/baloo_bhai_2_bold"
+            android:text="titleContohItem"
+            android:textColor="@color/font_black" />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/itemACardView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="16dp"
+            android:layout_below="@+id/titleContohItemTextView">
+
+            <LinearLayout
+                android:id="@+id/itemContainerAContohLinearLayout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@drawable/icon_background_square_rounded_light_purple">
+
+                <ImageView
+                    android:id="@+id/thumbnailAContohItemImageView"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:src="@drawable/ic_launcher_background"/>
+
+                <TextView
+                    android:id="@+id/titleItemContohATextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="itemContent"
+                    android:padding="8dp"
+                    android:fontFamily="@font/baloo_bhai_2"
+                    android:textSize="11sp"
+                    android:textStyle="bold"
+                    android:textAlignment="center"/>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/itemBCardView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="16dp"
+            android:layout_marginStart="8dp"
+            android:layout_below="@+id/titleContohItemTextView"
+            android:layout_toEndOf="@+id/itemACardView">
+
+            <LinearLayout
+                android:id="@+id/itemContainerBContohLinearLayout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@drawable/icon_background_square_rounded_light_purple">
+
+                <ImageView
+                    android:id="@+id/thumbnailBContohItemImageView"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:src="@drawable/ic_launcher_background"/>
+
+                <TextView
+                    android:id="@+id/titleItemContohBTextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="itemContent"
+                    android:padding="8dp"
+                    android:fontFamily="@font/baloo_bhai_2"
+                    android:textSize="11sp"
+                    android:textStyle="bold"
+                    android:textAlignment="center"/>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+    </RelativeLayout>
+</com.google.android.material.card.MaterialCardView>
