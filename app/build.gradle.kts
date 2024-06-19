@@ -80,4 +80,7 @@ dependencies {
 
     // glide for image loading
     implementation(libs.com.github.bumptech.glide)
+
+    // circle image view
+    implementation (libs.circleimageview)
 }

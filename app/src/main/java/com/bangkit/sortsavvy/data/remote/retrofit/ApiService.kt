@@ -42,7 +42,7 @@ interface ApiService {
     )
 
     @FormUrlEncoded
-//    @PUT("users/{id}")
+    @PUT("users/{id}")
     suspend fun updateUserPassword(
         @Path("id") id: String,
         @Field("password") currentPassword: String,

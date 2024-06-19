@@ -183,7 +183,10 @@ class SettingsProfileFragment : Fragment() {
 
     private fun showImage(uri: Uri) {
         binding.avatarImageView.apply {
-            scaleType = ImageView.ScaleType.FIT_CENTER
+//            scaleType = ImageView.ScaleType.FIT_CENTER
+//            Glide.with(this)
+//                .load(userData.profilePhoto)
+//                .into(binding.avatarImageView)
             setImageURI(uri)
         }
     }

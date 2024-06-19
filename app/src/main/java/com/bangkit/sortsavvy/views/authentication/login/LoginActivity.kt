@@ -118,7 +118,8 @@ class LoginActivity : AppCompatActivity() {
 
     private fun createUserModelSession(userData: UserDataLogin):  UserModel {
         // hardcode userID (nanti perlu revisi)
-        val userID = "123"
+//        val userID = "123"
+        val userID = userData.userID
         val email = userData.email
         val fullName = userData.fullName
         val profilePhoto = userData.profilePhoto
