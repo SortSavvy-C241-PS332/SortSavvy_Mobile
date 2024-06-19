@@ -19,7 +19,26 @@
         <action
             android:id="@+id/action_navigation_explore_home_to_navigation_explore_detail_snap"
             app:destination="@id/navigation_explore_detail_snap" />
+        <action
+            android:id="@+id/action_navigation_explore_home_to_navigation_explore_pengenalan_sampah"
+            app:destination="@id/navigation_explore_pengenalan_sampah" />
+        <action
+            android:id="@+id/action_navigation_explore_home_to_navigation_explore_penanganan"
+            app:destination="@id/navigation_explore_penanganan" />
     </fragment>
+
+    <fragment
+        android:id="@+id/navigation_explore_pengenalan_sampah"
+        android:name="com.bangkit.sortsavvy.views.main.explore.PengenalanFragment"
+        android:label="Pengenalan Sampah"
+        tools:layout="@layout/fragment_pengenalan" />
+
+    <fragment
+        android:id="@+id/navigation_explore_penanganan"
+        android:name="com.bangkit.sortsavvy.views.main.explore.PenangananFragment"
+        android:label="Pengenalan Sampah"
+        tools:layout="@layout/fragment_penanganan" />
+
 
     <fragment
         android:id="@+id/navigation_explore_detail_snap"

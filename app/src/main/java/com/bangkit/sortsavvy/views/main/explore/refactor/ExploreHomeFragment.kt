@@ -15,6 +15,7 @@ import com.bangkit.sortsavvy.data.model.ExploreItem
 import com.bangkit.sortsavvy.data.model.ExploreJenisSampahModel
 import com.bangkit.sortsavvy.databinding.FragmentExploreHomeBinding
 import com.bangkit.sortsavvy.factory.ViewModelFactory
+import com.bangkit.sortsavvy.utils.ViewComponentUtil
 
 class ExploreHomeFragment : Fragment() {
 
@@ -90,6 +91,12 @@ class ExploreHomeFragment : Fragment() {
 //            setupButtonClickListener()
             setupRecyclerView(exploreJenisSampahItems)
         }
+
+        viewModel.loadExploreEducationItemList()
+        viewModel.exploreEducationItems.observe(viewLifecycleOwner) { exploreEducationItems ->
+            setupExploreItemToView(exploreEducationItems)
+            setupButtonClickListener()
+        }
     }
 
     private fun setupRecyclerView(exploreItemList: List<ExploreJenisSampahModel>) {
@@ -101,10 +108,10 @@ class ExploreHomeFragment : Fragment() {
     }
 
     private fun setupButtonClickListener() {
-//        // pengenalan card
-//        binding.pengenalanCardInclude.cardItemView.setOnClickListener {
-//
-//        }
+        // pengenalan card
+        binding.pengenalanCardInclude.cardItemView.setOnClickListener {
+            findNavController().navigate(R.id.action_navigation_explore_home_to_navigation_explore_pengenalan_sampah)
+        }
 //        // organik card
 //        binding.organikCardInclude.cardItemView.setOnClickListener {
 //            val bundle = Bundle()
@@ -117,17 +124,17 @@ class ExploreHomeFragment : Fragment() {
 //            bundle.putString(EXTRA_EXPLORE_ID_ITEM, "2")
 //            findNavController().navigate(R.id.action_navigation_explore_home_to_navigation_explore_detail_snap, bundle)
 //        }
-//        // penanganan card
-//        binding.penangananCardInclude.cardItemView.setOnClickListener {
-//
-//        }
+        // penanganan card
+        binding.penangananCardInclude.cardItemView.setOnClickListener {
+            findNavController().navigate(R.id.action_navigation_explore_home_to_navigation_explore_penanganan)
+        }
     }
 
     private fun setupExploreItemToView(exploreItems: List<ExploreItem>) {
-//        // Pengenalan Card
-//        binding.pengenalanCardInclude.itemTitleObjectTextView.text = exploreItems[0].title
-//        binding.pengenalanCardInclude.itemDescriptionObjectTextView.text = exploreItems[0].description
-//        binding.pengenalanCardInclude.thumbnailImageView.setImageResource(exploreItems[0].exploreImage)
+        // Pengenalan Card
+        binding.pengenalanCardInclude.itemTitleObjectTextView.text = exploreItems[0].title
+        binding.pengenalanCardInclude.itemDescriptionObjectTextView.text = exploreItems[0].description
+        binding.pengenalanCardInclude.thumbnailImageView.setImageResource(exploreItems[0].exploreImage)
 //
 //        // Organik Card
 //        binding.organikCardInclude.itemTitleObjectTextView.text = exploreItems[1].title
@@ -139,10 +146,10 @@ class ExploreHomeFragment : Fragment() {
 //        binding.anorganikCardInclude.itemDescriptionObjectTextView.text = exploreItems[2].description
 //        binding.anorganikCardInclude.thumbnailImageView.setImageResource(exploreItems[2].exploreImage)
 //
-//        // Penanganan Card
-//        binding.penangananCardInclude.itemTitleObjectTextView.text = exploreItems[3].title
-//        binding.penangananCardInclude.itemDescriptionObjectTextView.text = exploreItems[3].description
-//        binding.penangananCardInclude.thumbnailImageView.setImageResource(exploreItems[3].exploreImage)
+        // Penanganan Card
+        binding.penangananCardInclude.itemTitleObjectTextView.text = exploreItems[1].title
+        binding.penangananCardInclude.itemDescriptionObjectTextView.text = exploreItems[1].description
+        binding.penangananCardInclude.thumbnailImageView.setImageResource(exploreItems[1].exploreImage)
 
     }
 

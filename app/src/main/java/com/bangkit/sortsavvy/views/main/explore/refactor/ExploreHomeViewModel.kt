@@ -8,6 +8,7 @@ import com.bangkit.sortsavvy.data.model.ExploreJenisSampahModel
 import com.bangkit.sortsavvy.data.model.ExploreDetailCaraOlahJenisSampahModel
 import com.bangkit.sortsavvy.data.model.ExploreDetailCiriJenisSampahModel
 import com.bangkit.sortsavvy.data.model.ExploreDetailContohJenisSampahModel
+import com.bangkit.sortsavvy.data.model.ExploreItem
 
 
 class ExploreHomeViewModel : ViewModel() {
@@ -15,9 +16,27 @@ class ExploreHomeViewModel : ViewModel() {
     private val _exploreJenisSampah = MutableLiveData<List<ExploreJenisSampahModel>>()
     val exploreJenisSampah: LiveData<List<ExploreJenisSampahModel>> = _exploreJenisSampah
 
+    private val _exploreEducationItems = MutableLiveData<List<ExploreItem>>()
+    val exploreEducationItems: LiveData<List<ExploreItem>> = _exploreEducationItems
+
 //    init {
 //        loadExploreData()
 //    }
+
+    fun loadExploreEducationItemList() {
+        _exploreEducationItems.value = listOf(
+            ExploreItem(
+                "Apa Itu Sampah?",
+                "Sampah adalah segala jenis bahan yang sudah tidak digunakan lagi dan dibuang oleh pemiliknya.",
+                R.drawable.challenge_thumbnail_kenali_sampah
+            ),
+            ExploreItem(
+                "3R & Bank Sampah",
+                "Sebagai anak muda, kita bisa ikut menjaga lingkungan dengan mengurangi jumlah sampah yang dibuang dan mengolah sampah menjadi barang yang bermanfaat.",
+                R.drawable.challenge_thumbnail_sampah_aksiku_untuk_bumi
+            )
+        )
+    }
 
     fun loadExploreJenisSampahList() {
 //        _exploreJenisSampah.value = listOf(

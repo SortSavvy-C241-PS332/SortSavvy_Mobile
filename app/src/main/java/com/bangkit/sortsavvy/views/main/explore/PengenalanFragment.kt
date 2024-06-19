@@ -6,10 +6,13 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.findNavController
 import com.bangkit.sortsavvy.R
+import com.bangkit.sortsavvy.databinding.FragmentPengenalanBinding
 
 class PengenalanFragment : Fragment() {
 
+    private lateinit var binding: FragmentPengenalanBinding
     private val viewModel: PengenalanViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -23,6 +26,15 @@ class PengenalanFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         return inflater.inflate(R.layout.fragment_pengenalan, container, false)
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        binding = FragmentPengenalanBinding.bind(view)
+
+        binding.backBtnImageButton.setOnClickListener {
+            findNavController().navigateUp()
+        }
     }
 
     companion object {
