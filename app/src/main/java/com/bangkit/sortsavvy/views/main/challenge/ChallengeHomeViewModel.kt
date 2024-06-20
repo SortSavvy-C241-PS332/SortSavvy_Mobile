@@ -135,7 +135,7 @@ class ChallengeHomeViewModel(
                     "Botol plastik",
                     "Sisa sayuran"
                 ),
-                "Daun kering"
+                "Botol plastik"
             )
         )
         listQuestionModelSortHero.add(
@@ -177,12 +177,13 @@ class ChallengeHomeViewModel(
                     "Membuat sampah menumpuk",
                     "Menyebabkan pencemaran"
                 ),
-                "Membuat sampah menumpuk"
+                "Memudahkan daur ulang"
             )
         )
         challengeList.add(
             ChallengeModel("4", "Tingkat 4: Sort Savvier", "Aksiku untuk Bumi!", "Pahami apa itu 3R dan beragam aksi nyata untuk menjaga Bumi.", R.drawable.challenge_thumbnail_sampah_aksiku_untuk_bumi, listQuestionModelSortSavvier)
         )
+
         _challengeModelList.value = challengeList
     }
 }
