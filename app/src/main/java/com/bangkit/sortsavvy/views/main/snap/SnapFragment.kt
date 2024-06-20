@@ -121,8 +121,8 @@ class SnapFragment : Fragment() {
                         }
                         is ResultState.Success -> {
 //                            binding.progressBar.visibility = View.GONE
-                            totalScanUser["organik"] = 5
-                            totalScanUser["anorganik"] = 10
+                            totalScanUser["Organik"] = 5
+                            totalScanUser["Anorganik"] = 10
 
 //                            updateTotalUserScan(totalScanUser)
                         }
@@ -138,13 +138,13 @@ class SnapFragment : Fragment() {
     }
 
     private fun updateTotalUserScan(result: String, totalScanUserData: MutableMap<String, Int>) {
-        val oldTotalScanOrganik = totalScanUserData["organik"]
-        val oldTotalScanAnorganik = totalScanUserData["anorganik"]
+        val oldTotalScanOrganik = totalScanUserData["Organik"]
+        val oldTotalScanAnorganik = totalScanUserData["Anorganik"]
         var totalScanUserUpdated = 0
 
-        if (result == "organik" && oldTotalScanOrganik != null) {
+        if (result == "Organik" && oldTotalScanOrganik != null) {
             totalScanUserUpdated = oldTotalScanOrganik.plus(1)
-        } else if (result == "anorganik" && oldTotalScanAnorganik != null) {
+        } else if (result == "Anorganik" && oldTotalScanAnorganik != null) {
             totalScanUserUpdated = oldTotalScanAnorganik.plus(1)
         }
 

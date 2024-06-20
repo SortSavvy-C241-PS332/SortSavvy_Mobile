@@ -175,7 +175,7 @@ class SnapResultFragment : Fragment() {
     private fun setItemCard(result: String) {
         binding.resultCardInclude.itemTitleObjectTextView.text = result
         var index = 0
-        if (result == "organik") {
+        if (result == "Organik") {
             index = 0
 
             binding.resultCardInclude.itemDescriptionObjectTextView.text = "Sampah organik adalah sampah yang berasal dari makhluk hidup, baik itu hewan maupun tumbuhan, dan mudah terurai oleh mikroorganisme."
@@ -195,7 +195,7 @@ class SnapResultFragment : Fragment() {
 //                    findNavController().navigate(R.id.action_navigation_snap_result_to_navigation_explore_detail_snap)
 //                }
 //            }
-        } else if (result == "anorganik") {
+        } else if (result == "Anorganik") {
             index = 1
             binding.resultCardInclude.itemDescriptionObjectTextView.text = "Sampah anorganik adalah sampah yang berasal dari bahan-bahan non-biologis dan tidak mudah terurai oleh mikroorganisme."
             binding.resultCardInclude.thumbnailImageView.setImageResource(R.drawable.challenge_thumbnail_sampah_anorganik)

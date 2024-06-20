@@ -99,7 +99,7 @@ class ImageClassifierUtil(
                 var accuracy = topCategory.score * 100
                 var result = topCategory.label
                 if (accuracy < 50) {
-                    result = "organik"
+                    result = "Organik"
                     accuracy = 100 - accuracy
                 }
                 classifierListener?.onResults(result, accuracy)
