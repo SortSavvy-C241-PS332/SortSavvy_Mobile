@@ -39,7 +39,7 @@ class ChangePasswordProfileViewModel(
         _confirmNewPassword = userData["newConfirmPassword"].toString()
     }
 
-    fun changePassword(userID: String, userData: Map<String, String>) = profileRepository.updateUserPassword(
+    fun changePassword(userID: Int, userData: Map<String, String>) = profileRepository.updateUserPassword(
         userID,
         _password,
         _newPassword,

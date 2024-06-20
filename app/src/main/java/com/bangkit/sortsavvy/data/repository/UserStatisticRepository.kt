@@ -7,23 +7,15 @@ import com.bangkit.sortsavvy.data.remote.response.ErrorResponse
 import com.bangkit.sortsavvy.data.remote.retrofit.ApiService
 import com.google.gson.Gson
 import retrofit2.HttpException
-import retrofit2.http.Part
-import retrofit2.http.Path
 
-class ProfileRepository(
-    private val apiService: ApiService,
+class UserStatisticRepository(
+    private val apiService: ApiService
 ) {
 
-    fun updateUserProfile(userID: Int, newDataUser: UserProfileModel) = liveData {
+    fun getDataTotalScanUser(userID: Int) = liveData {
         emit(ResultState.Loading)
         try {
-            val successResponse = apiService.updateUserProfile(
-                userID,
-                newDataUser.fullName,
-                newDataUser.email,
-                newDataUser.password,
-                newDataUser.profilePhoto
-            )
+            val successResponse = apiService.getTotalScanUser(userID)
             emit(ResultState.Success(successResponse))
         } catch (e: HttpException) {
             val errorJsonString = e.response()?.errorBody()?.string()
@@ -36,14 +28,10 @@ class ProfileRepository(
         }
     }
 
-    fun updateUserPassword(userID: Int, oldPassword: String, newPassword: String) = liveData {
+    fun updateDataTotalScanUser(userID: Int, wasteType: String, newTotalScan: Int) = liveData {
         emit(ResultState.Loading)
         try {
-            val successResponse = apiService.updateUserPassword(
-                userID,
-                oldPassword,
-                newPassword
-            )
+            val successResponse = apiService.updateTotalScanUser(userID, wasteType, newTotalScan)
             emit(ResultState.Success(successResponse))
         } catch (e: HttpException) {
             val errorJsonString = e.response()?.errorBody()?.string()
@@ -58,11 +46,11 @@ class ProfileRepository(
 
     companion object {
         @Volatile
-        private var instance: ProfileRepository? = null
+        private var instance: UserStatisticRepository? = null
 
         fun getInstance(apiService: ApiService) =
             instance ?: synchronized(this) {
-                instance ?: ProfileRepository(apiService)
+                instance ?: UserStatisticRepository(apiService)
             }.also { instance = it }
     }
 }

@@ -30,7 +30,7 @@ class SettingsProfileViewModel(
         return sessionRepository.getSession().asLiveData()
     }
 
-    fun setSession(userModel: UserModel) {
+    fun updateSession(userModel: UserModel) {
         viewModelScope.launch {
             sessionRepository.saveSession(userModel)
         }

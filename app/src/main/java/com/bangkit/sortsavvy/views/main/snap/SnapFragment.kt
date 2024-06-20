@@ -24,6 +24,8 @@ import android.widget.Toast
 import androidx.fragment.app.commit
 import androidx.lifecycle.ViewModelProvider
 import com.bangkit.sortsavvy.R
+import com.bangkit.sortsavvy.data.model.ResultState
+import com.bangkit.sortsavvy.data.model.UserModel
 import com.bangkit.sortsavvy.databinding.FragmentSnapBinding
 import com.bangkit.sortsavvy.factory.ViewModelFactory
 import com.bangkit.sortsavvy.utils.CameraUtil
@@ -41,6 +43,9 @@ class SnapFragment : Fragment() {
     private var imageClassifierUtil: ImageClassifierUtil? = null
 //    private var classificationLabel: String? = null
 //    private var classificationAccuracy: Float? = null
+
+    private var userData: UserModel? = null
+    private lateinit var totalScanUser: MutableMap<String, Int>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -67,6 +72,15 @@ class SnapFragment : Fragment() {
             classifierListener = viewModel
         )
 
+        viewModel.getSession().observe(viewLifecycleOwner) { userModel ->
+            if (userModel != null) {
+                userData = userModel
+//                userData?.let { user ->
+//                    getTotalUserScan(user.userId)
+//                }
+            }
+        }
+
         viewModel.currentImageUri.observe(viewLifecycleOwner) { uri ->
             println("observe currentImageUri -> $uri")
             if (uri != null) {
@@ -81,7 +95,9 @@ class SnapFragment : Fragment() {
             println("observe classificationResults -> ${result?.first} - ${result?.second}")
             result?.let { (label, accuracy) ->
                 viewModel.currentImageUri.value?.let { uri ->
-                    println("observe classificationResults -> $uri, $label, $accuracy")
+                    println("observe test classificationResults -> $uri, $label, $accuracy")
+                    // update total scan user
+//                    updateTotalUserScan(label, totalScanUser)
                     navigateToResultFragment(uri, label, accuracy)
                 }
             }
@@ -91,6 +107,71 @@ class SnapFragment : Fragment() {
             println("observe error -> $error")
             error?.let { message ->
                 ViewComponentUtil.showToast(this.requireContext(), message)
+            }
+        }
+    }
+
+    private fun getTotalUserScan(userID: Int?) {
+        if (userID != null) {
+            viewModel.getDataTotalScanUser(userID).observe(viewLifecycleOwner) { resultState ->
+                if (resultState != null) {
+                    when (resultState) {
+                        is ResultState.Loading -> {
+//                            binding.progressBar.visibility = View.VISIBLE
+                        }
+                        is ResultState.Success -> {
+//                            binding.progressBar.visibility = View.GONE
+                            totalScanUser["organik"] = 5
+                            totalScanUser["anorganik"] = 10
+
+//                            updateTotalUserScan(totalScanUser)
+                        }
+                        is ResultState.Error -> {
+//                            binding.progressBar.visibility = View.GONE
+                            ViewComponentUtil.showToast(this.requireContext(), resultState.errorMessage)
+                        }
+                        else -> {}
+                    }
+                }
+            }
+        }
+    }
+
+    private fun updateTotalUserScan(result: String, totalScanUserData: MutableMap<String, Int>) {
+        val oldTotalScanOrganik = totalScanUserData["organik"]
+        val oldTotalScanAnorganik = totalScanUserData["anorganik"]
+        var totalScanUserUpdated = 0
+
+        if (result == "organik" && oldTotalScanOrganik != null) {
+            totalScanUserUpdated = oldTotalScanOrganik.plus(1)
+        } else if (result == "anorganik" && oldTotalScanAnorganik != null) {
+            totalScanUserUpdated = oldTotalScanAnorganik.plus(1)
+        }
+
+        userData?.userId?.let { userID ->
+            viewModel.updateTotalScanUser(userID, result, totalScanUserUpdated)
+        }
+
+        userData?.userId?.let { userID ->
+            viewModel.updateTotalScanUser(userID, result, totalScanUserUpdated).observe(viewLifecycleOwner) { resultState ->
+                if (resultState != null) {
+                    when (resultState) {
+                        is ResultState.Loading -> {
+//                            binding.progressBar.visibility = View.VISIBLE
+                        }
+                        is ResultState.Success -> {
+//                            binding.progressBar.visibility = View.GONE
+//                            totalScanUser["organik"] = resultState.data.totalOrganik
+//                            totalScanUser["anorganik"] = resultState.data.totalAnorganik
+//                            ViewComponentUtil.showToast(this.requireContext(), resultState.message)
+                        }
+                        is ResultState.Error -> {
+//                            binding.progressBar.visibility = View.GONE
+//                            ViewComponentUtil.showToast(this.requireContext(), resultState.errorMessage)
+                        }
+                        else -> {}
+                    }
+                }
             }
         }
     }

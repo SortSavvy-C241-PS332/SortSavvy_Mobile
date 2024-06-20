@@ -69,21 +69,28 @@ class ViewModelFactory(private val context: Context) : ViewModelProvider.NewInst
 
 
             modelClass.isAssignableFrom(SnapViewModel::class.java) -> {
-                SnapViewModel() as T
+                val sessionRepository = AuthenticationInjection.provideSessionRepository(context)
+                val userStatisticRepository = UserDataInjection.provideTotalScanUserRepository(context)
+                SnapViewModel(sessionRepository, userStatisticRepository) as T
             }
 
             modelClass.isAssignableFrom(SnapResultViewModel::class.java) -> {
-                SnapResultViewModel() as T
+                val totalScanUserRepository = UserDataInjection.provideTotalScanUserRepository(context)
+                val sessionRepository = AuthenticationInjection.provideSessionRepository(context)
+                SnapResultViewModel(totalScanUserRepository, sessionRepository) as T
             }
 
             modelClass.isAssignableFrom(ChallengeHomeViewModel::class.java) -> {
-                ChallengeHomeViewModel() as T
+                val sessionRepository = AuthenticationInjection.provideSessionRepository(context)
+                val userStatisticRepository = UserDataInjection.provideBadgeUserRepository(context)
+                ChallengeHomeViewModel(sessionRepository, userStatisticRepository) as T
             }
 
 
             modelClass.isAssignableFrom(HomeViewModel::class.java) -> {
                 val sessionRepository = AuthenticationInjection.provideSessionRepository(context)
-                HomeViewModel(sessionRepository) as T
+                val userStatisticRepository = UserDataInjection.provideTotalScanUserRepository(context)
+                HomeViewModel(sessionRepository, userStatisticRepository) as T
             }
             modelClass.isAssignableFrom(ExploreHomeViewModel::class.java) -> {
                 ExploreHomeViewModel() as T

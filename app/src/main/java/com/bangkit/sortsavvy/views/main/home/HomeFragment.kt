@@ -10,9 +10,11 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
 import com.bangkit.sortsavvy.R
+import com.bangkit.sortsavvy.data.model.ResultState
 import com.bangkit.sortsavvy.data.model.UserModel
 import com.bangkit.sortsavvy.databinding.FragmentHomeBinding
 import com.bangkit.sortsavvy.factory.ViewModelFactory
+import com.bangkit.sortsavvy.utils.ViewComponentUtil
 import com.bangkit.sortsavvy.views.main.profile.ProfileViewModel
 import com.bangkit.sortsavvy.views.welcome.WelcomeActivity
 import com.bumptech.glide.Glide
@@ -59,13 +61,41 @@ class HomeFragment : Fragment() {
 
     private fun setCurrentUserData(userData: UserModel) {
         binding.nameText.text = userData.fullName
-        if (userData.profilePhoto != null) {
-            Glide.with(this)
-                .load(userData.profilePhoto)
-                .into(binding.avatarImageView)
-        }
+        Glide.with(this)
+            .load(userData.profilePhoto)
+            .placeholder(R.drawable.profile_thumbnail_avatar_syella)
+            .into(binding.avatarImageView)
+
+//        userData.userId?.let {  id ->
+//            getUserStatistic(id)
+//        }
 
         println("binding data to view")
+    }
+
+    private fun getUserStatistic(userID: Int) {
+        viewModel.getUserStatistic(userID).observe(viewLifecycleOwner) { resultState ->
+            if (resultState != null) {
+                when (resultState) {
+                    is ResultState.Loading -> {
+//                        binding.progressBar.visibility = View.VISIBLE
+//                        binding.loginButton.isEnabled = false
+                    }
+                    is ResultState.Success -> {
+//                        binding.progressBar.visibility = View.GONE
+//                        binding.loginButton.isEnabled = true
+//                        println("total scan user (orgnaik dan anorganik) -> ${resultState.data.userStatistic.totalScanUser}")
+//                        binding.organicCountTextView.text = resultState.data.userStatistic.totalScanUser.totalOrganik.toString()
+//                        binding.anorganicCountTextView.text = resultState.data.userStatistic.totalScanUser.totalAnorganik.toString()
+                    }
+                    is ResultState.Error -> {
+//                        binding.progressBar.visibility = View.GONE
+//                        binding.loginButton.isEnabled = true
+                        ViewComponentUtil.showToast(this.requireContext(), resultState.errorMessage)
+                    }
+                }
+            }
+        }
     }
 
     private fun navigateToWelcomeActivity() {

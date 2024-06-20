@@ -18,6 +18,7 @@ import com.bangkit.sortsavvy.R
 import com.bangkit.sortsavvy.data.model.ResultState
 import com.bangkit.sortsavvy.data.model.UserModel
 import com.bangkit.sortsavvy.data.model.UserProfileModel
+import com.bangkit.sortsavvy.data.remote.response.Data
 import com.bangkit.sortsavvy.databinding.FragmentSettingsProfileBinding
 import com.bangkit.sortsavvy.factory.ViewModelFactory
 import com.bangkit.sortsavvy.utils.ImageUtil
@@ -68,9 +69,10 @@ class SettingsProfileFragment : Fragment() {
             if (uri != null) {
                 println("observe currentImageUri show image -> $uri")
                 showImage(uri)
-            } else {
-                binding.avatarImageView.setImageResource(R.drawable.profile_thumbnail_avatar_syella)
             }
+//            else {
+//                binding.avatarImageView.setImageResource(R.drawable.profile_thumbnail_avatar_syella)
+//            }
         }
 
         viewModel.getSession().observe(viewLifecycleOwner) { userModel ->
@@ -152,7 +154,7 @@ class SettingsProfileFragment : Fragment() {
                             is ResultState.Success -> {
 //                        binding.progressBar.visibility = View.GONE
                                 ViewComponentUtil.showToast(this.requireContext(), "Profile berhasil diubah")
-//                                viewModel.setSession(resultState.data.user)
+                                updateSession(resultState.data.data)
                             }
                             is ResultState.Error -> {
 //                        binding.progressBar.visibility = View.GONE
@@ -163,6 +165,18 @@ class SettingsProfileFragment : Fragment() {
                 }
             } else ViewComponentUtil.showToast(this.requireContext(), "User ID tidak ditemukan")
         }
+    }
+
+    private fun updateSession(dataUserUpdated: Data) {
+        val userModel = UserModel(
+            dataUserUpdated.id,
+            dataUserUpdated.email,
+            dataUserUpdated.fullName,
+            dataUserUpdated.profilePhoto,
+            isLogin = true,
+            isOnboardingViewed = true
+        )
+        viewModel.updateSession(userModel)
     }
 
     private fun getDataUser(avatarUri: Uri): UserProfileModel {

@@ -13,14 +13,20 @@ import com.bangkit.sortsavvy.R
 import com.bangkit.sortsavvy.adapter.ChallengeListAdapter
 import com.bangkit.sortsavvy.data.model.ChallengeItem
 import com.bangkit.sortsavvy.data.model.ChallengeModel
+import com.bangkit.sortsavvy.data.model.ResultState
+import com.bangkit.sortsavvy.data.model.UserModel
 import com.bangkit.sortsavvy.databinding.FragmentChallengeHomeBinding
 import com.bangkit.sortsavvy.factory.ViewModelFactory
+import com.bangkit.sortsavvy.utils.ViewComponentUtil
 
 class ChallengeHomeFragment : Fragment() {
 
     private lateinit var binding: FragmentChallengeHomeBinding
     private lateinit var viewModel: ChallengeHomeViewModel
     private lateinit var challengeAdapter: ChallengeListAdapter
+
+    private var userModel: UserModel? = null
+    private var userBadge: String = "Starter"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -41,9 +47,15 @@ class ChallengeHomeFragment : Fragment() {
         val viewModelFactory = ViewModelFactory.getInstance(this.requireContext())
         viewModel = ViewModelProvider(this, viewModelFactory)[ChallengeHomeViewModel::class.java]
 
-        viewModel.loadChallengeModelList()
+        viewModel.getSession().observe(viewLifecycleOwner) { userSession ->
+            userModel = userSession
+            viewModel.loadChallengeModelList()
+        }
+
         viewModel.challengeModelList.observe(viewLifecycleOwner) { challengeModelList ->
-            setupRecyclerView(challengeModelList)
+            userModel?.let { userSession ->
+                setupRecyclerView(challengeModelList, userSession)
+            }
 //            setButtonClickListener()
         }
 
@@ -54,12 +66,42 @@ class ChallengeHomeFragment : Fragment() {
 //        }
     }
 
-    private fun setupRecyclerView(challengeModelList: List<ChallengeModel>) {
+    private fun setupRecyclerView(challengeModelList: List<ChallengeModel>, userModel: UserModel) {
+
+//        userModel.userId?.let { userID ->
+//            getUserBadge(userID)
+//        }
+
+
+        userBadge = "Sort Warrior"
         val navController = findNavController()
-        challengeAdapter = ChallengeListAdapter(challengeModelList, navController)
+        challengeAdapter = ChallengeListAdapter(challengeModelList, navController, userBadge)
         binding.challengeItemRecyclerView.layoutManager = LinearLayoutManager(this.requireContext())
 
         binding.challengeItemRecyclerView.adapter = challengeAdapter
+    }
+
+    private fun getUserBadge(userID: Int) {
+        viewModel.getUserBadge(userID).observe(viewLifecycleOwner) { resultState ->
+            if (resultState != null) {
+                when (resultState) {
+                    is ResultState.Loading -> {
+//                        binding.progressBar.visibility = View.VISIBLE
+//                        binding.loginButton.isEnabled = false
+                    }
+                    is ResultState.Success -> {
+//                        binding.progressBar.visibility = View.GONE
+//                        binding.loginButton.isEnabled = true
+                        userBadge = resultState.data.userBadge.badgeName
+                    }
+                    is ResultState.Error -> {
+//                        binding.progressBar.visibility = View.GONE
+//                        binding.loginButton.isEnabled = true
+                        ViewComponentUtil.showToast(this.requireContext(), resultState.errorMessage)
+                    }
+                }
+            }
+        }
     }
 
     private fun setButtonClickListener() {

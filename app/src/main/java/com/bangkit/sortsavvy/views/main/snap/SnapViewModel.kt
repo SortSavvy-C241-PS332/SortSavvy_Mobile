@@ -4,9 +4,16 @@ import android.net.Uri
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.asLiveData
+import com.bangkit.sortsavvy.data.model.UserModel
+import com.bangkit.sortsavvy.data.repository.SessionRepository
+import com.bangkit.sortsavvy.data.repository.UserStatisticRepository
 import com.bangkit.sortsavvy.utils.ImageClassifierUtil
 
-class SnapViewModel : ViewModel(), ImageClassifierUtil.ClassifierListener {
+class SnapViewModel(
+    private val sessionRepository: SessionRepository,
+    private val userStatisticRepository: UserStatisticRepository
+) : ViewModel(), ImageClassifierUtil.ClassifierListener {
     private val _currentImageUri = MutableLiveData<Uri?>()
     val currentImageUri: LiveData<Uri?> = _currentImageUri
 
@@ -47,4 +54,12 @@ class SnapViewModel : ViewModel(), ImageClassifierUtil.ClassifierListener {
         println("uri Result: $result, Accuracy: $accuracy")
         setClassificationResults(result, accuracy)
     }
+
+    fun getSession(): LiveData<UserModel> {
+        return sessionRepository.getSession().asLiveData()
+    }
+
+    fun getDataTotalScanUser(userID: Int) = userStatisticRepository.getDataTotalScanUser(userID)
+
+    fun updateTotalScanUser(userID: Int, wasteType: String, totalScan: Int) = userStatisticRepository.updateDataTotalScanUser(userID, wasteType, totalScan)
 }

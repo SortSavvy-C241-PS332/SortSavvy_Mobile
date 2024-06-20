@@ -48,18 +48,20 @@ class ChallengeResultFragment : Fragment() {
     }
 
     private fun setupButtonClickListener() {
-        binding.backToHomeButton.setOnClickListener {
-            val navOptions = NavOptions.Builder()
-                .setPopUpTo(R.id.navigation_home, true)
-                .build()
-            findNavController().navigate(R.id.navigation_home, null, navOptions)
-        }
-
         binding.backToChallengeHomeButton.setOnClickListener {
+            println("back to challenge home button clicked")
             val navOptions = NavOptions.Builder()
                 .setPopUpTo(R.id.navigation_challenge_home, true)
                 .build()
             findNavController().navigate(R.id.navigation_challenge_home, null, navOptions)
+        }
+        binding.backToHomeButton.setOnClickListener {
+            println("back to home button clicked")
+//            val navOptions = NavOptions.Builder()
+//                .setPopUpTo(R.id.navigation_home, true)
+//                .build()
+//            findNavController().navigate(R.id.navigation_home, null, navOptions)
+            findNavController().navigate(R.id.navigation_home)
         }
     }
 

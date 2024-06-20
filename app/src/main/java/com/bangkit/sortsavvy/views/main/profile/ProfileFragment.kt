@@ -94,7 +94,6 @@ class ProfileFragment : Fragment() {
                 bundle.putParcelable(EXTRA_USER_DATA, userModel)
                 findNavController().navigate(R.id.action_navigation_profile_to_navigation_profile_settings, bundle)
             }
-//            findNavController().navigate(R.id.action_navigation_profile_ to_navigation_profile_settings)
         }
 
         binding.logoutCardButtonInclude.cardItemView.setOnClickListener {
@@ -115,11 +114,10 @@ class ProfileFragment : Fragment() {
     private fun setCurrentUserData(userData: UserModel) {
         binding.nameTitleTextView.text = userData.fullName
         binding.emailTextView.text = userData.email
-        if (userData.profilePhoto != null) {
-            Glide.with(this)
-                .load(userData.profilePhoto)
-                .into(binding.avatarImageView)
-        }
+        Glide.with(this)
+            .load(userData.profilePhoto)
+            .placeholder(R.drawable.profile_thumbnail_avatar_syella)
+            .into(binding.avatarImageView)
 
         println("binding data to view")
     }

@@ -72,11 +72,13 @@ class ChangePasswordProfileFragment : Fragment() {
 
         binding.saveButton.setOnClickListener {
             val isValid = validateUserForm()
-            if (isValid) updateUserPassword(currentUser?.userId.toString())
+            if (isValid) currentUser?.userId?.let { userId ->
+                updateUserPassword(userId)
+            }
         }
     }
 
-    private fun updateUserPassword(userID: String) {
+    private fun updateUserPassword(userID: Int) {
         viewModel.changePassword(userID, userData).observe(viewLifecycleOwner) { resultState ->
             if (resultState != null) {
                 when (resultState) {
