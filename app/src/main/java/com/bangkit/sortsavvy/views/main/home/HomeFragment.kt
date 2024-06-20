@@ -9,6 +9,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import com.bangkit.sortsavvy.R
 import com.bangkit.sortsavvy.data.model.ResultState
 import com.bangkit.sortsavvy.data.model.UserModel
@@ -56,6 +57,10 @@ class HomeFragment : Fragment() {
                 println("currentUser -> $currentUser")
                 setCurrentUserData(currentUser)
             }
+        }
+
+        binding.homeToSnapButton.setOnClickListener {
+            findNavController().navigate(R.id.action_navigation_home_to_navigation_snap)
         }
     }
 

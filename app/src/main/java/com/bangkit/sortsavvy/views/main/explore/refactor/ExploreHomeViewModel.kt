@@ -29,12 +29,12 @@ class ExploreHomeViewModel : ViewModel() {
             ExploreItem(
                 "Apa Itu Sampah?",
                 "Sampah adalah segala jenis bahan yang sudah tidak digunakan lagi dan dibuang oleh pemiliknya.",
-                R.drawable.challenge_thumbnail_kenali_sampah
+                R.drawable.detail_pengenalan
             ),
             ExploreItem(
                 "3R & Bank Sampah",
                 "Sebagai anak muda, kita bisa ikut menjaga lingkungan dengan mengurangi jumlah sampah yang dibuang dan mengolah sampah menjadi barang yang bermanfaat.",
-                R.drawable.challenge_thumbnail_sampah_aksiku_untuk_bumi
+                R.drawable.detail_aksiku
             )
         )
     }
@@ -250,7 +250,7 @@ class ExploreHomeViewModel : ViewModel() {
             ExploreJenisSampahModel(
                 "Sampah Organik",
                 "Sampah organik adalah sampah yang berasal dari makhluk hidup, baik itu hewan maupun tumbuhan, dan mudah terurai oleh mikroorganisme.",
-                R.drawable.olah_ecobrick,
+                R.drawable.detail_organik,
                 listciriJenisSampahOrganikModel,
                 listContohJenisSampahOrganikModel,
                 listCaraOlahJenisSampahOrganikModel
@@ -260,7 +260,7 @@ class ExploreHomeViewModel : ViewModel() {
             ExploreJenisSampahModel(
                 "Sampah Anorganik",
                 "Sampah anorganik adalah sampah yang berasal dari bahan-bahan non-biologis dan tidak mudah terurai oleh mikroorganisme.",
-                R.drawable.challenge_thumbnail_sampah_anorganik,
+                R.drawable.detail_anorganik,
                 listciriJenisSampahAnorganikModel,
                 listContohJenisSampahAnorganikModel,
                 listCaraOlahJenisSampahAnorganikModel

@@ -19,14 +19,14 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintHeight_percent="0.65" />
+        app:layout_constraintHeight_percent="0.75" />
 
     <ImageView
         android:id="@+id/logoImageView"
-        android:layout_width="250dp"
-        android:layout_height="250dp"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
         android:contentDescription="@string/logo_sortsavvy"
-        android:layout_marginTop="25dp"
+        android:layout_marginTop="75dp"
         android:src="@drawable/splashscreen_logo_sortsavvy"
         app:layout_constraintEnd_toEndOf="@+id/topBackgroundImageView"
         app:layout_constraintStart_toStartOf="@+id/topBackgroundImageView"
@@ -35,6 +35,7 @@
     <TextView
         android:id="@+id/titleTextView"
         style="@style/TextContent.GreenEmerald.Title"
+        android:textColor="@color/background_green"
         android:text="@string/onboarding_welcome_title"
         android:textAlignment="center"
         app:layout_constraintEnd_toEndOf="@+id/logoImageView"
@@ -45,7 +46,8 @@
         android:id="@+id/descriptionTextView"
         style="@style/TextContent.Description"
         android:layout_width="305dp"
-        android:layout_marginTop="2dp"
+        android:layout_marginTop="6dp"
+        android:textSize="18sp"
         android:text="@string/onboarding_welcome_description"
         android:textAlignment="center"
         app:layout_constraintEnd_toEndOf="@+id/titleTextView"
@@ -56,6 +58,7 @@
         android:id="@+id/registerButton"
         android:layout_width="150dp"
         style="@style/ButtonGeneral.ActiveSecondaryWhite"
+        android:textStyle="bold"
         android:text="@string/daftar"
         android:layout_marginTop="25dp"
         android:layout_marginStart="25dp"
@@ -67,6 +70,7 @@
         android:layout_width="150dp"
         style="@style/ButtonGeneral.ActiveSecondaryWhite"
         android:layout_marginEnd="25dp"
+        android:textStyle="bold"
         android:text="@string/masuk"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/registerButton" />

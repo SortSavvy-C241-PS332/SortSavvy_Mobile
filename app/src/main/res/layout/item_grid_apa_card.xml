@@ -14,7 +14,6 @@
     <com.google.android.material.card.MaterialCardView
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    app:cardElevation="4dp"
     app:cardCornerRadius="20dp"
     android:layout_marginTop="10dp"
     android:id="@+id/cardSampahJalanItemView">
@@ -63,9 +62,7 @@
                 android:layout_marginStart="16dp"
                 android:layout_marginBottom="16dp"
                 android:layout_marginEnd="16dp"
-                android:text="Banyak sampah berserakan di jalanan yang membuat lingkungan sekitar menjadi kotor dan tidak enak dipandang"
-                android:ellipsize="end"
-                android:maxLines="4" />
+                android:text="Banyak sampah berserakan di jalanan yang membuat lingkungan sekitar menjadi kotor dan tidak enak dipandang" />
         </LinearLayout>
     </LinearLayout>
     </com.google.android.material.card.MaterialCardView>
@@ -73,7 +70,6 @@
     <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:cardElevation="4dp"
         app:cardCornerRadius="20dp"
         android:layout_marginTop="10dp"
         android:id="@+id/cardSampahSungaiItemView">
@@ -122,9 +118,7 @@
                     android:layout_marginStart="16dp"
                     android:layout_marginBottom="16dp"
                     android:layout_marginEnd="16dp"
-                    android:text="Sampah dibuang ke sungai bisa menyumbat aliran air dan menyebabkan banjir, serta mencemari air yang kita gunakan"
-                    android:ellipsize="end"
-                    android:maxLines="4" />
+                    android:text="Sampah dibuang ke sungai bisa menyumbat aliran air dan menyebabkan banjir, serta mencemari air yang kita gunakan" />
             </LinearLayout>
         </LinearLayout>
     </com.google.android.material.card.MaterialCardView>
@@ -132,7 +126,6 @@
     <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:cardElevation="4dp"
         app:cardCornerRadius="20dp"
         android:layout_marginTop="10dp"
         android:id="@+id/cardSampahTPSItemView">
@@ -181,9 +174,7 @@
                     android:layout_marginStart="16dp"
                     android:layout_marginBottom="16dp"
                     android:layout_marginEnd="16dp"
-                    android:text="Sampah yang tidak dikelola dan menumpuk di Tempat Pembuangan Sampah (TPS) bisa menimbulkan masalah baru"
-                    android:ellipsize="end"
-                    android:maxLines="4" />
+                    android:text="Sampah yang tidak dikelola dan menumpuk di Tempat Pembuangan Sampah (TPS) bisa menimbulkan masalah baru" />
             </LinearLayout>
         </LinearLayout>
     </com.google.android.material.card.MaterialCardView>

@@ -4,12 +4,10 @@
     <string name="logo_sortsavvy">logo SortSavvy</string>
     <string name="logo_title_sortsavvy">Logo Title SortSavvy</string>
     <string name="lorem_ipsum">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et</string>
-    <string name="onboarding_welcome_description">Hai! Selamat datang di SortSavvy.\n
-        Sebelum mulai, kamu perlu masuk menggunakan akunmu terlebih dahulu ataupun buat akun baru.\n
-        Jika ingin melihat-lihat fitur saja, kamu bisa klik "Guest Mode" di bawah ya ^_^</string>
+    <string name="onboarding_welcome_description"> Ayo mulai petualangan seru menuju lingkungan yang lebih baik dengan SortSavvy!</string>
     <string name="onboarding_1_title">Belajar dan Edukasi</string>
     <string name="onboarding_3_title">Quiz</string>
-    <string name="onboarding_welcome_title">Welcome</string>
+    <string name="onboarding_welcome_title">Selamat Datang!</string>
     <string name="onboarding_mulai_btn">Mulai</string>
     <string name="onboarding_title">Onboarding Title</string>
     <string name="onboarding_description">Onboarding Description</string>
@@ -19,8 +17,8 @@
     <string name="background_thumbnail_image">Background Thumbnail Image</string>
     <string name="daftar">Daftar</string>
     <string name="masuk">Masuk</string>
-    <string name="lanjutkan_guest_mode">Lanjutkan Guest Mode</string>
-    <string name="title_login_register">Selamat Datang Sorters!</string>
+    <string name="title_login">Masuk dulu ya!</string>
+    <string name="title_register">Daftar dulu ya!</string>
     <string name="email">Email Anda</string>
     <string name="password">Kata Sandi</string>
     <string name="login">Masuk</string>

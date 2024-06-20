@@ -99,7 +99,7 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/baloo_bhai_2"
                     android:textSize="14sp"
-                    android:textColor="@color/background_green"
+                    android:textColor="@color/background_dark"
                     android:text="Ubah informasi akunmu di halaman ini"
                     app:layout_constraintEnd_toEndOf="@+id/pageTitleTextView"
                     app:layout_constraintStart_toStartOf="@+id/pageTitleTextView"

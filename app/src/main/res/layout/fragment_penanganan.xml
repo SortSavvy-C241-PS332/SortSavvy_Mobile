@@ -18,7 +18,7 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            tools:src="@drawable/penanganan_ldscp" />
+            android:src="@drawable/penanganan_ldscp" />
 
         <ImageButton
             android:id="@+id/backBtnImageButton"
@@ -35,7 +35,7 @@
         <ImageView
             android:id="@+id/backgroundDeskripsiPengenalanImageView"
             android:layout_width="match_parent"
-            android:layout_height="1613dp"
+            android:layout_height="1580dp"
             android:layout_marginTop="272dp"
             android:contentDescription="@string/bottom_background_menu_snap"
             android:src="@drawable/background_bottom_rectangle_white_gray"
@@ -74,6 +74,8 @@
             android:layout_marginStart="25dp"
             android:layout_marginTop="3dp"
             android:layout_marginEnd="25dp"
+            android:paddingStart="25dp"
+            android:paddingEnd="25dp"
             android:text="Sampah adalah segala jenis bahan yang sudah tidak digunakan lagi dan dibuang oleh pemiliknya. Sampah dapat berasal dari rumah tangga, industri, pertanian, dan berbagai aktivitas manusia lainnya."
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.51"
@@ -117,6 +119,8 @@
             android:layout_width="362dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="3dp"
+            android:paddingEnd="25dp"
+            android:paddingStart="25dp"
             android:text="Bank sampah adalah tempat di mana kita bisa menyetor sampah anorganik yang terpilah untuk ditukar dengan uang. Bank sampah bisa mencegah penumpukan sampah di TPS."
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.51"
@@ -129,6 +133,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="25dp"
+            android:layout_marginEnd="20dp"
             android:layout_marginTop="20dp"
             android:text="Cara Menukar Sampah Menjadi Uang"
             android:textColor="@color/font_black"

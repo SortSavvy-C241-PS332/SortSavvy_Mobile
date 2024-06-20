@@ -94,7 +94,7 @@
                     android:id="@+id/homeToSnapButton"
                     style="@style/ButtonGeneral.ActiveGreen"
                     android:layout_width="wrap_content"
-                    android:layout_height="51dp"
+                    android:layout_height="wrap_content"
                     android:layout_marginTop="15dp"
                     android:backgroundTint="@color/font_green"
                     android:text="Pilah sampah di dekatmu!"
@@ -120,6 +120,19 @@
             app:layout_constraintTop_toBottomOf="@+id/profileCardView" />
 
         <!-- Organic Waste Card -->
+        <TextView
+            android:id="@+id/totalDescriptionTextView"
+            style="@style/TextContent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginStart="24dp"
+            android:text="Temukan sampah di sekitarmu dan pilah!"
+            android:textColor="@android:color/white"
+            android:textSize="17sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/totalTemuanHead" />
+
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/organicCardView"
             android:layout_width="match_parent"
@@ -129,9 +142,10 @@
             app:cardCornerRadius="30dp"
             android:layout_marginStart="25dp"
             android:layout_marginEnd="25dp"
+            android:layout_marginTop="8dp"
             app:cardElevation="4dp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/totalTemuanHead">
+            app:layout_constraintTop_toBottomOf="@+id/totalDescriptionTextView">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -166,6 +180,7 @@
                 <LinearLayout
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:backgroundTint="@color/light_green"
                     android:layout_weight="1"
                     android:orientation="vertical"
                     android:gravity="center_vertical"
@@ -236,7 +251,7 @@
                         android:layout_gravity="center"
                         style="@style/TextContent.DarkGreen.TitleCard"
                         android:textColor="@color/background_purple"
-                        android:textSize="16sp" />
+                        android:textSize="15sp" />
                 </LinearLayout>
 
                 <!-- Count -->
@@ -280,7 +295,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
-            android:text="Level Saya"
+            android:text="Lencana Saya"
             android:textColor="@android:color/white"
             android:layout_marginTop="30dp"
             android:layout_marginStart="25dp"
@@ -294,14 +309,165 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
-            android:text="Selesaikan Tantangan untuk naik level!"
+            android:text="Selesaikan Tantangan untuk dapat Lencana!"
             android:textColor="@android:color/white"
             android:layout_marginStart="25dp"
             android:textSize="17sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/levelHeadTextView" />
 
+        <GridLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:rowCount="1"
+            android:columnCount="2"
+            android:orientation="horizontal"
+            android:paddingBottom="30dp"
+            android:paddingStart="20dp"
+            android:paddingEnd="20dp"
+            app:layout_constraintTop_toBottomOf="@+id/levelDescriptionTextView"
+            >
 
+            <!-- Card 1: Sort Explorer -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/itemBCardView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="16dp"
+                android:layout_margin="5dp">
+
+                <LinearLayout
+                    android:id="@+id/itemContainerBContohLinearLayout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:background="@drawable/icon_background_square_rounded_light_purple">
+
+                    <ImageView
+                        android:id="@+id/thumbnailBContohItemImageView"
+                        android:layout_width="150dp"
+                        android:layout_height="150dp"
+                        android:src="@drawable/badge1_explorer"/>
+
+                    <TextView
+                        android:id="@+id/titleSortExplorerTextView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/baloo_bhai_2"
+                        android:padding="8dp"
+                        android:text="Sort Explorer"
+                        android:textAlignment="center"
+                        style="@style/TextContent.DarkGreen.TitleCard"
+                        android:textColor="@color/background_purple"
+                        android:textStyle="bold" />
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- Card 2: Sort Warrior -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/sortWarriorCardView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="16dp"
+                android:layout_margin="5dp">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:background="@drawable/icon_background_square_rounded_light_purple">
+
+                    <ImageView
+                        android:id="@+id/thumbnailSortWarriorImageView"
+                        android:layout_width="150dp"
+                        android:layout_height="150dp"
+                        android:src="@drawable/badge2_warrior"/>
+
+                    <TextView
+                        android:id="@+id/titleSortWarriorTextView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/baloo_bhai_2"
+                        android:padding="8dp"
+                        android:text="Sort Warrior"
+                        android:textAlignment="center"
+                        style="@style/TextContent.DarkGreen.TitleCard"
+                        android:textColor="@color/background_purple"
+                        android:textStyle="bold" />
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- Card 3: Sort Hero -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/sortHeroCardView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="16dp"
+                android:layout_margin="5dp">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:background="@drawable/icon_background_square_rounded_light_purple"
+                    android:backgroundTint="@color/light_gray">
+
+                    <ImageView
+                        android:id="@+id/thumbnailSortHeroImageView"
+                        android:layout_width="150dp"
+                        android:layout_height="150dp"
+                        android:src="@drawable/badge3_hero_dis"/>
+
+                    <TextView
+                        android:id="@+id/titleSortHeroTextView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/baloo_bhai_2"
+                        android:padding="8dp"
+                        android:text="Sort Hero"
+                        android:textAlignment="center"
+                        style="@style/TextContent.DarkGreen.TitleCard"
+                        android:textColor="@color/font_black"
+                        android:textStyle="bold" />
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- Card 4: Sort Savvier -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/sortSavvierCardView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="16dp"
+                android:layout_margin="5dp">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:background="@drawable/icon_background_square_rounded_light_purple"
+                    android:backgroundTint="@color/light_gray">
+
+                    <ImageView
+                        android:id="@+id/thumbnailSortSavvierImageView"
+                        android:layout_width="150dp"
+                        android:layout_height="150dp"
+                        android:src="@drawable/badge4_savvier_dis"/>
+
+                    <TextView
+                        android:id="@+id/titleSortSavvierTextView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/baloo_bhai_2"
+                        android:padding="8dp"
+                        android:text="Sort Savvier"
+                        android:textAlignment="center"
+                        style="@style/TextContent.DarkGreen.TitleCard"
+                        android:textColor="@color/font_black"
+                        android:textStyle="bold" />
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+        </GridLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </ScrollView>

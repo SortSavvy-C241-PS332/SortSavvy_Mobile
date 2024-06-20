@@ -25,19 +25,19 @@ class OnboardingViewModel(
     fun loadOnboardingItems() {
         val items = listOf(
             OnboardingItem(
-                onboardingImage = R.drawable.onboarding_thumbnail_snap,
-                title = "Snap dan Dapatkan Badge",
-                description = "Kamu bisa dapetin info suatu barang bekas atau sampah yang kamu temukan dengan mudah dan cepat hanya dengan satu snap saja. Bisa kumpulkan badge juga loh ^_^"
+                onboardingImage = R.drawable.onboarding_camera,
+                title = "Snap dan Sort",
+                description = "Identifikasi dan pilah sampah dengan mudah hanya dengan satu foto"
             ),
             OnboardingItem(
-                onboardingImage = R.drawable.onboarding_thumbnail_belajar_edukasi,
-                title = "Belajar dan Edukasi",
-                description = "Belajar macam-macam jenis sampah yang kamu temukan jadi lebih asik, kamu bisa dapetin info juga terkait barang tersebut sebaiknya didaur ulang menjadi sesuatu ataupun memilih untuk membuangnya dengan cara yang benar."
+                onboardingImage = R.drawable.onboarding_explore,
+                title = "Jelajah Dunia Sampah",
+                description = "Serunya menjelajahi dunia pengelolaan sampah melalui edukasi interaktif!"
             ),
             OnboardingItem(
-                onboardingImage = R.drawable.onboarding_thumbnail_quiz,
-                title = "Quiz",
-                description = "Ada quiz yang bisa bantu kamu untuk menilai pemahamanmu terkait pengelolaan sampah. Mulai dari pengenalan jenis-jenis sampah yang sering ditemui, pengelolaan sampah, dan hal menarik lainnya."
+                onboardingImage = R.drawable.onboarding_trophy,
+                title = "Tantangan dan Lencana",
+                description = "Selesaikan tantangan, kumpulkan lencana keren, dan pantau aksimu untuk lingkungan!"
             )
         )
         _onboardingItems.value = items

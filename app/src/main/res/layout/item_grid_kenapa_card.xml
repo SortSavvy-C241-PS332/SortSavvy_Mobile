@@ -14,7 +14,8 @@
     <!-- Card 1 -->
     <com.google.android.material.card.MaterialCardView
         android:layout_width="70dp"
-        android:layout_height="137dp"
+        android:layout_height="0dp"
+        android:layout_rowWeight="1"
         android:layout_columnWeight="0.1"
         android:layout_margin="4dp"
         app:cardBackgroundColor="@color/light_purple"
@@ -44,18 +45,19 @@
             android:id="@+id/textView1"
             style="@style/TextContent"
             android:layout_width="match_parent"
-            android:layout_height="137dp"
+            android:layout_height="wrap_content"
             android:padding="16dp"
             android:textColor="@android:color/black"
             android:textSize="14sp"
-            android:text="Sampah yang tidak dikelola dengan baik bisa mencemari tanah, air, dan udara. Pencemaran ini dapat merusak ekosistem dan mengancam kehidupan makhluk hidup termasuk manusia."/>
+            android:text="Sampah yang tidak dikelola dengan baik bisa mencemari tanah, air, dan udara. Pencemaran ini merusak ekosistem dan mengancam kehidupan makhluk hidup termasuk manusia."/>
 
     </com.google.android.material.card.MaterialCardView>
 
     <!-- Card 3 -->
     <com.google.android.material.card.MaterialCardView
         android:layout_width="70dp"
-        android:layout_height="137dp"
+        android:layout_height="0dp"
+        android:layout_rowWeight="1"
         android:layout_columnWeight="0.1"
         android:layout_margin="4dp"
         app:cardBackgroundColor="@color/light_green"
@@ -84,7 +86,7 @@
             android:id="@+id/textView2"
             style="@style/TextContent"
             android:layout_width="match_parent"
-            android:layout_height="137dp"
+            android:layout_height="wrap_content"
             android:padding="16dp"
             android:textColor="@android:color/black"
             android:textSize="14sp"
@@ -95,7 +97,8 @@
     <!-- Card 5 -->
     <com.google.android.material.card.MaterialCardView
         android:layout_width="70dp"
-        android:layout_height="115dp"
+        android:layout_height="0dp"
+        android:layout_rowWeight="1"
         android:layout_columnWeight="0.1"
         android:layout_margin="4dp"
         app:cardBackgroundColor="@color/light_purple"

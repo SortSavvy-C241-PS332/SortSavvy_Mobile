@@ -5,7 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/gradient_green"
+    android:background="@color/background_green"
     android:fillViewport="true"
     tools:context=".views.authentication.register.RegisterActivity">
 
@@ -34,7 +34,8 @@
         <TextView
             android:id="@+id/titleTextView"
             style="@style/TextContent.GreenEmerald.Title"
-            android:text="@string/title_login_register"
+            android:text="@string/title_register"
+            android:textColor="@color/font_green"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/bottomBackgroundImageView" />

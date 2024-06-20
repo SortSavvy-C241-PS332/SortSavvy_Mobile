@@ -35,8 +35,8 @@
 
                 <ImageView
                     android:id="@+id/thumbnailAContohItemImageView"
-                    android:layout_width="80dp"
-                    android:layout_height="80dp"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
                     android:src="@drawable/ic_launcher_background"/>
 
                 <TextView
@@ -70,8 +70,8 @@
 
                 <ImageView
                     android:id="@+id/thumbnailBContohItemImageView"
-                    android:layout_width="80dp"
-                    android:layout_height="80dp"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
                     android:src="@drawable/ic_launcher_background"/>
 
                 <TextView

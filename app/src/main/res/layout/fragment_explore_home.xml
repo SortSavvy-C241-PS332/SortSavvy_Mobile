@@ -29,7 +29,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="25dp"
-            style="@style/TextContent.LightGray"
+            android:layout_marginEnd="25dp"
+            style="@style/TextContent"
+            android:textColor="@color/white"
             android:textSize="16sp"
             android:text="Di sini, kamu bisa belajar semua tentang sampah!"
             app:layout_constraintStart_toStartOf="parent"
@@ -43,7 +45,7 @@
             android:layout_marginStart="25dp"
             android:layout_marginTop="13dp"
             android:text="Pengenalan Sampah"
-            android:textColor="@color/font_light_gray"
+            android:textColor="@color/white"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/deskripsiJelajahTextView" />
 
@@ -64,7 +66,7 @@
             android:layout_marginStart="25dp"
             android:layout_marginTop="13dp"
             android:text="Jenis Sampah"
-            android:textColor="@color/font_light_gray"
+            android:textColor="@color/white"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/pengenalanCardInclude" />
 
@@ -88,7 +90,7 @@
             android:layout_marginStart="25dp"
             android:layout_marginTop="13dp"
             android:text="Penanganan Sampah"
-            android:textColor="@color/font_light_gray"
+            android:textColor="@color/white"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/jenisSampahItemRecyclerView" />
 

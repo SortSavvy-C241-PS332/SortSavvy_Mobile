@@ -19,7 +19,7 @@
         <!-- icon -->
         <item name="windowSplashScreenAnimatedIcon" >@drawable/splashscreen_logo_sortsavvy</item>
         <!-- theme mana yang akan ditampilkan setelah splash screen -> welcome activity -->
-        <item name="postSplashScreenTheme" >@style/Theme.SortSavvy</item>
+        <item name="postSplashScreenTheme" >@style/Base.Theme.SortSavvy</item>
     </style>
 
 <!--    Text Style -->

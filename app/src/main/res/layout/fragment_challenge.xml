@@ -17,9 +17,9 @@
             android:id="@+id/backBtnImageButton"
             android:layout_width="40dp"
             android:layout_height="40dp"
-            android:background="@drawable/ic_background_back_button"
+            android:background="@drawable/ic_background_exit_button"
             android:contentDescription="@string/back_btn"
-            android:src="@drawable/ic_round_arrow_back_white_24" />
+            android:src="@drawable/ic_exit_button" />
 
         <TextView
             android:id="@+id/questionNumberTextView"

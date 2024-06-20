@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.service.autofill.UserData
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.findNavController
@@ -37,6 +38,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        installSplashScreen()
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
@@ -131,6 +133,12 @@ class MainActivity : AppCompatActivity() {
                     navView.visibility = View.GONE
                 }
                 R.id.navigation_explore_detail_cara_olah -> {
+                    navView.visibility = View.GONE
+                }
+                R.id.navigation_explore_penanganan-> {
+                    navView.visibility = View.GONE
+                }
+                R.id.navigation_explore_pengenalan_sampah -> {
                     navView.visibility = View.GONE
                 }
                 else -> {
