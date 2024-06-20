@@ -250,7 +250,7 @@ class ExploreHomeViewModel : ViewModel() {
             ExploreJenisSampahModel(
                 "Sampah Organik",
                 "Sampah organik adalah sampah yang berasal dari makhluk hidup, baik itu hewan maupun tumbuhan, dan mudah terurai oleh mikroorganisme.",
-                R.drawable.challenge_thumbnail_sampah_organik,
+                R.drawable.olah_ecobrick,
                 listciriJenisSampahOrganikModel,
                 listContohJenisSampahOrganikModel,
                 listCaraOlahJenisSampahOrganikModel
