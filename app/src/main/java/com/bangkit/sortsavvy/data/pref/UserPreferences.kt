@@ -19,6 +19,7 @@ class UserPreferences(private val dataStore: DataStore<Preferences>) {
 
     // This function returns the user session
     fun getSession(): Flow<UserModel> {
+        println("debug get session")
         return dataStore.data.map { preferences ->
             val userId = preferences[USER_ID_KEY]
             val email = preferences[EMAIL_KEY]
@@ -26,6 +27,7 @@ class UserPreferences(private val dataStore: DataStore<Preferences>) {
             val profilePhoto = preferences[PROFILE_PHOTO_KEY]
             val isLogin = preferences[IS_LOGIN_KEY] ?: false
             val isOnboardingViewed = preferences[IS_ONBOARDING_VIEWED_KEY] ?: false
+            println("debug $userId $email $fullName $profilePhoto $isLogin $isOnboardingViewed  ")
 //            if (userId != null && email != null && fullName != null && profilePhoto != null && isLogin) {
                 UserModel(userId, email, fullName, profilePhoto, isLogin, isOnboardingViewed)
 //            } else null

@@ -76,36 +76,36 @@ class ExploreHomeViewModel : ViewModel() {
             ExploreDetailContohJenisSampahModel(
                 "Sisa makanan",
                 "Kulit Buah",
-                R.drawable.challenge_thumbnail_sampah_organik,
-                "Sayuran Sisa",
-                R.drawable.ic_launcher_background
+                R.drawable.contoh_kulit_buah,
+                "Tulang Sisa",
+                R.drawable.contoh_tulang
             )
         )
         listContohJenisSampahOrganikModel.add(
             ExploreDetailContohJenisSampahModel(
                 "Sampah Tanaman",
                 "Daun Kering",
-                R.drawable.ic_launcher_background,
+                R.drawable.contoh_daun_kering,
                 "Ranting Pohon",
-                R.drawable.ic_launcher_background
+                R.drawable.contoh_ranting
             )
         )
         listContohJenisSampahOrganikModel.add(
             ExploreDetailContohJenisSampahModel(
                 "Sisa Dapur",
                 "Cangkang Telur",
-                R.drawable.ic_launcher_background,
-                "Ampas Kelapa",
-                R.drawable.ic_launcher_background
+                R.drawable.contoh_cangkang_telur,
+                "Cangkang Kelapa",
+                R.drawable.contoh_cangkang_kelapa
             )
         )
         listContohJenisSampahOrganikModel.add(
             ExploreDetailContohJenisSampahModel(
                 "Sisa Pertanian",
                 "Kotoran hewan",
-                R.drawable.ic_launcher_background,
-                "Sisa Pakan",
-                R.drawable.ic_launcher_background
+                R.drawable.contoh_kotoran_hewan,
+                "Buah Busuk",
+                R.drawable.contoh_buah_busuk
             )
         )
 
@@ -122,7 +122,7 @@ class ExploreHomeViewModel : ViewModel() {
             ExploreDetailCaraOlahJenisSampahModel(
                 "Kompos",
                 "Sampah organik dikumpulkan dan diolah menjadi kompos melalui proses pembusukan alami.",
-                R.drawable.challenge_thumbnail_sampah_aksiku_untuk_bumi,
+                R.drawable.olah_kompos,
                 listLangkahItemKompos,
                 "https://www.youtube.com/embed/4WIGBvtbpOE"
             )
@@ -139,13 +139,11 @@ class ExploreHomeViewModel : ViewModel() {
             ExploreDetailCaraOlahJenisSampahModel(
                 "Eco Enzyme",
                 "Mengubah sisa makanan menjadi cairan pembersih serba guna melalui fermentasi gula dan air.",
-                R.drawable.challenge_thumbnail_sampah_aksiku_untuk_bumi,
+                R.drawable.olah_ecoenzyme,
                 listLangkahItemEcoEnzyme,
                 "https://www.youtube.com/embed/VdohdU2uOBQ"
             )
         )
-
-
 
 
         // jenis sampah anorganik
@@ -160,36 +158,36 @@ class ExploreHomeViewModel : ViewModel() {
             ExploreDetailContohJenisSampahModel(
                 "Plastik",
                 "Botol Plastik",
-                R.drawable.ic_launcher_background,
+                R.drawable.contoh_botol_plastik,
                 "Tas Plastik",
-                R.drawable.ic_launcher_background
+                R.drawable.contoh_kantong_plastik
             )
         )
         listContohJenisSampahAnorganikModel.add(
             ExploreDetailContohJenisSampahModel(
                 "Kaca",
                 "Botol Kaca",
-                R.drawable.ic_launcher_background,
+                R.drawable.contoh_gelas,
                 "Cermin Rusak",
-                R.drawable.ic_launcher_background
+                R.drawable.contoh_cermin
             )
         )
         listContohJenisSampahAnorganikModel.add(
             ExploreDetailContohJenisSampahModel(
                 "Kertas",
                 "Koran Bekas",
-                R.drawable.ic_launcher_background,
+                R.drawable.contoh_koran,
                 "Kardus Bekas",
-                R.drawable.ic_launcher_background
+                R.drawable.contoh_kardus
             )
         )
         listContohJenisSampahAnorganikModel.add(
             ExploreDetailContohJenisSampahModel(
                 "Logam",
                 "Kaleng Minum",
-                R.drawable.ic_launcher_background,
+                R.drawable.contoh_kaleng,
                 "Sendok Rusak",
-                R.drawable.ic_launcher_background
+                R.drawable.contoh_sendok
             )
         )
 
@@ -207,7 +205,7 @@ class ExploreHomeViewModel : ViewModel() {
             ExploreDetailCaraOlahJenisSampahModel(
                 "Recycle (Daur Ulang)",
                 "Sampah anorganik diproses kembali menjadi bahan baku untuk membuat produk baru.",
-                R.drawable.challenge_thumbnail_sampah_aksiku_untuk_bumi,
+                R.drawable.olah_recycle,
                 listLangkahItemRecycle,
                 "https://www.youtube.com/embed/LM9nRUwOSdw"
             )
@@ -224,7 +222,7 @@ class ExploreHomeViewModel : ViewModel() {
             ExploreDetailCaraOlahJenisSampahModel(
                 "Ecobrick",
                 "Mengubah botol plastik bekas yang diisi potongan plastik menjadi bata ramah lingkungan.",
-                R.drawable.challenge_thumbnail_sampah_aksiku_untuk_bumi,
+                R.drawable.olah_ecobrick,
                 listLangkahItemEcobrick,
                 "https://www.youtube.com/embed/LPdZZpluj9c"
             )
@@ -241,7 +239,7 @@ class ExploreHomeViewModel : ViewModel() {
             ExploreDetailCaraOlahJenisSampahModel(
                 "Upcycle (Kerajinan)",
                 "Mengubah sampah anorganik menjadi produk baru dengan nilai tambah, misalnya membuat tas dari kantong plastik bekas atau dekorasi rumah dari botol kaca bekas.",
-                R.drawable.challenge_thumbnail_sampah_aksiku_untuk_bumi,
+                R.drawable.olah_upcycle,
                 listLangkahItemUpcycle,
                 "https://www.youtube.com/embed/VdohdU2uOBQ"
             )

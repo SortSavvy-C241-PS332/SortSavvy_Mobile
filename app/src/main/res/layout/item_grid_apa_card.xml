@@ -30,10 +30,10 @@
         <ImageView
             android:id="@+id/thumbnailImageView"
             android:layout_width="0dp"
-            android:layout_height="match_parent"
+            android:layout_height="130dp"
             android:layout_weight="2.5"
             android:scaleType="centerCrop"
-            android:src="@drawable/ic_launcher_background" />
+            android:src="@drawable/sampah_jalan" />
 
         <LinearLayout
             android:layout_width="0dp"
@@ -89,10 +89,10 @@
             <ImageView
                 android:id="@+id/thumbnailSampahSungaiImageView"
                 android:layout_width="0dp"
-                android:layout_height="match_parent"
+                android:layout_height="130dp"
                 android:layout_weight="2.5"
                 android:scaleType="centerCrop"
-                android:src="@drawable/ic_launcher_background" />
+                android:src="@drawable/sampah_sungai" />
 
             <LinearLayout
                 android:layout_width="0dp"
@@ -148,10 +148,10 @@
             <ImageView
                 android:id="@+id/thumbnailSampahTPSImageView"
                 android:layout_width="0dp"
-                android:layout_height="match_parent"
+                android:layout_height="130dp"
                 android:layout_weight="2.5"
                 android:scaleType="centerCrop"
-                android:src="@drawable/ic_launcher_background" />
+                android:src="@drawable/sampah_tps" />
 
             <LinearLayout
                 android:layout_width="0dp"

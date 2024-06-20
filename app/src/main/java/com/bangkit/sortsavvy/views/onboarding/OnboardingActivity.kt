@@ -49,16 +49,20 @@ class OnboardingActivity : AppCompatActivity() {
 //                setContentView(binding.root)
 //            }
 //        }
-
+println("debug on boarding")
         viewModel.getSession().observe(this) { userModel ->
+            println("debug user model -> $userModel")
             if (userModel.isLogin && userModel.isOnboardingViewed) {
                 // kalau user sedang login, langsung ke MainActivity (home screen)
+                println("debug navigate to main")
                 navigateToMainActivityScreen()
             } else if (!userModel.isLogin && userModel.isOnboardingViewed) {
                 // kalau user belum login, tapi udah pernah lihat welcome, langsung ke WelcomeActivity
+                println("debug navigate to welcome")
                 navigateToWelcomeActivity()
             } else {
                 // kalau baru pertama kali install aplikasi dan belum pernah lihat welcome
+                println("debug set content view")
                 setContentView(binding.root)
             }
         }

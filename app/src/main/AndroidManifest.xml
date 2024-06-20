@@ -14,9 +14,9 @@
         android:name=".views.main.SortSavvy"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
-        android:icon="@mipmap/thumbnail_app"
+        android:icon="@mipmap/thumbnail_ss"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/thumbnail_app"
+        android:roundIcon="@mipmap/thumbnail_ss"
         android:supportsRtl="true"
         android:theme="@style/Theme.SortSavvy"
         tools:targetApi="31">
