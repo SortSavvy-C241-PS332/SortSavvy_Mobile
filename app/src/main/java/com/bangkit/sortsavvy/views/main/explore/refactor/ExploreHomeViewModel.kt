@@ -250,7 +250,7 @@ class ExploreHomeViewModel : ViewModel() {
             ExploreJenisSampahModel(
                 "Sampah Organik",
                 "Sampah organik adalah sampah yang berasal dari makhluk hidup, baik itu hewan maupun tumbuhan, dan mudah terurai oleh mikroorganisme.",
-                R.drawable.detail_organik,
+                R.drawable.olah_ecobrick,
                 listciriJenisSampahOrganikModel,
                 listContohJenisSampahOrganikModel,
                 listCaraOlahJenisSampahOrganikModel
@@ -260,7 +260,7 @@ class ExploreHomeViewModel : ViewModel() {
             ExploreJenisSampahModel(
                 "Sampah Anorganik",
                 "Sampah anorganik adalah sampah yang berasal dari bahan-bahan non-biologis dan tidak mudah terurai oleh mikroorganisme.",
-                R.drawable.detail_anorganik,
+                R.drawable.challenge_thumbnail_sampah_anorganik,
                 listciriJenisSampahAnorganikModel,
                 listContohJenisSampahAnorganikModel,
                 listCaraOlahJenisSampahAnorganikModel
