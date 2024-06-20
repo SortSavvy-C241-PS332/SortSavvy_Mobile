@@ -25,8 +25,8 @@
         android:id="@+id/logoImageView"
         android:layout_width="300dp"
         android:layout_height="300dp"
+        android:layout_marginTop="60dp"
         android:contentDescription="@string/logo_sortsavvy"
-        android:layout_marginTop="75dp"
         android:src="@drawable/splashscreen_logo_sortsavvy"
         app:layout_constraintEnd_toEndOf="@+id/topBackgroundImageView"
         app:layout_constraintStart_toStartOf="@+id/topBackgroundImageView"
@@ -35,9 +35,9 @@
     <TextView
         android:id="@+id/titleTextView"
         style="@style/TextContent.GreenEmerald.Title"
-        android:textColor="@color/background_green"
         android:text="@string/onboarding_welcome_title"
         android:textAlignment="center"
+        android:textColor="@color/background_green"
         app:layout_constraintEnd_toEndOf="@+id/logoImageView"
         app:layout_constraintStart_toStartOf="@+id/logoImageView"
         app:layout_constraintTop_toBottomOf="@+id/logoImageView" />
