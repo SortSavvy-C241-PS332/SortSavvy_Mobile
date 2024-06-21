@@ -68,7 +68,7 @@ class ChallengeHomeFragment : Fragment() {
 
     private fun setupRecyclerView(challengeModelList: List<ChallengeModel>, userModel: UserModel) {
 
-//        userModel.userId?.let { userID ->
+//        userModel.userId?.let { userID ->n
 //            getUserBadge(userID)
 //        }
 

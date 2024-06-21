@@ -5,11 +5,9 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.asLiveData
-import androidx.lifecycle.viewModelScope
 import com.bangkit.sortsavvy.data.model.UserModel
 import com.bangkit.sortsavvy.data.repository.SessionRepository
 import com.bangkit.sortsavvy.data.repository.UserStatisticRepository
-import kotlinx.coroutines.launch
 
 class SnapResultViewModel(
     private val repository: UserStatisticRepository,

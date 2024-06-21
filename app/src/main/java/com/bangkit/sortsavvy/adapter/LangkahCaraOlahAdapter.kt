@@ -3,9 +3,7 @@ package com.bangkit.sortsavvy.adapter
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.bangkit.sortsavvy.data.model.ExploreDetailCiriJenisSampahModel
 import com.bangkit.sortsavvy.data.model.LangkahItem
-import com.bangkit.sortsavvy.databinding.ItemCiriCardBinding
 import com.bangkit.sortsavvy.databinding.ItemLangkahCardBinding
 
 class LangkahCaraOlahAdapter(

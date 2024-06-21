@@ -8,10 +8,10 @@
             <InsightsFilterSettings>
               <option name="connection">
                 <ConnectionSetting>
-                  <option name="appId" value="PLACEHOLDER" />
-                  <option name="mobileSdkAppId" value="" />
-                  <option name="projectId" value="" />
-                  <option name="projectNumber" value="" />
+                  <option name="appId" value="com.bangkit.sortsavvy" />
+                  <option name="mobileSdkAppId" value="1:810789219241:android:531d68f2b41043c88bb2b8" />
+                  <option name="projectId" value="sortsavvy-519d4" />
+                  <option name="projectNumber" value="810789219241" />
                 </ConnectionSetting>
               </option>
               <option name="signal" value="SIGNAL_UNSPECIFIED" />

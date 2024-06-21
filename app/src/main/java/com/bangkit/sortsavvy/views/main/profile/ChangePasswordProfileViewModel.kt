@@ -1,13 +1,9 @@
 package com.bangkit.sortsavvy.views.main.profile
 
-import android.util.Patterns
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.asLiveData
-import com.bangkit.sortsavvy.data.model.UserModel
 import com.bangkit.sortsavvy.data.repository.ProfileRepository
-import com.bangkit.sortsavvy.data.repository.SessionRepository
 
 class ChangePasswordProfileViewModel(
     private val profileRepository: ProfileRepository
@@ -21,6 +17,7 @@ class ChangePasswordProfileViewModel(
 
     fun validateUserForm(userData: Map<String, String>): Boolean {
         initializeUserData(userData)
+        println("userData -> $userData")
 
         if (_password.isEmpty() || _newPassword.isEmpty() || _confirmNewPassword.isEmpty()) {
             _invalidValidation.value = "Mohon isi semua kolom yang tersedia"
@@ -30,13 +27,14 @@ class ChangePasswordProfileViewModel(
             _invalidValidation.value = "Password baru dan konfirmasi password baru tidak sama"
             return false
         }
+        println("userData true -> $userData")
         return true
     }
 
     private fun initializeUserData(userData: Map<String, String>) {
         _password = userData["password"].toString()
         _newPassword = userData["newPassword"].toString()
-        _confirmNewPassword = userData["newConfirmPassword"].toString()
+        _confirmNewPassword = userData["confirmNewPassword"].toString()
     }
 
     fun changePassword(userID: Int, userData: Map<String, String>) = profileRepository.updateUserPassword(

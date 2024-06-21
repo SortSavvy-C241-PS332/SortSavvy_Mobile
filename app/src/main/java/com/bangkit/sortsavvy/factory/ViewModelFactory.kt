@@ -1,18 +1,18 @@
 package com.bangkit.sortsavvy.factory
 
+//import com.bangkit.sortsavvy.di.OnboardingInjection
 import android.content.Context
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.bangkit.sortsavvy.di.AuthenticationInjection
 import com.bangkit.sortsavvy.di.UserDataInjection
-//import com.bangkit.sortsavvy.di.OnboardingInjection
 import com.bangkit.sortsavvy.views.authentication.login.LoginViewModel
 import com.bangkit.sortsavvy.views.authentication.register.RegisterViewModel
 import com.bangkit.sortsavvy.views.main.MainViewModel
 import com.bangkit.sortsavvy.views.main.challenge.ChallengeHomeViewModel
 import com.bangkit.sortsavvy.views.main.explore.refactor.ExploreDetailCaraOlahViewModel
-import com.bangkit.sortsavvy.views.main.explore.refactor.ExploreHomeViewModel
 import com.bangkit.sortsavvy.views.main.explore.refactor.ExploreDetailSnapViewModel
+import com.bangkit.sortsavvy.views.main.explore.refactor.ExploreHomeViewModel
 import com.bangkit.sortsavvy.views.main.home.HomeViewModel
 import com.bangkit.sortsavvy.views.main.profile.ChangePasswordProfileViewModel
 import com.bangkit.sortsavvy.views.main.profile.ProfileViewModel

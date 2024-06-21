@@ -17,7 +17,6 @@ import com.bangkit.sortsavvy.R
 import com.bangkit.sortsavvy.adapter.OnboardingItemAdapter
 import com.bangkit.sortsavvy.data.model.OnboardingItem
 import com.bangkit.sortsavvy.data.model.UserModel
-import com.bangkit.sortsavvy.data.pref.OnboardingPreferences
 import com.bangkit.sortsavvy.databinding.ActivityOnboardingBinding
 import com.bangkit.sortsavvy.factory.ViewModelFactory
 import com.bangkit.sortsavvy.utils.ViewComponentUtil

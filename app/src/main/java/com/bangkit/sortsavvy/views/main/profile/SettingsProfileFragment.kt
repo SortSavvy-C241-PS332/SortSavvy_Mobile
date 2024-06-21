@@ -1,17 +1,16 @@
 package com.bangkit.sortsavvy.views.main.profile
 
+import android.graphics.Bitmap
+import android.graphics.drawable.Drawable
 import android.net.Uri
-import androidx.fragment.app.viewModels
 import android.os.Bundle
 import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
-import android.widget.Toast
 import androidx.activity.result.PickVisualMediaRequest
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.bangkit.sortsavvy.R
@@ -25,6 +24,8 @@ import com.bangkit.sortsavvy.utils.ImageUtil
 import com.bangkit.sortsavvy.utils.ImageUtil.reduceFileImage
 import com.bangkit.sortsavvy.utils.ViewComponentUtil
 import com.bumptech.glide.Glide
+import com.bumptech.glide.request.target.CustomTarget
+import com.bumptech.glide.request.transition.Transition
 import okhttp3.MediaType.Companion.toMediaType
 import okhttp3.MultipartBody
 import okhttp3.RequestBody.Companion.asRequestBody
@@ -90,10 +91,34 @@ class SettingsProfileFragment : Fragment() {
         binding.emailTextView.text = userModel.email
         binding.nameEditText.setText(userModel.fullName)
         binding.emailEditText.setText(userModel.email)
+//        Glide.with(this)
+//            .load(userModel.profilePhoto)
+//            .placeholder(R.drawable.profile_thumbnail_avatar_syella)
+//            .into(binding.avatarImageView)
         Glide.with(this)
+            .asBitmap()
             .load(userModel.profilePhoto)
             .placeholder(R.drawable.profile_thumbnail_avatar_syella)
-            .into(binding.avatarImageView)
+            .into(object : CustomTarget<Bitmap>() {
+                override fun onResourceReady(resource: Bitmap, transition: Transition<in Bitmap>?) {
+                    val uri = context?.let { ImageUtil.bitmapToUri(it, resource) }
+                    viewModel.setCurrentImageUri(uri)
+                    binding.avatarImageView.setImageBitmap(resource)
+                }
+
+                override fun onLoadFailed(errorDrawable: Drawable?) {
+                    super.onLoadFailed(errorDrawable)
+                    binding.avatarImageView.setImageResource(R.drawable.profile_thumbnail_avatar_syella)
+
+                    val placeholderUri = Uri.parse("android.resource://" + context?.packageName + "/" + R.drawable.profile_thumbnail_avatar_syella)
+                    viewModel.setCurrentImageUri(placeholderUri)
+                }
+
+                override fun onLoadCleared(placeholder: Drawable?) {
+
+                }
+
+            })
     }
 
     private fun setUpButtonListener() {

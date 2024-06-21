@@ -15,7 +15,6 @@ import com.bangkit.sortsavvy.data.model.ExploreItem
 import com.bangkit.sortsavvy.data.model.ExploreJenisSampahModel
 import com.bangkit.sortsavvy.databinding.FragmentExploreHomeBinding
 import com.bangkit.sortsavvy.factory.ViewModelFactory
-import com.bangkit.sortsavvy.utils.ViewComponentUtil
 
 class ExploreHomeFragment : Fragment() {
 

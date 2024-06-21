@@ -4,11 +4,11 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.bangkit.sortsavvy.R
-import com.bangkit.sortsavvy.data.model.ExploreJenisSampahModel
 import com.bangkit.sortsavvy.data.model.ExploreDetailCaraOlahJenisSampahModel
 import com.bangkit.sortsavvy.data.model.ExploreDetailCiriJenisSampahModel
 import com.bangkit.sortsavvy.data.model.ExploreDetailContohJenisSampahModel
 import com.bangkit.sortsavvy.data.model.ExploreItem
+import com.bangkit.sortsavvy.data.model.ExploreJenisSampahModel
 import com.bangkit.sortsavvy.data.model.LangkahItem
 
 

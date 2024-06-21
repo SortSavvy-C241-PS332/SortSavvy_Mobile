@@ -2,7 +2,6 @@ package com.bangkit.sortsavvy.data.repository
 
 import com.bangkit.sortsavvy.data.model.UserModel
 import com.bangkit.sortsavvy.data.pref.UserPreferences
-import com.bangkit.sortsavvy.data.remote.retrofit.ApiService
 import kotlinx.coroutines.flow.Flow
 
 class SessionRepository(

@@ -2,12 +2,12 @@ package com.bangkit.sortsavvy.data.remote.retrofit
 
 import com.bangkit.sortsavvy.data.remote.response.LoginResponse
 import com.bangkit.sortsavvy.data.remote.response.RegisterResponse
+import com.bangkit.sortsavvy.data.remote.response.UpdatePasswordResponse
 import com.bangkit.sortsavvy.data.remote.response.UpdateProfileResponse
 import com.bangkit.sortsavvy.data.remote.response.UserBadgeResponse
 import com.bangkit.sortsavvy.data.remote.response.UserStatisticResponse
 import okhttp3.MultipartBody
 import okhttp3.RequestBody
-import retrofit2.http.Body
 import retrofit2.http.Field
 import retrofit2.http.FormUrlEncoded
 import retrofit2.http.GET
@@ -50,12 +50,12 @@ interface ApiService {
 
     // update user password
     @FormUrlEncoded
-    @PUT("users/{id}")
+    @PUT("users/{id}/password")
     suspend fun updateUserPassword(
         @Path("id") id: Int,
         @Field("password") currentPassword: String,
         @Field("newPassword") newPassword: String
-    )
+    ) : UpdatePasswordResponse
 
     // get total scan user
 //    @FormUrlEncoded

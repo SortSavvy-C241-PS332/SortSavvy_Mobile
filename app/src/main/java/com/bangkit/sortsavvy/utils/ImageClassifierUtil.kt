@@ -10,14 +10,11 @@ import android.util.Log
 import com.bangkit.sortsavvy.R
 import org.tensorflow.lite.DataType
 import org.tensorflow.lite.support.common.ops.CastOp
-import org.tensorflow.lite.support.common.ops.NormalizeOp
-import org.tensorflow.lite.task.core.BaseOptions
-import org.tensorflow.lite.task.vision.classifier.ImageClassifier
 import org.tensorflow.lite.support.image.ImageProcessor
 import org.tensorflow.lite.support.image.TensorImage
 import org.tensorflow.lite.support.image.ops.ResizeOp
-import org.tensorflow.lite.support.metadata.schema.NormalizationOptions
-import org.tensorflow.lite.support.metadata.schema.NormalizationOptionsT
+import org.tensorflow.lite.task.core.BaseOptions
+import org.tensorflow.lite.task.vision.classifier.ImageClassifier
 
 class ImageClassifierUtil(
     var threshold: Float = 0.001f,
@@ -79,13 +76,6 @@ class ImageClassifierUtil(
 
             val results = imageClassifier?.classify(tensorImage)
 
-//            results?.firstOrNull()?.categories?.firstOrNull()?.let { category ->
-//                val score = category.score
-//                val result = if (score >= 0.5) "organik" else "non_organik"
-//
-//                val accuracy = if (score >= 0.5) score else 1 - score
-//                classifierListener?.onResults(result, accuracy*100)
-//            }
             if (results.isNullOrEmpty()) {
                 classifierListener?.onError("Failed to classify image.")
                 return
@@ -98,8 +88,9 @@ class ImageClassifierUtil(
                 val topCategory = topResult.categories[0]
                 var accuracy = topCategory.score * 100
                 var result = topCategory.label
+                println("[debug] uri Result: $result, Accuracy: $accuracy")
                 if (accuracy < 50) {
-                    result = "Organik"
+                    result = "organik"
                     accuracy = 100 - accuracy
                 }
                 classifierListener?.onResults(result, accuracy)

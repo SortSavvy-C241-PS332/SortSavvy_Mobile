@@ -5,7 +5,6 @@ import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.lifecycleScope
 import com.bangkit.sortsavvy.data.model.ResultState
 import com.bangkit.sortsavvy.data.model.UserModel
 import com.bangkit.sortsavvy.data.remote.response.UserDataLogin
@@ -14,7 +13,6 @@ import com.bangkit.sortsavvy.factory.ViewModelFactory
 import com.bangkit.sortsavvy.utils.ViewComponentUtil
 import com.bangkit.sortsavvy.views.authentication.register.RegisterActivity
 import com.bangkit.sortsavvy.views.main.MainActivity
-import kotlinx.coroutines.launch
 
 class LoginActivity : AppCompatActivity() {
 

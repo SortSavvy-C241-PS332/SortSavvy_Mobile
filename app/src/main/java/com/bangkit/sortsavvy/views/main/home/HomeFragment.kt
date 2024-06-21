@@ -7,7 +7,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.bangkit.sortsavvy.R
@@ -16,7 +15,6 @@ import com.bangkit.sortsavvy.data.model.UserModel
 import com.bangkit.sortsavvy.databinding.FragmentHomeBinding
 import com.bangkit.sortsavvy.factory.ViewModelFactory
 import com.bangkit.sortsavvy.utils.ViewComponentUtil
-import com.bangkit.sortsavvy.views.main.profile.ProfileViewModel
 import com.bangkit.sortsavvy.views.welcome.WelcomeActivity
 import com.bumptech.glide.Glide
 

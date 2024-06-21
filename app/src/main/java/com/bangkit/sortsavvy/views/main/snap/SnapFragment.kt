@@ -1,28 +1,25 @@
 package com.bangkit.sortsavvy.views.main.snap
 
+import android.Manifest
+import android.app.Activity
+import android.content.Intent
 import android.content.pm.PackageManager
 import android.net.Uri
 import android.os.Bundle
+import android.provider.MediaStore
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.ImageView
 import androidx.activity.result.PickVisualMediaRequest
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AlertDialog
-import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
-import androidx.navigation.fragment.findNavController
-import android.Manifest
-import android.app.Activity
-import android.content.Intent
-import android.provider.MediaStore
-import android.widget.ImageView
-import android.widget.Toast
-import androidx.fragment.app.commit
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import com.bangkit.sortsavvy.R
 import com.bangkit.sortsavvy.data.model.ResultState
 import com.bangkit.sortsavvy.data.model.UserModel
@@ -31,7 +28,6 @@ import com.bangkit.sortsavvy.factory.ViewModelFactory
 import com.bangkit.sortsavvy.utils.CameraUtil
 import com.bangkit.sortsavvy.utils.ImageClassifierUtil
 import com.bangkit.sortsavvy.utils.ViewComponentUtil
-import com.bangkit.sortsavvy.views.authentication.login.LoginViewModel
 
 class SnapFragment : Fragment() {
 
@@ -121,8 +117,8 @@ class SnapFragment : Fragment() {
                         }
                         is ResultState.Success -> {
 //                            binding.progressBar.visibility = View.GONE
-                            totalScanUser["Organik"] = 5
-                            totalScanUser["Anorganik"] = 10
+                            totalScanUser["organik"] = 5
+                            totalScanUser["anorganik"] = 10
 
 //                            updateTotalUserScan(totalScanUser)
                         }
@@ -138,13 +134,13 @@ class SnapFragment : Fragment() {
     }
 
     private fun updateTotalUserScan(result: String, totalScanUserData: MutableMap<String, Int>) {
-        val oldTotalScanOrganik = totalScanUserData["Organik"]
-        val oldTotalScanAnorganik = totalScanUserData["Anorganik"]
+        val oldTotalScanOrganik = totalScanUserData["organik"]
+        val oldTotalScanAnorganik = totalScanUserData["anorganik"]
         var totalScanUserUpdated = 0
 
-        if (result == "Organik" && oldTotalScanOrganik != null) {
+        if (result == "organik" && oldTotalScanOrganik != null) {
             totalScanUserUpdated = oldTotalScanOrganik.plus(1)
-        } else if (result == "Anorganik" && oldTotalScanAnorganik != null) {
+        } else if (result == "anorganik" && oldTotalScanAnorganik != null) {
             totalScanUserUpdated = oldTotalScanAnorganik.plus(1)
         }
 

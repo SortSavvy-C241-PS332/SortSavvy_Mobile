@@ -1,30 +1,19 @@
 package com.bangkit.sortsavvy.views.main.snap
 
-import android.net.Uri
-import androidx.fragment.app.viewModels
 import android.os.Bundle
-import android.service.autofill.UserData
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.bangkit.sortsavvy.R
-import com.bangkit.sortsavvy.data.model.ExploreJenisSampahModel
-import com.bangkit.sortsavvy.data.model.ResultState
 import com.bangkit.sortsavvy.data.model.UserModel
 import com.bangkit.sortsavvy.databinding.FragmentSnapResultBinding
 import com.bangkit.sortsavvy.factory.ViewModelFactory
-import com.bangkit.sortsavvy.utils.ViewComponentUtil
-import com.bangkit.sortsavvy.views.main.explore.JenisSampahViewModel
 import com.bangkit.sortsavvy.views.main.explore.refactor.ExploreDetailSnapFragment
-import com.bangkit.sortsavvy.views.main.explore.refactor.ExploreDetailSnapViewModel
 import com.bangkit.sortsavvy.views.main.explore.refactor.ExploreHomeViewModel
-import kotlinx.coroutines.launch
 
 class SnapResultFragment : Fragment() {
 
@@ -174,8 +163,9 @@ class SnapResultFragment : Fragment() {
 
     private fun setItemCard(result: String) {
         binding.resultCardInclude.itemTitleObjectTextView.text = result
+        println("[debug] Result: $result")
         var index = 0
-        if (result == "Organik") {
+        if (result.equals("Organik", ignoreCase = true)) {
             index = 0
 
             binding.resultCardInclude.itemDescriptionObjectTextView.text = "Sampah organik adalah sampah yang berasal dari makhluk hidup, baik itu hewan maupun tumbuhan, dan mudah terurai oleh mikroorganisme."
@@ -195,7 +185,7 @@ class SnapResultFragment : Fragment() {
 //                    findNavController().navigate(R.id.action_navigation_snap_result_to_navigation_explore_detail_snap)
 //                }
 //            }
-        } else if (result == "Anorganik") {
+        } else if (result.equals("Anorganik", ignoreCase = true)) {
             index = 1
             binding.resultCardInclude.itemDescriptionObjectTextView.text = "Sampah anorganik adalah sampah yang berasal dari bahan-bahan non-biologis dan tidak mudah terurai oleh mikroorganisme."
             binding.resultCardInclude.thumbnailImageView.setImageResource(R.drawable.challenge_thumbnail_sampah_anorganik)
@@ -216,9 +206,13 @@ class SnapResultFragment : Fragment() {
 //            }
         }
         binding.resultCardInclude.cardItemView.setOnClickListener {
+            println("[debug] index: $index")
             exploreHomeViewModel.loadExploreJenisSampahList()
             exploreHomeViewModel.exploreJenisSampah.observe(viewLifecycleOwner) { exploreJenisSampahModel ->
                 val jenisSampah = exploreJenisSampahModel[index]
+
+                println("[debug] Jenis Sampah: $jenisSampah")
+
                 ExploreDetailSnapFragment.judulJenisSampah = jenisSampah.title
                 ExploreDetailSnapFragment.descriptionJenisSampah = jenisSampah.description
                 ExploreDetailSnapFragment.imageJenisSampah = jenisSampah.exploreImage

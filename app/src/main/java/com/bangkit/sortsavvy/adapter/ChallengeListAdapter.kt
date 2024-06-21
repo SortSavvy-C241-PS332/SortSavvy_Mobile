@@ -1,18 +1,14 @@
 package com.bangkit.sortsavvy.adapter
 
-import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.navigation.NavController
-import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.bangkit.sortsavvy.R
 import com.bangkit.sortsavvy.data.model.ChallengeModel
-import com.bangkit.sortsavvy.databinding.FragmentChallengeBinding
 import com.bangkit.sortsavvy.databinding.ItemContentWithHeaderCardBinding
 import com.bangkit.sortsavvy.utils.ViewComponentUtil
 import com.bangkit.sortsavvy.views.main.challenge.ChallengeFragment
-import com.bangkit.sortsavvy.views.main.profile.ProfileFragment
 
 class ChallengeListAdapter(
     private val challengeModelList : List<ChallengeModel>,

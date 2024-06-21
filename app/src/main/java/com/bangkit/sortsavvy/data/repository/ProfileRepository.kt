@@ -7,8 +7,7 @@ import com.bangkit.sortsavvy.data.remote.response.ErrorResponse
 import com.bangkit.sortsavvy.data.remote.retrofit.ApiService
 import com.google.gson.Gson
 import retrofit2.HttpException
-import retrofit2.http.Part
-import retrofit2.http.Path
+import java.io.IOException
 
 class ProfileRepository(
     private val apiService: ApiService,
@@ -27,12 +26,18 @@ class ProfileRepository(
             emit(ResultState.Success(successResponse))
         } catch (e: HttpException) {
             val errorJsonString = e.response()?.errorBody()?.string()
-            val errorBody = Gson().fromJson(errorJsonString, ErrorResponse::class.java)
-            emit(
-                errorBody.message?.let {
-                    ResultState.Error(it)
-                }
-            )
+            try {
+                val errorBody = Gson().fromJson(errorJsonString, ErrorResponse::class.java)
+                emit(
+                    errorBody.message?.let {
+                        ResultState.Error(it)
+                    }
+                )
+            } catch (jsonException: Exception) {
+                emit(ResultState.Error("An unexpected error occurred"))
+            }
+        } catch (e: IOException) {
+            emit(ResultState.Error("Network error"))
         }
     }
 

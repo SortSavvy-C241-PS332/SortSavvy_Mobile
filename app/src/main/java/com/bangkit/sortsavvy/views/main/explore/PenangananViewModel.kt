@@ -3,7 +3,6 @@ package com.bangkit.sortsavvy.views.main.explore
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.bangkit.sortsavvy.R
 import com.bangkit.sortsavvy.data.model.LangkahBankSampahItem
 
 class PenangananViewModel : ViewModel() {

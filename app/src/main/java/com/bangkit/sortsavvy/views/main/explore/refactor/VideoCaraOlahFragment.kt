@@ -1,12 +1,12 @@
 package com.bangkit.sortsavvy.views.main.explore.refactor
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.webkit.WebViewClient
 import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.Fragment
 import com.bangkit.sortsavvy.R
 import com.bangkit.sortsavvy.adapter.SectionsCaraOlahPagerAdapter
 import com.bangkit.sortsavvy.databinding.FragmentVideoCaraOlahBinding

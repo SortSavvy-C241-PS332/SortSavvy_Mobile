@@ -194,7 +194,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="61dp"
                         android:layout_gravity="center"
-                        android:text="14"
+                        android:text="0"
                         android:textSize="55sp" />
 
                     <TextView
@@ -272,7 +272,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="61dp"
                         android:layout_gravity="center"
-                        android:text="7"
+                        android:text="0"
                         android:textColor="@color/background_purple"
                         android:textSize="55sp" />
 

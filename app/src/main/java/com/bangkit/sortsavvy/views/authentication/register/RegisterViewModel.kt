@@ -4,9 +4,7 @@ import android.util.Patterns
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.bangkit.sortsavvy.data.model.ResultState
 import com.bangkit.sortsavvy.data.repository.RegisterRepository
-import com.bangkit.sortsavvy.utils.ViewComponentUtil
 
 class RegisterViewModel(private val repository: RegisterRepository) : ViewModel() {
 

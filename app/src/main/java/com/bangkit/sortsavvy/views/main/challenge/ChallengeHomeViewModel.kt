@@ -5,8 +5,8 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.asLiveData
 import com.bangkit.sortsavvy.R
-import com.bangkit.sortsavvy.data.model.ChallengeModel
 import com.bangkit.sortsavvy.data.model.ChallengeItem
+import com.bangkit.sortsavvy.data.model.ChallengeModel
 import com.bangkit.sortsavvy.data.model.QuestionModel
 import com.bangkit.sortsavvy.data.model.UserModel
 import com.bangkit.sortsavvy.data.repository.SessionRepository
@@ -85,6 +85,42 @@ class ChallengeHomeViewModel(
                     "Karena sampah itu indah"
                 ),
                 "Karena bisa merusak lingkungan"
+            )
+        )
+        listQuestionModelSortExplorer.add(
+            QuestionModel(
+                "3",
+                "Apa yang terjadi jika kita tidak peduli dengan sampah?",
+                mutableListOf(
+                    "Lingkungan kita akan bersih",
+                    "Lingkungan kita akan kotor",
+                    "Lingkungan kita akan sehat"
+                ),
+                "Lingkungan kita akan kotor"
+            )
+        )
+        listQuestionModelSortExplorer.add(
+            QuestionModel(
+                "4",
+                "Apa yang bisa kita lakukan untuk mengurangi sampah?",
+                mutableListOf(
+                    "Membuang sampah sembarangan",
+                    "Memilah sampah",
+                    "Membuang sampah ke sungai"
+                ),
+                "Memilah sampah"
+            )
+        )
+        listQuestionModelSortExplorer.add(
+            QuestionModel(
+                "5",
+                "Apa yang sebaiknya kita lakukan dengan sampah kertas?",
+                mutableListOf(
+                    "Buang di sungai",
+                    "Daur ulang",
+                    "Bakar"
+                ),
+                "Daur ulang"
             )
         )
 

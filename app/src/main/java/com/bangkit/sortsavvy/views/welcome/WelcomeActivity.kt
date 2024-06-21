@@ -3,13 +3,9 @@ package com.bangkit.sortsavvy.views.welcome
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.ViewModelProvider
 import com.bangkit.sortsavvy.databinding.ActivityWelcomeBinding
-import com.bangkit.sortsavvy.factory.ViewModelFactory
-import com.bangkit.sortsavvy.utils.ViewComponentUtil
 import com.bangkit.sortsavvy.views.authentication.login.LoginActivity
 import com.bangkit.sortsavvy.views.authentication.register.RegisterActivity
-import com.bangkit.sortsavvy.views.main.MainActivity
 
 class WelcomeActivity : AppCompatActivity() {
 

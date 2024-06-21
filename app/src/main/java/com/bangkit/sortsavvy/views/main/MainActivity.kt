@@ -2,32 +2,17 @@ package com.bangkit.sortsavvy.views.main
 
 import android.content.Intent
 import android.os.Bundle
-import android.service.autofill.UserData
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.lifecycleScope
 import androidx.navigation.findNavController
-import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.bangkit.sortsavvy.R
-import com.bangkit.sortsavvy.data.model.UserModel
-import com.bangkit.sortsavvy.data.pref.OnboardingPreferences
-import com.bangkit.sortsavvy.data.pref.UserPreferences
-import com.bangkit.sortsavvy.data.pref.onboardingDataStore
-import com.bangkit.sortsavvy.data.pref.userDataStore
-import com.bangkit.sortsavvy.data.remote.response.UserDataLogin
 import com.bangkit.sortsavvy.databinding.ActivityMainBinding
 import com.bangkit.sortsavvy.factory.ViewModelFactory
-import com.bangkit.sortsavvy.utils.ViewComponentUtil
-import com.bangkit.sortsavvy.views.authentication.login.LoginViewModel
 import com.bangkit.sortsavvy.views.welcome.WelcomeActivity
 import com.google.android.material.bottomnavigation.BottomNavigationView
-import kotlinx.coroutines.flow.count
-import kotlinx.coroutines.flow.first
-import kotlinx.coroutines.launch
 
 class MainActivity : AppCompatActivity() {
 

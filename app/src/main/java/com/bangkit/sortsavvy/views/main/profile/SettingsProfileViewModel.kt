@@ -9,7 +9,6 @@ import androidx.lifecycle.asLiveData
 import androidx.lifecycle.viewModelScope
 import com.bangkit.sortsavvy.data.model.UserModel
 import com.bangkit.sortsavvy.data.model.UserProfileModel
-import com.bangkit.sortsavvy.data.pref.UserPreferences
 import com.bangkit.sortsavvy.data.repository.ProfileRepository
 import com.bangkit.sortsavvy.data.repository.SessionRepository
 import kotlinx.coroutines.launch

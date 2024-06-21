@@ -3,13 +3,11 @@ package com.bangkit.sortsavvy.views.authentication.register
 import android.content.Intent
 import android.os.Bundle
 import android.os.CountDownTimer
-import android.util.Patterns
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import com.bangkit.sortsavvy.data.model.ResultState
 import com.bangkit.sortsavvy.data.remote.response.UserDataRegister
-
 import com.bangkit.sortsavvy.databinding.ActivityRegisterBinding
 import com.bangkit.sortsavvy.factory.ViewModelFactory
 import com.bangkit.sortsavvy.utils.ViewComponentUtil

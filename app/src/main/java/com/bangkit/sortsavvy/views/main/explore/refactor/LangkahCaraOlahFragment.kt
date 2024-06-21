@@ -1,19 +1,16 @@
 package com.bangkit.sortsavvy.views.main.explore.refactor
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bangkit.sortsavvy.R
-import com.bangkit.sortsavvy.adapter.CaraOlahPagerAdapter
-import com.bangkit.sortsavvy.adapter.LangkahAdapter
 import com.bangkit.sortsavvy.adapter.LangkahCaraOlahAdapter
 import com.bangkit.sortsavvy.adapter.SectionsCaraOlahPagerAdapter
 import com.bangkit.sortsavvy.data.model.LangkahItem
-import com.bangkit.sortsavvy.databinding.FragmentExploreDetailCaraOlahBinding
 import com.bangkit.sortsavvy.databinding.FragmentLangkahCaraOlahBinding
 
 class LangkahCaraOlahFragment : Fragment() {

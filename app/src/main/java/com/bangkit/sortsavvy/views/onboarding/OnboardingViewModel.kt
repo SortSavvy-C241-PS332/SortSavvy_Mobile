@@ -8,7 +8,6 @@ import androidx.lifecycle.viewModelScope
 import com.bangkit.sortsavvy.R
 import com.bangkit.sortsavvy.data.model.OnboardingItem
 import com.bangkit.sortsavvy.data.model.UserModel
-import com.bangkit.sortsavvy.data.repository.OnboardingRepository
 import com.bangkit.sortsavvy.data.repository.SessionRepository
 import kotlinx.coroutines.launch
 
